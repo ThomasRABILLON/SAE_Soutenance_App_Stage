@@ -1,0 +1,23 @@
+Salle: id_salle, nom_salle
+TUTEUR_PRO_PARTICIPE, 0N Tuteur_Pro, 11 Soutenance
+Tuteur_Pro: id_tpro, nom_tpro
+APPARTIENT, 11 Tuteur_Pro, 1N Entreprise
+:
+
+EST_DANS_SALLE, 11 Soutenance, 0N Salle
+Soutenance: id_sout, date_sout, horaire_sout
+EST_TUTEUR_PRO, 11 App_Stagiaire, 1N Tuteur_Pro
+Entreprise: id_entp, nom_entp
+EST_DANS_ENTP, 11 App_Stagiaire, 1N Entreprise
+
+TUTEUR_UNIV_PARTICIPE, 0N Professeur, 11 Soutenance
+PROF_CANDIDE_PARTICIPE, 0N Professeur, 11 Soutenance
+APP_STAG_PARTICIPE, 0N App_Stagiaire, 11 Soutenance
+App_Stagiaire: id_app_stag, nom_app_stag, prenom_app_stag
+:
+
+:
+Professeur: id_prof, nom_prof
+EST_TUTEUR_UNIV, 0N Professeur, 11 App_Stagiaire
+EST_DANS_PROMO, 11 App_Stagiaire, 0N Promotion
+Promotion: id_promo, nom_promo

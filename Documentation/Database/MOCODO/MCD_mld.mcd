@@ -1,0 +1,25 @@
+%%mocodo
+:
+Salle: id_salle, nom_salle
+:::
+Tuteur_Pro: id_tpro, nom_tpro, #id_entp > Entreprise > id_entp
+:::::
+
+
+:::
+Soutenance: id_sout, date_sout, horaire_sout, #id_tpro > Tuteur_Pro > id_tpro, #id_salle > Salle > id_salle, #id_prof 1 > Professeur > id_prof, #id_prof 2 > Professeur > id_prof, #id_app_stag > App_Stagiaire > id_app_stag
+:::
+Entreprise: id_entp, nom_entp
+:::
+
+
+:::::::
+App_Stagiaire: id_app_stag, nom_app_stag, prenom_app_stag, #id_tpro > Tuteur_Pro > id_tpro, #id_entp > Entreprise > id_entp, #id_prof > Professeur > id_prof, #id_promo > Promotion > id_promo
+:::
+
+
+:::
+Professeur: id_prof, nom_prof
+:::::
+Promotion: id_promo, nom_promo
+:
