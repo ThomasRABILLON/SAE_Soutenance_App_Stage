@@ -1,29 +1,27 @@
 %%mocodo
+:::::
+PROMOTION: id_promo, nom_promo, #id_prof > PROFESSEUR > id_prof
+:::
+SECRETAIRE: id_sec, nom, prenom, mail
 :
-SALLE: id_salle, nom_salle
-:::
-SOUTENANCE: id_sout, date_sout, horaire_sout, #id_salle > SALLE > id_salle, #id_tpro > TUTEUR_PRO > id_tpro, #id_prof 1 > PROFESSEUR > id_prof, #id_prof 2 > PROFESSEUR > id_prof, #id_app_stag > APP_STAGIAIRE > id_app_stag
-:::
-TUTEUR_PRO: id_tpro, nom_tpro, #id_entp > ENTREPRISE > id_entp
-:::
 
 
-:::::::::::
+:
 ENTREPRISE: id_entp, nom_entp, mail
 :
-
-
-:
-SECRETAIRE: id_sec, nom, prenom, mail
+APP_STAGIAIRE: id_app_stag, nom_app_stag, prenom_app_stag, mail, #id_entp > ENTREPRISE > id_entp, #id_promo > PROMOTION > id_promo, #id_prof > PROFESSEUR > id_prof, #id_tpro > TUTEUR_PRO > id_tpro
 :::
 PROFESSEUR: id_prof, nom_prof, mail
 :::
-APP_STAGIAIRE: id_app_stag, nom_app_stag, prenom_app_stag, mail, #id_tpro > TUTEUR_PRO > id_tpro, #id_prof > PROFESSEUR > id_prof, #id_entp > ENTREPRISE > id_entp, #id_promo > PROMOTION > id_promo
-:::
+
+
+:::::::::
+SALLE: id_salle, nom_salle
+:
 
 
 :::
-RESPFORM: id_resp, nom, prenom, mail
+TUTEUR_PRO: id_tpro, nom_tpro, #id_entp > ENTREPRISE > id_entp
 :::
-PROMOTION: id_promo, nom_promo, #id_resp > RESPFORM > id_resp
-:::::
+SOUTENANCE: id_sout, date_sout, horaire_sout, #id_prof 1 > PROFESSEUR > id_prof, #id_app_stag > APP_STAGIAIRE > id_app_stag, #id_prof 2 > PROFESSEUR > id_prof, #id_tpro > TUTEUR_PRO > id_tpro, #id_salle > SALLE > id_salle
+:::
