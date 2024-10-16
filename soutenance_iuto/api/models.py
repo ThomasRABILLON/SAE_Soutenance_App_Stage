@@ -91,8 +91,8 @@ class Soutenance(models.Model):
     heure = models.TimeField()
     salle = models.ForeignKey('Salle', on_delete=models.CASCADE)
     app_stage = models.ForeignKey('AppStagiaire', on_delete=models.CASCADE)
-    tuteur_pro = models.ForeignKey('TuteurPro', on_delete=models.CASCADE)
-    tuteur_univ = models.ForeignKey('Professeur', on_delete=models.CASCADE)
+    tuteur_pro = models.ForeignKey('TuteurPro', on_delete=models.CASCADE, related_name='tuteur_pro')
+    tuteur_univ = models.ForeignKey('Professeur', on_delete=models.CASCADE, related_name='tuteur_univ')
     prof_candide = models.ForeignKey('Professeur', on_delete=models.CASCADE)
 
     def __str__(self):
