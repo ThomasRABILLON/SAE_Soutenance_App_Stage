@@ -2,23 +2,34 @@
 
 <div class="mld">
 <div>
-  <details><summary><span class='relation'>APP_STAGIAIRE</span> (
-    <span class='primary'>id_app_stag</span>,
-    <span class='normal'>nom_app_stag</span>,
-    <span class='normal'>prenom_app_stag</span>,
-    <span class='normal'>mail</span>,
-    <span class='foreign'>#id_entp</span>,
-    <span class='foreign'>#id_promo</span>,
-    <span class='foreign'>#id_prof</span>,
-    <span class='foreign'>#id_tpro</span>
+  <details><summary><span class='relation'>ANNEE</span> (
+    <span class='primary'>id_annee</span>,
+    <span class='normal'>annee</span>
   )</summary>
   <ul>
-    <li>Le champ <i>id_app_stag</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>APP_STAGIAIRE</i>.</li>
-    <li>Les champs <i>nom_app_stag</i>, <i>prenom_app_stag</i> et <i>mail</i> étaient déjà de simples attributs de l'entité <i>APP_STAGIAIRE</i>.</li>
+    <li>Le champ <i>id_annee</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>ANNEE</i>.</li>
+    <li>Le champ <i>annee</i> était déjà un simple attribut de l'entité <i>ANNEE</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>ELEVE</span> (
+    <span class='primary'>id_eleve</span>,
+    <span class='normal'>nom_eleve</span>,
+    <span class='normal'>prenom_eleve</span>,
+    <span class='normal'>mail_eleve</span>,
+    <span class='foreign'>#id_entp</span>,
+    <span class='foreign'>#id_tpro</span>,
+    <span class='foreign'>#id_promo</span>,
+    <span class='foreign'>#id_annee</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_eleve</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>ELEVE</i>.</li>
+    <li>Les champs <i>nom_eleve</i>, <i>prenom_eleve</i> et <i>mail_eleve</i> étaient déjà de simples attributs de l'entité <i>ELEVE</i>.</li>
     <li>Le champ <i>id_entp</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_DANS_ENTP</i> à partir de l'entité <i>ENTREPRISE</i> en perdant son caractère identifiant.</li>
-    <li>Le champ <i>id_promo</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_DANS_PROMO</i> à partir de l'entité <i>PROMOTION</i> en perdant son caractère identifiant.</li>
-    <li>Le champ <i>id_prof</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_TUTEUR_UNIV</i> à partir de l'entité <i>PROFESSEUR</i> en perdant son caractère identifiant.</li>
     <li>Le champ <i>id_tpro</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_TUTEUR_PRO</i> à partir de l'entité <i>TUTEUR_PRO</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_promo</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_DANS_PROMO</i> à partir de l'entité <i>PROMOTION</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_annee</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_DANS_PROMO</i> à partir de l'entité <i>ANNEE</i> en perdant son caractère identifiant.</li>
   </ul></details>
 </div>
 
@@ -88,20 +99,34 @@
     <span class='primary'>id_sout</span>,
     <span class='normal'>date_sout</span>,
     <span class='normal'>horaire_sout</span>,
-    <span class='foreign'>#id_prof 1</span>,
-    <span class='foreign'>#id_app_stag</span>,
-    <span class='foreign'>#id_prof 2</span>,
+    <span class='foreign'>#id_salle</span>,
     <span class='foreign'>#id_tpro</span>,
-    <span class='foreign'>#id_salle</span>
+    <span class='foreign'>#id_stag_alt</span>,
+    <span class='foreign'>#id_prof</span>
   )</summary>
   <ul>
     <li>Le champ <i>id_sout</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>SOUTENANCE</i>.</li>
     <li>Les champs <i>date_sout</i> et <i>horaire_sout</i> étaient déjà de simples attributs de l'entité <i>SOUTENANCE</i>.</li>
-    <li>Le champ <i>id_prof 1</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>PROF_CANDIDE_PARTICIPE</i> à partir de l'entité <i>PROFESSEUR</i> en perdant son caractère identifiant.</li>
-    <li>Le champ <i>id_app_stag</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>APP_STAG_PARTICIPE</i> à partir de l'entité <i>APP_STAGIAIRE</i> en perdant son caractère identifiant.</li>
-    <li>Le champ <i>id_prof 2</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>TUTEUR_UNIV_PARTICIPE</i> à partir de l'entité <i>PROFESSEUR</i> en perdant son caractère identifiant.</li>
-    <li>Le champ <i>id_tpro</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>TUTEUR_PRO_PARTICIPE</i> à partir de l'entité <i>TUTEUR_PRO</i> en perdant son caractère identifiant.</li>
     <li>Le champ <i>id_salle</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_DANS_SALLE</i> à partir de l'entité <i>SALLE</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_tpro</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>TUTEUR_PRO_PARTICIPE</i> à partir de l'entité <i>TUTEUR_PRO</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_stag_alt</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>EST_SOUTENANCE</i> à partir de l'entité <i>STAGE_ALTERNANCE</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_prof</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>PROF_CANDIDE_PARTICIPE</i> à partir de l'entité <i>PROFESSEUR</i> en perdant son caractère identifiant.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>STAGE_ALTERNANCE</span> (
+    <span class='primary'>id_stag_alt</span>,
+    <span class='normal'>date_debut</span>,
+    <span class='normal'>date_fin</span>,
+    <span class='foreign'>#id_eleve</span>,
+    <span class='foreign'>#id_prof</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_stag_alt</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>STAGE_ALTERNANCE</i>.</li>
+    <li>Les champs <i>date_debut</i> et <i>date_fin</i> étaient déjà de simples attributs de l'entité <i>STAGE_ALTERNANCE</i>.</li>
+    <li>Le champ <i>id_eleve</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>FAIT</i> à partir de l'entité <i>ELEVE</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_prof</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>SUIT</i> à partir de l'entité <i>PROFESSEUR</i> en perdant son caractère identifiant.</li>
   </ul></details>
 </div>
 
