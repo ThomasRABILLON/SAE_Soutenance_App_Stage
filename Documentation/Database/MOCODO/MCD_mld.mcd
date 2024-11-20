@@ -1,29 +1,31 @@
 %%mocodo
-:
-ENTREPRISE: id_entp, nom_entp, mail
-:
-TUTEUR_PRO: id_tpro, nom_tpro, #id_entp > ENTREPRISE > id_entp
-:
-SOUTENANCE: id_sout, date_sout, horaire_sout, #id_salle > SALLE > id_salle, #id_tpro > TUTEUR_PRO > id_tpro, #id_stag_alt > STAGE_ALTERNANCE > id_stag_alt, #id_prof > PROFESSEUR > id_prof
 :::
-SALLE: id_salle, nom_salle
-:
-
-
-
-:
-ELEVE: id_eleve, nom_eleve, prenom_eleve, mail_eleve, #id_entp > ENTREPRISE > id_entp, #id_tpro > TUTEUR_PRO > id_tpro, #id_promo > PROMOTION > id_promo, #id_annee > ANNEE > id_annee
-:
-STAGE_ALTERNANCE: id_stag_alt, date_debut, date_fin, #id_eleve > ELEVE > id_eleve, #id_prof > PROFESSEUR > id_prof
-:::
-PROFESSEUR: id_prof, nom_prof, mail
-:::
-
-
-:
-ANNEE: id_annee, annee
-:
 PROMOTION: id_promo, nom_promo, #id_prof > PROFESSEUR > id_prof
 :::
-SECRETAIRE: id_sec, nom, prenom, mail
+ANNEE: id_annee, annee
 :::
+SECRETAIRE: id_sec, nom, prenom, mail
+:
+
+
+:
+PROFESSEUR: id_prof, nom_prof, mail
+:::
+STAGE_ALTERNANCE: id_stag_alt, date_debut, date_fin, #id_prof > PROFESSEUR > id_prof, #id_entp > ENTREPRISE > id_entp, #id_eleve > ELEVE > id_eleve
+:::
+ELEVE: id_eleve, nom_eleve, prenom_eleve, mail_eleve, #id_promo > PROMOTION > id_promo, #id_annee > ANNEE > id_annee, #id_entp > ENTREPRISE > id_entp, #id_tpro > TUTEUR_PRO > id_tpro
+:::
+
+
+:::
+SOUTENANCE: id_sout, date_sout, horaire_sout, #id_prof > PROFESSEUR > id_prof, #id_stag_alt > STAGE_ALTERNANCE > id_stag_alt, #id_salle > SALLE > id_salle, #id_tpro > TUTEUR_PRO > id_tpro
+:::::::
+ENTREPRISE: id_entp, nom_entp, mail
+:
+
+
+:
+SALLE: id_salle, nom_salle
+:::::
+TUTEUR_PRO: id_tpro, nom_tpro, #id_entp > ENTREPRISE > id_entp
+:::::
