@@ -1,31 +1,39 @@
 %%mocodo
-:::
-PROMOTION: id_promo, nom_promo, #id_prof > PROFESSEUR > id_prof
-:::
+:
+ENTREPRISE: id_entp, nom_entp, cp_entp, ville_entp
+:
+ACCUEIL: #id_stg_alt > STAGE_ALTERNANCE > id_stg_alt, _#id_entp > ENTREPRISE > id_entp
+:
+FAIT: #id_stg_alt > STAGE_ALTERNANCE > id_stg_alt, _#id_eleve > ELEVE > id_eleve
+:
+ELEVE: id_eleve, num_etu, mail_univ, civilite_eleve, nom_eleve, prenom_eleve, ine
+:
+EST_DANS_PROMO: #id_eleve > ELEVE > id_eleve, _#id_promo > PROMOTION > id_promo, _#id_annee > ANNEE > id_annee
+:
 ANNEE: id_annee, annee
-:::
-SECRETAIRE: id_sec, nom, prenom, mail
 :
 
 
-:
-PROFESSEUR: id_prof, nom_prof, mail
+:::::
+STAGE_ALTERNANCE: id_stg_alt, titre_stg_alt, theme_stg_alt, intitule_env_stg_alt, dtdeb_stg_alt, dtfin_stg_alt, duree, #id_tut_pro > TUTEUR_PRO > id_tut_pro, #id_tut_univ > PROFESSEUR > id_tut_univ
 :::
-STAGE_ALTERNANCE: id_stag_alt, date_debut, date_fin, #id_prof > PROFESSEUR > id_prof, #id_entp > ENTREPRISE > id_entp, #id_eleve > ELEVE > id_eleve
-:::
-ELEVE: id_eleve, nom_eleve, prenom_eleve, mail_eleve, #id_promo > PROMOTION > id_promo, #id_annee > ANNEE > id_annee, #id_entp > ENTREPRISE > id_entp, #id_tpro > TUTEUR_PRO > id_tpro
+PROMOTION: id_promo, nom_promo, #id_tut_univ > PROFESSEUR > id_tut_univ
 :::
 
 
-:::
-SOUTENANCE: id_sout, date_sout, horaire_sout, #id_prof > PROFESSEUR > id_prof, #id_stag_alt > STAGE_ALTERNANCE > id_stag_alt, #id_salle > SALLE > id_salle, #id_tpro > TUTEUR_PRO > id_tpro
-:::::::
-ENTREPRISE: id_entp, nom_entp, mail
 :
+TUTEUR_PRO: id_tut_pro, civilite_tut_pro, nom_tut_pro, prenom_tut_pro, tel_tut_pro, gsm_tut_pro, mail_tut_pro, #id_entp > ENTREPRISE > id_entp
+:
+DATE_HORAIRE: id_dt_hr, date, heure
+:::
+PROFESSEUR: id_tut_univ, civilite_tut_univ, nom_tut_univ, prenom_tut_univ, mail_tut_univ
+:::::
 
 
 :
 SALLE: id_salle, nom_salle
-:::::
-TUTEUR_PRO: id_tpro, nom_tpro, #id_entp > ENTREPRISE > id_entp
-:::::
+:::
+SOUTENANCE: id_sout, #id_stg_alt > STAGE_ALTERNANCE > id_stg_alt, #id_dt_hr > DATE_HORAIRE > id_dt_hr, #id_salle > SALLE > id_salle, #id_tut_univ > PROFESSEUR > id_tut_univ
+:::
+SECRETAIRE: id_sec, nom, prenom, mail
+:::
