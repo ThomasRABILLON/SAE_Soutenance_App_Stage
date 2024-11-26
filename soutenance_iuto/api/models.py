@@ -39,6 +39,7 @@ class Etudiant(models.Model):
     nom_etu = models.CharField(max_length=255, blank=True, null=True)
     prenom_etu = models.CharField(max_length=255, blank=True, null=True)
     mail_etu = models.EmailField(max_length=255, blank=True, null=True)
+    alternant = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.id_etu}[{self.ine_etu},[{self.civilite_etu},{self.nom_etu},{self.prenom_etu},{self.mail_etu}]]'
