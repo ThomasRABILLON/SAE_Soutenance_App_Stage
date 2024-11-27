@@ -35,6 +35,7 @@ class Etudiant(models.Model):
         verbose_name = "Etudiant"
     
     id_etu = models.AutoField(primary_key=True, default=0)
+    num_etu = models.CharField(max_length=255, blank=True, null=True)
     ine_etu = models.CharField(max_length=255, blank=True, null=True)
     civilite_etu = models.CharField(max_length=255, blank=True, null=True)
     nom_etu = models.CharField(max_length=255, blank=True, null=True)
@@ -50,6 +51,7 @@ class Professeur(models.Model):
         verbose_name = "Professeur"
 
     id_prof = models.AutoField(primary_key=True, default=0)
+    num_prof = models.CharField(max_length=255, blank=True, null=True)
     civilite_prof = models.CharField(max_length=255, blank=True, null=True)
     nom_prof = models.CharField(max_length=255, blank=True, null=True)
     prenom_prof = models.CharField(max_length=255, blank=True, null=True)
@@ -142,3 +144,26 @@ class Soutenance(models.Model):
 
     def __str__(self):
         return f'{self.id_sout}[{self.salle},{self.horaire},{self.stg_alt}]'
+    
+class InscriptionSoutenance(models.Model):
+    class Meta:
+        verbose_name = "InscriptionSoutenance"
+    
+    soutenance = models.ForeignKey(Soutenance, on_delete=models.CASCADE, null=True)
+    prof = models.ForeignKey(Professeur, on_delete=models.CASCADE, null=True)
+
+class InscriptionSuivi(models.Model):
+    class Meta:
+        verbose_name = "InscriptionSuivi"
+
+    stg_alt = models.ForeignKey(StageAlt, on_delete=models.CASCADE, null=True)
+    prof = models.ForeignKey(Professeur, on_delete=models.CASCADE, null=True)
+
+class Secretaire(models.Model):
+    class Meta:
+        verbose_name = "Secretaire"
+    
+    id_sec = models.AutoField(primary_key=True, default=0)
+    nom_sec = models.CharField(max_length=255, blank=True, null=True)
+    prenom_sec = models.CharField(max_length=255, blank=True, null=True)
+    mail_sec = models.EmailField(max_length=255, blank=True, null=True)
