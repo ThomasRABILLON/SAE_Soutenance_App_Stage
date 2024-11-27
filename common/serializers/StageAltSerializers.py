@@ -1,1 +1,1 @@
-from common.models import StageAlt
+from common.models.StageAlt import StageAlt

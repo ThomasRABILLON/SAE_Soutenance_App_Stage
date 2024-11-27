@@ -1,1 +1,1 @@
-from common.models import Soutenance
+from common.models.Soutenance import Soutenance

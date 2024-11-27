@@ -1,1 +1,1 @@
-from common.models import Secretaire
+from common.models.Secretaire import Secretaire

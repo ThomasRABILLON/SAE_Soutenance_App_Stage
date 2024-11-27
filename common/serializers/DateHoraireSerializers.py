@@ -1,1 +1,1 @@
-from common.models import DateHoraire
+from common.models.DateHoraire import DateHoraire

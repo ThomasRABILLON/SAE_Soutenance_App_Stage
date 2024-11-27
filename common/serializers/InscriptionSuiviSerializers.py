@@ -1,1 +1,1 @@
-from common.models import InscriptionSuivi
+from common.models.InscriptionSuivi import InscriptionSuivi

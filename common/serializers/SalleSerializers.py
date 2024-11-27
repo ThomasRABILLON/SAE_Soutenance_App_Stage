@@ -1,1 +1,1 @@
-from common.models import Salle
+from common.models.Salle import Salle
