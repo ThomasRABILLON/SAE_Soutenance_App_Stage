@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api'
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,9 @@ STATICFILES_DIRS = (BASE_DIR / 'static/',)
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+# Configuration REST
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}
