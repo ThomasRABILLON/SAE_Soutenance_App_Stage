@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from api.views.EntrepriseViews import EntrepriseViewSet
-from api.views.TuteurProViews import TuteurProSerializerSet
+from api.views.TuteurProViews import TuteurProViewSet
 
 router = DefaultRouter()
 router.register(r'entreprises',EntrepriseViewSet)
-router.register(r'tuteurPros',TuteurProSerializerSet)
+router.register(r'tuteurPros',TuteurProViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

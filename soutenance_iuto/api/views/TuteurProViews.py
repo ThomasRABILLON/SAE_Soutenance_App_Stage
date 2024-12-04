@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from api.models import TuteurPro
 from api.serializers.TuteurProSerializer import TuteurProSerializer
 
-class TuteurProSerializerSet(viewsets.ModelViewSet):
+class TuteurProViewSet(viewsets.ModelViewSet):
     queryset = TuteurPro.objects.all()
     serializer_class = TuteurProSerializer
     filter_backends = [DjangoFilterBackend]
