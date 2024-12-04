@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from api.models import DateHoriare
+from api.models import DateHoraire
 
 """Class permettant de sérialser les données d'une date et d'un horaire"""
-class DateHoriareSerializer(serializers.ModelSerializer):
+class DateHoraireSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DateHoriare
+        model = DateHoraire
         fields = '__all__'
