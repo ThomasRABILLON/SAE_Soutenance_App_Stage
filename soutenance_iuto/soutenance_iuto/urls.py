@@ -21,12 +21,32 @@ from api.views.EntrepriseViews import EntrepriseViewSet
 from api.views.TuteurProViews import TuteurProViewSet
 from api.views.EtudiantViews import EtudiantViewSet
 from api.views.ProfesseurViews import ProfesseurViewSet
+from api.views.EstDansPromotionViews import EstDansPromotionViewSet
+from api.views.DateHoraireViews import DateHoraireViewSet
+from api.views.EstResponsableViews import EstResponsableViewSet
+from api.views.InscriptionSoutenanceViews import InscriptionSoutenanceViewSet
+from api.views.InscriptionSuiviViews import InscriptionSuiviViewSet
+from api.views.PromotionViews import PromotionViewSet
+from api.views.SalleViews import SalleViewSet
+from api.views.SecretaireViews import SecretaireViewSet
+from api.views.SoutenanceViews import SoutenanceViewSet
+from api.views.StageAltViews import StageAltViewSet
 
 router = DefaultRouter()
 router.register(r'entreprises',EntrepriseViewSet)
-router.register(r'tuteurPros',TuteurProViewSet)
+router.register(r'tuteurpros',TuteurProViewSet)
 router.register(r'etudiants',EtudiantViewSet)
 router.register(r'professeurs',ProfesseurViewSet)
+router.register(r'estdanspromotion',EstDansPromotionViewSet)
+router.register(r'datehoraire', DateHoraireViewSet)
+router.register(r'estresponsable',EstResponsableViewSet)
+router.register(r'inscriptionsoutenance', InscriptionSoutenanceViewSet)
+router.register(r'inscriptionsuivi', InscriptionSuiviViewSet)
+router.register(r'promotion',PromotionViewSet)
+router.register(r'salle',SalleViewSet)
+router.register(r'secretaires',SecretaireViewSet)
+router.register(r'soutenance', SoutenanceViewSet)
+router.register(r'stagealt',StageAltViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

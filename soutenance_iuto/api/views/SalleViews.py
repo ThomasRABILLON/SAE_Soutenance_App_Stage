@@ -9,6 +9,3 @@ class SalleViewSet(viewsets.ModelViewSet):
     serializer_class = SalleSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id_salle', 'nom_salle']
-
-# from api.views.SalleViews import SalleViewSet
-# router.register(r'salle',SalleViewSet)

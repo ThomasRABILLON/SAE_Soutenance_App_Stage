@@ -7,7 +7,4 @@ class SoutenanceViewSet(viewsets.ModelViewSet):
     queryset = Soutenance.objects.all()
     serializer_class = SoutenanceSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_sout', 'stg_alt', 'horaire', 'salle', 'prof_candide']  # Ajoute des filtres sur ces champs
-    
-# from api.view.SoutenanceViews import SoutenanceViewSet
-# router.register(r'soutenance', SoutenanceViewSet)
+    filterset_fields = ['id_sout', 'stg_alt', 'horaire', 'salle', 'prof_candide']

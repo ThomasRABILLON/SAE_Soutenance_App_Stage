@@ -9,6 +9,3 @@ class EstDansPromotionViewSet(viewsets.ModelViewSet):
     serializer_class = EstDansPromotionSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['etudiant', 'promotion']
-
-# from api.views.EstDansPromoViews import EstDansPromoViewSet
-# router.register(r'estdanspromo',EstDansPromoViewSet)

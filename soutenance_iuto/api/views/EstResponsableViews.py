@@ -9,6 +9,3 @@ class EstResponsableViewSet(viewsets.ModelViewSet):
     serializer_class = EstResponsableSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['professeur', 'promotion']
-
-# from api.views.EstResponsableViews import EstResponsableViewSet
-# router.register(r'estresponsable',EstResponsableViewSet)

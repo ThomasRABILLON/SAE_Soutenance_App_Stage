@@ -7,4 +7,4 @@ class EtudiantViewSet(viewsets.ModelViewSet):
     queryset = Etudiant.objects.all()
     serializer_class = EtudiantSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_etu', 'num_etu']  # Ajoute des filtres sur ces champs
+    filterset_fields = ['id_etu', 'num_etu']

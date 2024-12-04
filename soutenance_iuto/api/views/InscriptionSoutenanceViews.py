@@ -8,6 +8,3 @@ class InscriptionSoutenanceViewSet(viewsets.ModelViewSet):
     serializer_class = InscriptionSoutenanceSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['soutenance', 'prof']  # Ajoute des filtres sur ces champs
-    
-# from api.view.InscriptionSoutenanceViews import InscriptionSoutenanceViewSet
-# router.register(r'inscriptionsoutenance', InscriptionSoutenanceViewSet)

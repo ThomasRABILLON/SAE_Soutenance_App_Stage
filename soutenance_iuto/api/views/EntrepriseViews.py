@@ -8,4 +8,4 @@ class EntrepriseViewSet(viewsets.ModelViewSet):
     queryset = Entreprise.objects.all()
     serializer_class = EntrepriseSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_etp', 'nom_etp']  # Ajoute des filtres sur ces champs
+    filterset_fields = ['id_etp', 'nom_etp']

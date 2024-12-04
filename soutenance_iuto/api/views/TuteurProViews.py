@@ -7,4 +7,4 @@ class TuteurProViewSet(viewsets.ModelViewSet):
     queryset = TuteurPro.objects.all()
     serializer_class = TuteurProSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_tut_pro', 'nom_tut_pro']  # Ajoute des filtres sur ces champs
+    filterset_fields = ['id_tut_pro', 'nom_tut_pro']

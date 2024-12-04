@@ -7,7 +7,4 @@ class SecretaireViewSet(viewsets.ModelViewSet):
     queryset = Secretaire.objects.all()
     serializer_class = SecretaireSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_sec', 'prenom_sec']  # Ajoute des filtres sur ces champs
-
-# from api.views.SecretaireView import SecretaireViewSet
-# router.register(r'secretaires',SecretaireViewSet)
+    filterset_fields = ['id_sec', 'prenom_sec']

@@ -7,4 +7,4 @@ class ProfesseurViewSet(viewsets.ModelViewSet):
     queryset = Professeur.objects.all()
     serializer_class = ProfesseurSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id_prof', 'nom_prof']  # Ajoute des filtres sur ces champs
+    filterset_fields = ['id_prof', 'nom_prof']

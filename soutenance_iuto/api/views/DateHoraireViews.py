@@ -8,6 +8,3 @@ class DateHoraireViewSet(viewsets.ModelViewSet):
     serializer_class = DateHoraireSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id_date_horaire', 'dt_date', 'heure', 'duree']  # Ajoute des filtres sur ces champs
-    
-#from api.view.DateHoraireViews import DateHoraireViewSet
-#router.register(r'datehoraire', DateHoraireViewSet)
