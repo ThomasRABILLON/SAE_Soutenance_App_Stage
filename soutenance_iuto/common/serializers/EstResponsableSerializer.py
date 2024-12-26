@@ -1,0 +1,2 @@
+from common.models import EstResponsable
+from rest_framework import serializers

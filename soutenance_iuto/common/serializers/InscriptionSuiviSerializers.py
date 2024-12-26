@@ -1,0 +1,1 @@
+from common.models.InscriptionSuivi import InscriptionSuivi
