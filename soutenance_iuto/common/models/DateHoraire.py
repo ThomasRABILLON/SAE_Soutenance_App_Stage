@@ -1,33 +1,14 @@
-import datetime
-import time
+from django.db import models
+from django.utils import timezone
 
-class DateHoraire:
-    """Date et Horaire d'une soutenance
-    """
+class DateHoraire(models.Model):
+    class Meta:
+        verbose_name = "DateHoraire"
 
-    def __init__(self, id_date_horaire: int, dt_date: datetime, horaire: time, duree: int):
-        """Constructeur de la classe DateHoraire
+    id_date_horaire = models.AutoField(primary_key=True, default=0)
+    dt_date = models.DateField(default=timezone.now)
+    heure = models.TimeField(default=timezone.now)
+    duree = models.IntegerField(default=60)
 
-        Args:
-            id_date_horaire (int): id de l'horaire
-            dt_date (datetime): date
-            horaire (time): horaire
-            duree (int): durée
-        """
-        self._id = id_date_horaire
-        self._date = dt_date
-        self._horaire = horaire
-        self._duree = duree
-
-    def __str__(self) -> str:
-        """Renvoie une représentation de l'objet sous forme de chaîne de caractères
-
-        Returns:
-            str: Représentation de l'objet sous forme
-        """
-        return f"{self._date} {self._horaire} {self._duree}"
-
-    def __eq__(self, value: "DateHoraire") -> bool:
-        """Compare deux objets DateHoraire
-        """
-        return self._id == value.id
+    def __str__(self):
+        return f'DateHoraire(id={self.id_date_horaire}[date={self.dt_date},heure={self.heure},duree={self.duree}])'

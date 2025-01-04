@@ -1,68 +1,13 @@
-class Promotion:
-    """Classe représentant une promotion."""
+from django.db import models
+from django.utils import timezone
 
-    def __init__(self, id_promo: int, annee_promo: int, filiere_promo: str):
-        self._id = id_promo
-        self._annee = annee_promo
-        self._filiere = filiere_promo
+class Promotion(models.Model):
+    class Meta:
+        verbose_name = "Promotion"
 
-    # Getters
-    @property
-    def id(self) -> int:
-        """Obtient l'identifiant de la promotion.
+    id_promo = models.AutoField(primary_key=True, default=0)
+    annee_promo = models.IntegerField(default=timezone.now().year)
+    filiere_promo = models.CharField(max_length=255, blank=True, null=True)
 
-        Returns:
-            int: L'identifiant de la promotion.
-        """
-
-        return self._id
-
-    @property
-    def annee(self) -> int:
-        """Obtient l'année de la promotion.
-
-        Returns:
-            int: L'année de la promotion.
-        """
-
-        return self._annee
-
-    @property
-    def filiere(self) -> str:
-        """Obtient la filière de la promotion.
-
-        Returns:
-            str: La filière de la promotion.
-        """
-
-        return self._filiere
-
-    # Setters
-    @annee.setter
-    def annee(self, value: int) -> None:
-        """Définit l'année de la promotion.
-
-        Args:
-            value (int): L'année de la promotion.
-        """
-
-        self._annee = value
-
-    @filiere.setter
-    def filiere(self, value: str) -> None:
-        """Définit la filière de la promotion.
-
-        Args:
-            value (str): La filière de la promotion.
-        """
-        
-        self._filiere = value
-
-    def __str__(self) -> str:
-        return f"Promotion(id={self.id}, annee={self.annee}, filiere={self.filiere})"
-
-    def __repr__(self) -> str:
-        return str(self)
-
-    def __eq__(self, other: "Promotion") -> bool:
-        return self.id == other.id
+    def __str__(self):
+        return f'Promotion(id={self.id_promo}[annee={self.annee_promo},filiere={self.filiere_promo}])'
