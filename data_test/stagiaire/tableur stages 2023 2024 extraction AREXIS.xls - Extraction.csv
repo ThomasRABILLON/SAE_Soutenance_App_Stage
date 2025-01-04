@@ -1,0 +1,276 @@
+civilite_stagiaire,nom_stagiaire,prenom_stagaire,ine,titre_stage,theme_stage,intitule_env_stage,dtdeb_stage,dtfin_stage,duree,service_adm_nom_service,service_adm_cp_service,service_adm_ville_service,civilite_employe_tut,nom_employe_tut,prenom_employe_tut,tel_employe_tut,gsm_employe_tut,mail_employe_tut
+M.,BABA,AHMET,,Développement d'une base Access de gestion des centres de formation agréés des conducteurs routiers,"Les activités confiées à l'étudiant stagiaire sont les suivantes&#8239;: développer (en partant d'un modèle de base existant) une base de données de gestion des centres et leurs formateurs visant à suivre : 
+
+- les données générales afférentes aux centres de formation et aux formateurs ; 
+
+- les agréments de chaque établissement de formation ; 
+
+- les formateurs intervenant dans les centres (identification, rattachement au centre, statut, historique) ; 
+
+- les sessions de formation planifiées par les centres de formation ; 
+
+- la planification des contrôles réguliers effectués par la DREAL ; 
+
+- les moyens en véhicules mis en oeuvre au sein des établissements 
+
+Création de requêtes ",,08/04/2024,07/06/2024,9,DREAL CENTRE-VAL DE LOIRE/SMT/DTRV/UAPGE ,45064,ORLEANS CEDEX 2,Mme,DUBOIS,Aurélie,02 36 17 46 75,,aurelie.dubois@developpement-durable.gouv.fr
+M.,BARACHE,YANNIS,,"Intégrer l'équipe de développement du groupe Partnaire, répondre aux enjeu de mise en place de brique d'IA par le développement d'un démonstrateur","Recherche et développement sur les technologies d'IA open
+sources existants. 
+Choix d'une solution et implémentation d'un démonstrateur permettant l'utilisation d'un model d'IA.",,22/04/2024,14/06/2024,8,P.C.R.H,45100,ORLÉANS,M.,NOBILE,Julien,02 38 81 37 27,,jnobile@partnaire.fr
+M.,BENET-CHAPARD,THEO,,Evaluation d'embeddings de programmes.,"(1) Évaluation de leur qualité sur la tâche de classification (apprentissage supervisé). (2) Extension d'un dataset d'évaluation par analogies. (3) Génération d'embeddings par des méthodes de l'état de l'art.
+
+",,06/05/2024,23/08/2024,16,LIFO ,45067,ORLÉANS,M.,CLEUZIOU,Guillaume,02 38 49 25 91,,guillaume.cleuziou@univ-orleans.fr
+M.,BERNARDI,VINCENT,,Développement applicatif - Revue de code - Amélioration de module - Développement de module et d'API,"- Développement et amélioration du système d'authentification de nos outils
+- Développement de module de gestion d'un blog - d'un site de e-commerce
+- Intervention et développement divers sur notre outil de suivi de la conformité avec le RGPD : MyRGPDn",,12/02/2024,28/06/2024,18,ACHILLE SOLUTIONS,45100,ORLÉANS,M.,SERRAULT,Richard,,06 62 35 16 52,richard@achille-solutions.com
+M.,BIN ZULKORNAIN,ADAM DANIEL,,Développement de site internet,Assistance au développement de sites internet dans des différents langages de programmation informatique sur WordPress ou Prestashop,,22/04/2024,14/06/2024,8,WELABZ SAS,45100,ORLÉANS,M.,LAMOTTE,Pierre,,02 46 91 50 72,p.lamotte@we-labz.com
+M.,BLANDEAU,ERWAN,,Création de site e-commerce,"- analyse des besoins et objectifs
+- Conception de la base de donnée
+- Conception et développement du site
+- Gestion des produits
+- Mise en place du panier d'achat 
+- Gestion des commandes et des clients
+- Intégration du système de paiement en ligne",,08/05/2024,05/07/2024,9,O'PETIT PRIX,45000,ORLÉANS,M.,AYSABAR,Melik,,06 66 11 48 94,opt45000@gmail.com
+M.,BLIN,PIERRE,,Transformation Numérique,"Transformation SharePoint, Power Automate",,08/04/2024,31/05/2024,8,GROUPE BERNIER ,45160,OLIVET,M.,NORTE,Pascal,,06 27 17 54 45,PASCAL.NORTE@GROUPEBERNIER.COM
+M.,BLIN--DORARD,BRYAN,,"CONCEPTION et DEVELOPPEMENT, TESTS et DOCUMENTATION D'APPLICATION MOBILES pour ANDROID A COMMERCIALISER","CONCEPTION DE MCD, d'ECRANS, REPORTING, TESTS, DOCUMENTATION TECHNIQUE et UTILISATEUR. 3 APPLICATIONS SONT CONCERNEES, TOUTES DESTINEES A ETRE EN PRODUCTION ET COMMERCIALISEES. APPLICATIONS MOBILES et PC, WebServices. Développement d'API et de connecteurs à des API (Géolocalisation, Adresses Postales France/CEE), Utilisation de la Caméra et Développement d'un module de "" plans "" avec positionnement d'objets graphiques. DIFFUSION SUR PLAYSTORE. MISE EN PLACE NOUVEAU CLIENT EN MODE CLOUD. Extranet Client",,12/02/2024,16/06/2024,18,4WARE SOFTWARE,45800,SAINT-JEAN-DE-BRAYE,M.,GRANIER,Jean-Michel,,06 08 89 34 58,jmg@forware.fr
+M.,BOISSAY,GATIEN,,Développement de flows documentaires,"Déploiement espaces solutions Flowin5.
+Aide au déploiement de workflows documentaires ",,12/02/2024,31/05/2024,16,REX-ROTARY,45770,SARAN,M.,PYS,David,,06 86 77 63 71,david.pys@rex-rotary.fr
+M.,BOISSAY,NATHAN,,"Développement de logiciels, d'application, de site web ou de reseau informatiques","Mise à jour du site internet la Melba -> création de contenu, mise en forme, modernisation de la navigation et mise à jour.
+Accompagnement dans la mise en place du nouvel ERP -> Ecriture, procédure...",,22/04/2024,14/06/2024,8,COOPÉRATIVE AGRICOLE FRUITIÈRE MARAICHÈRE LA MELBA,66130,BOULETERNERE,Mme,ALARCON,Estelle,04 68 84 29 38,,direction@lamelba.fr
+M.,BOISSAY,ROBIN,,Mise en place de la collecte des données de 300 capteurs TH pour l'analyse et la modélisation des ilots de chaleur urbaine.,"Finalisation d'une application mobile (FLUTTER) de configuration des capteurs lors de leur installation. Collecte des données en
+mode "" datalogger "". Réalisation du parseur pour mettre les données au format JSON via un service MQTT. Configuration du
+tableau de bord sur "" grafana "" à partir des séries temporelles stockées sur base influxdb",,29/04/2024,28/06/2024,9,3ZA INTECH ,45100,ORLÉANS ,M.,CADOREL,Jean-Yves,02 38 69 80 85,,jean-yves.cadorel@3za.fr
+M.,BOURDERE ANDREOU,NATHAN,,Participer à la mise en place de l'application Web de pilotage des campagnes de purge de données dans le cadre de la GDPR.,"Développement de pages Web (ASP.Net / Razor Generator), de services applicatifs (C#), faire évoluer le modèle de données (SQL Server) et assurer les tests unitaires.",,12/02/2024,02/06/2024,16,AMAP MALAKOFF HUMANIS,45770,SARAN,Mme,SAMPAIO,Laurence,01 58 82 75 72,,laurence.sampaio@malakoffhumanis.com
+M.,BRAS,ENZO,,Développement d'une base de connaissances pour le service informatique,"Conception d'un base documentaire
+création de formulaire de saisie
+création d'un environnement graphique simple, fluide et agréable à utiliser
+mise en oeuvre de solutions visuelles pour présentation des résultats de recherche",,19/02/2024,07/06/2024,16,ETABLISSEMENT PUBLIC DE SANTE MENTALE DU LOIRET GEORGES DAUMÉZON,45402,FLEURY LES AUBRAIS,M.,LEROSSIGNOL,Cyril,02 38 60 71 32,,cyril.lerossignol@epsm-loiret.fr
+Mme,BRION,ADELE,,Utilisation du machine et du Deep Learning pro pour la détection automatisées des ilôts de chaleurs et de fraîcheurs dans le département du Loiret,"1- La configuration de votre environnement de développement sur Google Colab
+2- La collecte, le prétraitement et la préparation des données d'entraînement pour votre modèle
+3- L'extraction des caractéristiques",,08/04/2024,02/06/2024,8,SERVICE SCOLARITÉ,45065,ORLEANS CEDEX 2,M.,BENSAID,Abdelkrim,,0627692600,abdelkrim.bensaid@univ-orleans.fr
+M.,BRISSET,LEO,,Développer une interface web et ,"L'idée est de vous faire effectuer votre stage dans une société d'événementiel qui serait votre entreprise d'accueil. Je ne joue ici que le role d'intervenant extérieur en tant que gestionnaire du parc informatique ayant détecté un besoin mais je peux être votre référent technique et si une expertise supplémentaire est nécessaire pour pallier à un blocage mon fils qui est développeur (diplômé Ingénieur) pourra aider à débloquer la situation ou analyser la propreté du code.
+
+La première mission est de porter sur PHP/MySQL des bases de données de contact actuellement développées sous FileMaker Pro (je dispose des outils et des compétences pour l'export des données depuis ce logiciel, les bases ne servirons que de donneuses de données et il n'entre pas dans le projet du stage d'apprendre à maitriser cet outil).
+Il existe 4 bases de données de structure très basiques et semblables (une table et quelques dizaines de champs) qu'il conviendrait de combiner en une seule avec les filtres de sécurités nécessaires pour que seuls les ayant droits se voient proposer les enregistrements auxquels ils ont droit.
+L'ensemble serait à installer sur un NAS Synology équipé de MariaDB et PHPMySQL et pouvant recevoir d'autres outils de développement, l'accès est a priori à ce stade limité aux machines du réseau local mais pourra potentiellement être ouvert sur le Web et donc la sécurité sera un point non négligeable. Il serait également interessant de voir quelles fonctions pourraient être ajoutées pour en faire un outil efficace et moins basique qu'un simple carnet d'adresse.
+
+Ce projet n'ayant pas à priori à durer 8 semaines, il est attendu de vous en plus qu'après avoir intégré l'entreprise et compris son mode de fonctionnement, vous soyez force de proposition pour des outils pouvant apporter de l'agilité supplémentaire au management et/ou aux salariés.
+Il pourrait par exemple être intéressant de développer un back-office efficace pour l'édition de newsletters ou de mailing d'invitations à des événements ou tout autre outil dont l'idée pourrait émerger au fil de vos réflexions avec la direction.
+
+Il est prévu des réunions de suivi et de reporting régulières auxquelles je serai présent et je serai également disponible en distant mais vos interlocuteurs seront la direction de l'entreprise d'accueil.",,16/04/2024,11/06/2024,8,XCPH ORGANISATION,45100,ORLEANS,Mme,CHARTIER,Christelle,02 38 56 60 54,06 83 29 32 94,christelle.chartier@xcph.com
+Mme,BRIZARD,AMELIE,,Calcul du coût de revient d'un logiciel,"Contexte :
+Le Software Costing est une activité réalisée par l'équipe Software pour estimer le coût nécessaire au développement et à la maintenance d'un produit logiciel.
+Au sein de Valeo, nous disposons d'un outil pour soutenir cette activité. Cet outil nécessite de nombreuses améliorations, comme la génération de tableaux de bord, de rapports et l'extraction de données plus utiles à partir des bases de données des projets, comme la comparaison du coût d'un projet SW avec d'autres projets similaires et le dessin d'un nuage de points pour aider l'utilisateur à localiser son estimation (c'est-à-dire si le projet est sur ou sous-estimé).
+
+Objectif du stage :
+L'objectif de ce stage est d'améliorer le calcul des coûts de SW avec de nouvelles fonctionnalités, comme les modèles de calcul des coûts et les modèles de rapport, et les algorithmes de comparaison pour les devis.
+Le stage se concentrera sur les points suivants :
+1. Collecter les fonctionnalités manquantes.
+2. Concevoir et mettre en oeuvre (prototype) les fonctionnalités sélectionnées.
+3. Créer des exigences commerciales pour les fonctionnalités mises en oeuvre qui seront utilisées par l'équipe de développement pour être incorporées dans le produit final.
+
+Prérequis :
+C#, Java, langage de script google sheets (basé sur java).",,08/04/2024,02/06/2024,8,VALEO COMFORT AND DRIVING ASSISTANCE,94000,CRÉTEIL,M.,BEJIJOU,Mohamed,06 13 76 24 45,,mohamed.bejijou@valeo.com
+M.,CHABILAN,LENI,,Gérer et Automatiser des indicateurs pour les audiences du site/google/réseaux sociaux,"1) Définir un cahier des charges à partir des besoins clients 
+2) créer un Dashboard d'indicateurs
+3) Automatiser les informations du dashbord 
+4) Creation d'une base de donnée pour le stockage des audiences...",,08/04/2024,31/05/2024,8,ORDIPRO 72,72000,LE MANS,M.,COSNARD,Sylvain,,06 09 76 47 43,s.cosnard@isp72.fr
+M.,CHEDEVILLE,BAPTISTE,,Mise en place d'une application permettant de gérer des informations sur les activités scientifiques du LIFO.,"Etude d'un modèle conceptuel du projet, mise place de la base de données relative au modèle, mise en place d'une interface graphique indépendante pour interrogation/mise à jour de la base de données, apprentissage du CMS Drupal 10, connexion du CMS à la base de données, rédaction d'un manuel pour utilisateur et administrateur du système.",,08/04/2024,14/06/2024,10,LIFO ,45067,ORLÉANS,M.,RALIRAVAKA,Naly,02 38 49 46 71,,naly.raliravaka@univ-orleans.fr
+M.,CHIDLOVSKY,LEOPOLD,,Utilisation de Google Colab et python pour classifier des images et la détection des objets : application à la détection des zones humides du Loiret,"La configuration de votre environnement de développement sur Google Colab.
+La collecte, le prétraitement et la préparation des données d'entraînement pour votre modèle.
+L'extraction des caractéristiques.",,08/04/2024,02/06/2024,8,SERVICE SCOLARITÉ,45065,ORLEANS CEDEX 2,M.,BENSAID,Abdelkrim,,0627692600,abdelkrim.bensaid@univ-orleans.fr
+M.,COQUERANT,DAN,,,,,,,,,,,,,,,,
+M.,COULON,TITOUAN,,"Maintenance d'applications en php, automatisation en sharepoint, travail en entreprise sur des projets existants","Maintenance d'une application, gérant des formulaires et développée en PHP, pour respecter les directives de sécurisation du code et de l'authentification, pour la transférer sur une nouvelle plateforme, pour améliorer son ergonomie et ses fonctionnalités.
+Revisiter une solution actuellement sous sharepoint pour automatiser la collecte de données.",,15/04/2024,07/06/2024,8,ST MICROELECTRONICS SAS ,37100,TOURS,Mme,SALAUN,Anne-Marie,,06 76 86 73 19,anne-marie.salaun@st.com
+M.,COURSIMAULT,IRVYN,,Mise en place d'un système de gestion d'abonnements pour la cafétéria du laboratoire. ,"L' objectif du stage est de développer un système type client-serveur avec une interface web et un lecteur de badges RFID.
+Développement de l'interface web et de l'interface administrateur. Mise en place du serveur et du client pour badges RFID.",,08/04/2024,07/06/2024,9,C.N.R.S. ,75794,PARIS CEDEX 16,M.,DE LEON,Emmanuel,,02 38 25 78 25,emmanuel.de-leon@cnrs-orleans.fr
+M.,COUSTOU,ESTEBAN,,,,,,,,,,,,,,,,
+M.,DAHOUEDE,REBSON,,"Réaliser la veille technique des web services des entrepôts de l'ESA, la JAXA et/ou lA NCEO diffusant des données satellites sur les GES","Réaliser des scripts python, rédiger la documentation",,08/04/2024,07/06/2024,8,C.N.R.S. ,75794,PARIS CEDEX 16,Mme,MOULARD,Nathalie,02 38 25 51 52,,nathalie.moulard@cnrs-orleans.fr
+M.,DEBRAY,ANTOINE,,Réécriture d'anciennes applications en mode web,"-Analyse, développements, tests, mise en production des nouvelles applications.
+-Echanges avec les utilisateurs concernés
+-Documentation
+",,08/04/2024,31/05/2024,8,PAULSTRA HUTCHINSON ,28207,CHATEAUDUN CEDEX,M.,BAZIN,Philippe,02 37 44 71 68,,philippe.bazin@hutchinson.com
+M.,DELAPLACE,HUGO,,Réalisation d'une base de données SQL pour les paramètres d'entrée d'un programme,"Réalisation de la base de données SQL
+Réalisation des accès à la base de données
+Réalisation des fonctions : ajout/suppression/éditer
+Si temps : participation à la réalisation de l'IHM",,04/03/2024,21/06/2024,16,REDEX ,45210,FERRIERES-EN-GATINAIS,M.,CHEVREL--FRAUX,Cyril,02 38 94 42 27,,cchevrelfraux@redex-group.com
+M.,DEMARET,SULLIVAN,,Développement d'un plugin sous Qgis pour le calcul local climate zone (LCZ) et pour le calcul des températures de surfaces dans le département Loiret,"Developpement des plugins sous qgis avec python
+Exploitation d'un package R pour le calcul de LCZ",,08/04/2024,02/06/2024,8,SERVICE SCOLARITÉ,45065,ORLEANS CEDEX 2,M.,BENSAID,Abdelkrim,,0627692600,abdelkrim.bensaid@univ-orleans.fr
+M.,DEPONT,SAMUEL,,Refonte de fonctionnalités d'une application existante suite aux retours utilisateurs.,"conception,développement,documentation et test des livrables.",,08/04/2024,31/05/2024,8,SECRÉTARIAT GÉNÉRAL DE LA DÉFENSE ET DE LA SÉCURITÉ NATIONALE,75007,PARIS,M.,CHAUSSENERY,Sebastien,,07 85 65 20 19,sebastien.chaussenery@sgdsn.gouv.fr
+M.,DOUCET,NOAM,,Développement et portage d'une API sur un portail Big Data,"Analyse, développement et revue de code",,08/04/2024,31/05/2024,8,SYSTEMES INFORMATION HARMONIE MUTUELLE,75015,PARIS,M.,JEMETZ,Maël,,06 24 10 52 67,mael.jemetz@harmonie-mutuelle.fr
+M.,DUBOIS,TOM,,Stage de développement front-end,"Reproduction maquettes
+Développement front-end web et mobile (React / ReactNative /Next / HTML / CSS)
+Réalisation de tests qualités",,08/04/2024,31/05/2024,8,KALONYS,06220,VALLAURIS,M.,BRUN,Kylian,,06 50 38 62 59,kylian.brun@kalonys.fr
+Mme,EL KASMI,HAJAR,,"assistance serice suivi et modification ( sur site web), debug interface client, modification front-end et support CMS (PHP) ",traitement de demande client suite à des modifications sur leur site Web ,,08/04/2024,02/06/2024,8,SITTI YOULEAD,37210,PARCAY MESLAY,M.,PARAGOT,Antoine,02 38 25 90 50,,a.paragot@youlead.fr
+M.,ETAVE,NATHAN,,Développement d'une application de gestion de documentations techniques et réglementaires.,"Dans le cadre du stage, l'objectif est la finalisation et la mise en place de fonctionnalités manquante à l'application actuelle, puis l'hébergement de celle-ci. Cela comprend la finalisation de la gestion des documents et des utilisateurs, de l'interface utilisateur et du système de notifications.
+L'intégration d'une vue multiple de documents et la prise en charge des documents aux formats de la suite Microsoft Office font également partie des fonctionnalités à mettre en place. Tout cela sera réalisé dans une approche de design réactif et ergonomique.
+Le développement implique à la fois le front-end et le back-end, avec une utilisation principale de Python, en particulier le framework Flask pour le back-end, SQLite pour la base de données, et JavaScript pour le front-end.",,08/04/2024,31/05/2024,8,S.D.I.S. DU LOIRET,45404,FLEURY LES AUBRAIS cedex,M.,DODU,Julien,02 38 52 35 23,,julien.dodu@sdis45.fr
+M.,FERDOEL,TITOUAN,,Réalisation de développement informatique sur un logiciel de paie de la société,Développement / corrections / améliorations de fonctions dans le cadre du logiciel de paie,,08/04/2024,14/06/2024,46,ACD,37100,TOURS,M.,DESCOUX,Aymeric,02 47 39 75 96,,a.descoux@acd-groupe.fr
+M.,FOFANA,ABDOULAHI,,Conception et développement d'une application de gestion de planning des livraisons,"L'application doit permettre de consulter les livraisons planifiées pour une semaine donnée ou pour les semaines d'un mois. Elle doit également fournir des informations détaillées sur chaque livraison, telles que les dates clés, les dates des livraisons à l'intégration, les dates de début de qualification, les dates de recette, les dates de mise en production (ou diffusion)...
+
+Il s'agit de réaliser toutes les parties de cette application  y compris le backend, le frontend et la base de données.",,08/04/2024,14/06/2024,10,RECTORAT DE L'ACADÉMIE D'ORLÉANS-TOURS ,45043,ORLÉANS CEDEX 1,Mme,GUELIL,Aicha,,06 10 85 10 92,aicha.guellil@ac-orleans-tours.fr
+M.,FOUQUE,CORENTIN,,Développement d'une interface d'échange entre notre logiciel et notre portail web,"Participer à la définition du besoin, développer la solution technique en accord avec le maitre de stage, participer au déploiement des versions Beta",,04/03/2024,24/06/2024,16,ALTA CONCEPT,72000,LE MANS,M.,LOCHET,Alan,02 43 84 40 18,,alochet@altaconcept.com
+M.,FOURNIER,CYPRIEN,,Mise à niveau et reprogrammation avec des outils d'actualité d'une application Web de gestion des impressionsdéveloppée il y a 10 ans.,"Prendre en main l'application, la migrer sur un serveur up todate et reprogrammer l'application avec les outils d'actualité.",,08/04/2024,31/05/2024,8,CHRU Bretonneau Tours,37044,TOURS,M.,POROVT,Didier,02 47 47 82 15,,d.provot@chu-tours.fr
+M.,GAIDA,REMI,,developpeur full-stack,developpement de fonction,,08/04/2024,02/06/2024,8,LEAGORA,75018, PARIS,M.,CHAMEROY,Geoffrey,,00 00 00 00 00,gchameroy@leagora.fr
+M.,GARDELLE,ANTHONY,,Developpement de sites internet,Assistance au développement de sites internet via Wordpress ou Prestashop,,08/04/2024,31/05/2024,8,ZE COMPANY,45650,SAINT-JEAN-LE-BLANC,M.,LAMOTTE,Pierre,02 36 13 51 18,,p.lamotte@ze-company.com
+M.,GEORGET,KORENTIN,,"Refonte du l'extranet - outil mis à disposition des salariés, producteurs et actionnaires",Étude de l'existant et refonte de l'outil complet,,08/04/2024,14/06/2024,10,FERME DES ARCHES ,28140,TERMINIERS,M.,POTIER,Sebastien,02 37 32 71 01,,spotier@fermedesarches.com
+M.,GNANESWARAN,ROSHAN,,"Contribuer à l'essor de l'application TETRIS, outil de gestion de projets interne à l'activité BSS, Etanchéité de Carrosserie","Maintenir les modules existants et développer de nouvelles fonctionnalités
+Contribuer à assurer la hotline et le support auprès des utilisateurs
+",,08/04/2024,14/06/2024,9,HUTCHINSON,45120,CHALETTE SUR LOING,Mme,RIVAUX,Florine,02 38 87 52 07,,florine.rivaux@hutchinson.com
+M.,GOUDAL,ARTHUR,,Construire une application permettant aux clients internes de construire leurs cahiers des charges pour leurs besoins de développements futurs,Auditer les clients internes ; concevoir et développer une base de données et une application Web,,29/04/2024,05/07/2024,10,MSL CIRCUITS ,45130,MEUNG-SUR-LOIRE,M.,GRASSIN,Pierre,02 38 46 34 34,,pierre.grassin@allcircuits.com
+M.,HANI,SELIM,,"Développement WEB et MOBILE, Développement d'une plateforme de recrutement en Lavarel","étude du projet et conception de la plateforme, développement des interfaces avec JS Node Ux développement en lavarel, JS Crud nécessaires
+
+",,08/04/2024,02/06/2024,8,EVASTIN,,2037 ARIANA ,M.,M. BEN MEDIER,Med Moatez,,58 133 669 ,mbm@evast-in.com
+M.,HAUDEBOURG,BAPTISTE,,Développer des applications,Développer des applications POWER APPS,,08/04/2024,31/05/2024,8,TECHNICENTRE SAINT-PIERRE-DES-CORPS,37700,SAINT-PIERRE-DES-CORPS,M.,BOUSQUET,Loic,,06 98 33 75 55,loic.bousquet@sncf.fr
+M.,JACQUET,NOA,,Création d'un notebook dédié pour l'équipe métier DSPC avec une démonstration,"Récolte des data tests et d'use core métier
+Intégraion des données sur la plateforme Big Data
+Création d'un notebook et présentation KPI's",,08/04/2024,31/05/2024,8,ALLIANZ TECHNOLOGY,92800,PUTEAUX,M.,GIACOMETTI,Christophe,,06 89 38 48 52,christophe.giacometti@allianz.com
+M.,JORITE,JEAN-MARC,,,,,,,,,,,,,,,,
+Mme,LALLIER,ANNA,,Audit technique des bases de données afin d'assurer la meilleure performance des bases.,"Élaborer une méthodologie d'audit des bases de données sur les axes de Conception et de performances ; Il s'agit de définir les points de contrôle et établir une méthodologie, à partir de documents d'audit existants et en s'appuyant sur les connaissances interne ; puis de produire une méthodologie d'audit listant les éléments de contrôle et les moyens et outils pour les réaliser
+Mettre en application sur des bases en production",,08/04/2024,14/06/2024,10,FEDERATION AGIRC ARRCO,75592,PARIS CEDEX 12,Mme,DELATRE,Tamara,05 57 96 59 66,,tdelatre@agirc-arrco.fr
+M.,LANDON--NOMINE,CYRIL,,Continuation d'un projet de cartographie et de gestion des clubs de tennis de table du centre,"Je serai chargé de mettre à jour, d'optimiser et de rendre présentable au client, un code fonctionnel qui affiche sur une carte d'OpenStreetMap les clubs du centre avec les zones à 10 min en voitures qui sont représentés en bleu.
+Back + front avec notamment du php, plusieurs API comme OpenStreeMap et d'autres.",,15/04/2024,07/06/2024,8,CREAWEB,37540,SAINT-CYR-SUR-LOIRE,M.,ANGENON,Nico,,06 18 47 50 21,nico@creaweb.fr
+M.,LAVENANT,JORDAN,,Développement et maintenance d'un outil web interactif pour permettre l'affichage d'habillages visuels lors de diffusions en direct d'évènements.,"Développement d'un outil web, dynamique, évolutif et adaptatif afin de permettre l'affichage en direct d'habillages audiovisuels lors de diffusions d'évènements sportifs.
+Cet outil web sera, à priori, développé avec les langages natifs du web et le framework Javascript React, avec des bibliothèques d'animations en complément. 
+Je serai intégré au sein du service innovations numériques.",,08/04/2024,14/06/2024,10,CHARTRES MÉTROPOLE INNOVATIONS NUMÉRIQUES (CM'IN),28630,LE COUDRAY,M.,MEUNIER,Jeason,02 34 40 01 56,02 34 40 01 56,jeason.meunier@ccin.fr
+M.,LEBEAUPIN,LOUIS,,Amélioration du système d'information,"Participer au développement d'un catalogue numérique de commande de matériels consommables 
+et d'un outil de suivi de lecture de consignes de sécurité.",,08/04/2024,31/05/2024,45,Site Bourges Aeroport,18020,BOURGES,M.,BERJAMIN,Patrick,02 48 55 57 32,,patrick.berjamin@mbda-systems.com
+Mme,LIDEC,CHLOE,,Développement de sites et applications mobiles,Aide au développement de sites et applications clients en interne,,12/02/2024,02/06/2024,16,SARL ZE-COMPANY ,45100,ORLEANS,M.,LAMOTTE,Pierre,02 36 13 41 18,,p.lamotte@ze-company.com
+M.,LOISEAU,YOHANN,,Développement d'application,"Développer une application pour la communauté du TLC (Tiers lieu compétence) en lien avec les usagers et leurs compétences, la transition écologique",,08/04/2024,31/05/2024,8,AFPP,37000,TOURS,Mme,CHABUT,Olivia,02 47 76 40 32,,o.lenfant@afpptours.com
+M.,LOSZACH,CONSTANTIN,,Développement d'une interface web mobile de suivi des pesées pour les études du service Compatibilité,"développement sous Django / python. Interface avec API airtable. Connexion SSO. Connexion SSH avec les balances de laboratoire et les imprimantes.
+Développement FullStack",,12/02/2024,16/06/2024,16,PARFUMS CHRISTIAN DIOR,45800,SAINT-JEAN-DE-BRAYE CEDEX,Mme,SHALLA,Fjolla,,06 05 98 46 21,fshala@research.lvmh-pc.com
+Mme,LOYER,LOREENA,,Analyser et développer une api de personnalisation des lettres types au profit des directeurs d'école.,"Vous serez intégré dans l'équipe de développement back ONDE v2.
+Il vous sera demandé de réaliser l'analyse, le développement et le déploiement du microservice sur un environnement Kubernetes.
+Les technologies principalement utilisées seront Java21, Springboot, Docker et PostgreSQL",,08/04/2024,26/07/2024,16,ATOS FRANCE,95870,BEZONS,M.,HOAREAU,Alexis,,06 98 20 51 58,alexis.hoareau@atos.net
+M.,LUCIDOR,LEO,,Evolution de l'application de suivi des archives documentaires STORL-E,"L'objectif du stage est de mener à bien des évolutions fonctionnelles et techniques pour améliorer l'outil et mieux répondre aux 
+attentes des utilisateurs. Il faudra rédiger les spécifications fonctionnelles et techniques ; réaliser les développements ; réaliser la 
+recette technique et organiser la recette avec les utilisateurs et participer au déploiement de la solution.
+Le stagiaire prendra également part à la vie courante de l'équipe (suivi d'exploitation, correction d'anomalies, prise en charge 
+d'évolutions) sur les autres périmètres de l'équipe.",,08/04/2024,05/07/2024,12,EURO-INFORMATION,45000,ORLÉANS,Mme,WOJCIECHOWSKI,Jérôme,,02 38 77 61 31,jerome.wojciechowski@e-i.com
+M.,LUDMANN,DORIAN,,Utilisation du module Deep Learning du logiciel Arcgis pro pour la mise à jour de la carte d'occupation du sol Corine land cover,"1. La configuration de votre environnement de développement sur arcgis pro.
+2. La collecte de prétraitement et la préparation des données d'entraînement pour votre modèle.
+3. L'extraction des caractéristique",,08/04/2024,02/06/2024,8,SERVICE SCOLARITÉ,45065,ORLEANS CEDEX 2,M.,BENSAID,Abdelkrim,,0627692600,abdelkrim.bensaid@univ-orleans.fr
+M.,MANACH,ERWAN,,,,,,,,,,,,,,,,
+M.,MAOULANA,FAYAD,,Stage de développement C# / .Net,"Ce stage portera, après une période d'appropriation, sur le développement d'applications web métiers, développées spécifiquement pour leurs clients dans le cadre de maintenances ou de projets.
+Ces développements s'appuieront sur le framework .Net avec le langage C# pour la partie serveur et HTML / CSS / Javascript pour la partie client web.",,12/02/2024,14/06/2024,17,ADS-COM ,45000,ORLÉANS,M.,GUYOT,Emmanuel,02 38 21 55 21,,emmanuel.guyot@ads-com.fr
+M.,MASERATI,AMAEL,,Réalisation d'un logiciel pour le calcul des déchets générés par les chantiers INEO,"Codage (essentiellement Python), réflexion sur la structure du logiciel, mise en forme selon charte graphique",,08/04/2024,14/06/2024,10,INÉO CENTRE ,45073,ORLEANS cedex 2,M.,CAILLAULT,Guillaume,,06 37 89 17 13,guillaume.caillault@equans.com
+M.,MASSUARD,CHARLES,,Développement application embarquée Android / Windows dans le cadre du Système de Mesure de Pression pour l'activité joint de bâtiment,"- Collecte et analyse des besoins
+- Transcrire en code des besoins - langage à définir c# / python
+- Proposer des solutions, des améliorations
+- Présenter les travaux effectués",,08/04/2024,14/06/2024,10,HUTCHINSON (SA) ,75008,PARIS,M.,RENCKERT,Olivier,02 38 96 76 15,,olivier.renckert@hutchinson.com
+Mme,MAUPOU,CASSANDRA,,"Développement d'un Entrepôt - Catalogue Unique pour le Partage Interopérable des DONnées, (e-CUPIDON)",Conception et Développement d'API et IHM,,08/04/2024,31/05/2024,8,BRGM,45100,ORLÉANS CEDEX,M.,CHAN THAW,Franck,02 38 64 33 50,,f.chanthaw@brgm.fr
+M.,MECHAIN,ROMAIN,,Développement d'une application de gestion de documentations techniques et réglementaires.,"Dans le cadre du stage, l'objectif est la finalisation et la mise en place de fonctionnalités manquante à l'application actuelle, puis l'hébergement de celle-ci. Cela comprend la finalisation de la gestion des documents et des utilisateurs, de l'interface utilisateur et du système de notifications.
+L'intégration d'une vue multiple de documents et la prise en charge des documents aux formats de la suite Microsoft Office font également partie des fonctionnalités à mettre en place. Tout cela sera réalisé dans une approche de design réactif et ergonomique.
+Le développement implique à la fois le front-end et le back-end, avec une utilisation principale de Python, en particulier le framework Flask pour le back-end, SQLite pour la base de données, et JavaScript pour le front-end.",,08/04/2024,31/05/2024,8,S.D.I.S. DU LOIRET,45404,FLEURY LES AUBRAIS cedex,M.,DODU,Julien,02 38 52 35 23,,julien.dodu@sdis45.fr
+M.,MENJIKOFF-GUILLOT,NOA,,Continuation d'un projet de cartographie et de gestion des clubsde tennis de table du centre,"Je serai chargé de mettre à jour, d'optimiser et de rendre présentable au client, un code fonctionnel qui affiche sur une carte d'OpenStreetMap les clubs du centre avec les zones à 10 min en voitures qui sont représentés en bleu.
+Back + front avec notamment du php, plusieurs API comme OpenStreeMap et d'autres.",,15/04/2024,07/06/2024,8,CREAWEB,37540,SAINT-CYR-SUR-LOIRE,M.,ANGENON,Nico,,06 18 47 50 21,nico@creaweb.fr
+M.,MERIT,JULIANN,,Aide à la distribution des nouveaux téléphone et développement d'outils d'aide,"Distribution des nouveaux téléphones
+Aide au paramétrage de l'authentification forte sur les différents outils (tel et Cosmo)
+Dotations ASCT
+Appui du GET POB",,01/07/2024,23/08/2024,8,SNCF VOYAGEURS ETABLISSEMENT TER CVDL,37000,TOURS,M.,GUESNEL,Christophe,,06 45 89 78 30,christophe.guesnel@sncf.fr
+M.,MIKULIC,TEO,,Développement d'un module pour un logiciel de gestion,"Développement en PHP/mySQL ainsi que d'autres activités annexes (installation serveur en datacenter, par exemple)",,12/02/2024,02/06/2024,16,HAISOFT ,45100,ORLÉANS,M.,VAGNER,Frédéric,02 38 52 58 11,,frederic.vagner@haisoft.fr
+M.,MONNET,VALENTIN,,Développement du site web statistiques,"MAJ Chatbot, MAJ Logithèque collèges",,12/02/2024,02/06/2024,16,CONSEIL DEPARTEMENTAL DU LOIRET,45000,Orléans,Mme,PLANTIN,Denise,02 36 99 26 48,,denise.plantin@loiret.fr
+M.,MOREIRA,DANIEL,,Participation à la mise en place d'un nouvel ERP,Mise à jour de bases de données - recueil de besoins spécifiques - participation aux journées d'intégration du nouvel ERP,,08/04/2024,31/05/2024,8,SAS PRECICAST PRT,41100,THORE LA ROCHETTE,M.,MICHEAU-CHEVIGNY,Nicolas,02 54 72 84 71,,nicolas.micheau-chevigny@precicast.fr
+M.,MOREL,BRICE,,AIDE A L'ELABORATION D'UN LOGICIEL DE GESTION DE PRODUCTION,ÉTUDE ET PROGRAMMATION DE DIVERS COMPOSANTS DU LOGICIEL,,19/02/2024,10/06/2024,16,SODILEC,18410,BRINON-SUR-SAULDRE,Mme,SOUCHET,Carine,02 48 58 50 58,0672229671,c.souchet@sodilec.com
+M.,MOREL,BRICE,,AIDE A L'ELABORATION D'UN LOGICIEL DE GESTION DE PRODUCTION,ETUDE ET PROGRAMMATION DE DIVERS COMPOSANTS DU LOGICIEL,,26/02/2024,16/06/2024,16,SODISOFT,18410,BRINON SUR SAULDRE,Mme,SOUCHET,Carine,02 48 58 50 58,,c.souchet@sodilec.com
+M.,NIVEAU,SAMUEL,,,,,,,,,,,,,,,,
+M.,NOEL,LOUIS,,Développement et modifications de modules Odoo,"Le stagiaire sera intégré au sein de l'équipe de développement et aura pour mission principale de
+concevoir et développer des modules Odoo afin de répondre aux besoins internes de l'entreprise.
+Ces modules seront spécifiquement axés sur les statistiques et le reporting
+d'activités. Le stagiaire sera amené à travailler en collaboration avec les membres de l'équipe pour
+identifier les besoins, concevoir des solutions adaptées et les mettre en oeuvre dans l'environnement
+Odoo.
+En complément le stagiaire pourra également participer de manière ponctuelle à la réalisation de
+demandes sur des projets clients. Cela inclut le développement en PHP et Symfony.
+",,19/02/2024,02/06/2024,15,IT-SIS,45140,FLEURY-LES-AUBRAIS,M.,BARNOUX,Alexis,02 38 80 27 92,,info@it-sis.com
+M.,NUNES,PIERRE,,Développement Logiciel C++/Qt,Reprise et amélioration d'un logiciel sous langage C++ et Qt,,12/02/2024,02/06/2024,16,NEXTER MUNITIONS,18023,BOURGES,M.,MOLLE,Jacques,,06 80 35 36 86,jacques.molle@knds.fr
+M.,ORTIZ SANTA CRUZ,ANDRES ENRIQUE,,Développement informatique d'une application de collecte de données et d'un dashboard de visualisation des données. ,"Finalisation de l'application de collecte de données et du dashboard
+Animation et correction du site de l'équipe de recherche
+Assistance du responsable informatique de l'équipe
+",,18/03/2024,18/07/2024,14,UMR PRODIG,93322,AUBERVILLIERS,M.,BONNET,Emmanuel,07 81 56 10 55,07 81 56 10 55,emmanuel.bonnet@ird.fr
+M.,OUZET,KILLIAN,,"Intervention sur les solutions Pièces de RéEmploi(PRE), permettant à nos clients de commander des pièces auprès de leurs fournisseurs.","Analyser, développer et maintenir une application web.",,08/04/2024,14/06/2024,10,LACOUR CONCEPT ,18230,ST DOULCHARD,Mme,HANG,Océane,02 48 23 23 40,,Recrutement@groupe-lacour.fr
+M.,OZOCAK,IBRAHIM,,Réalisation d'un site web et manipulation de base de données,"Mission 1 : refonte de la page internet de l'entreprise
+Mission 2 : liaison entre différentes bases de données",,10/05/2024,10/07/2024,8,PRODITRANS EXPRESS,45590,SAINT-CYR-EN-VAL,M.,OZOCAK,Mehmet,,06 30 92 82 92,m.ozocak@proditrans.fr
+M.,PERRIN,MATHIS,,Aide à la collaboration d'un logiciel de gestion de production,Etude et programmation de divers composants du logiciel,,26/02/2024,16/06/2024,16,SODISOFT,18410,BRINON SUR SAULDRE,Mme,SOUCHET,Carine,02 48 58 50 58,,c.souchet@sodilec.com
+M.,PIGOREAU,NATHAN,,Développement d'un logiciel pour la gestion des campagnes.,"Compréhension du fonctionnement du laboratoire
+Analyse de la base de données existante pour définir les besoins
+Conception et développement de l'outils
+Tests et validation",,08/04/2024,14/06/2024,10,CEDREM,41210,NEUNG-SUR-BEUVRON,M.,HOUEIX,David,02 54 94 62 71,,d.houeix@cedrem.fr
+M.,PILET,COLIN,,création d'applications (Sur Smartphone/Tablette/PC) d'automatisation de taches et à la mise en relation avec la data base du site Benchmarking,"- Analyser les besoins
+- Benchmarker les moyens( ex SharePoint, Power Apps & Automate). Au besoin apprendre les fonctionnements des applications Office 365 nécessaires.
+- Etablir les cahiers des charges des nouvelles applications et planifications des projets
+- Développer des applications
+- Participer aux tests et à la mise en oeuvre puis au déploiement de ces outils ",,08/04/2024,14/06/2024,10,HUTCHINSON (SA) ,75008,PARIS,M.,LARROQUE,Christian,,06 83 55 36 43,christian.larroque@hutchinson.com
+M.,PORTET,GAEL,,AIDE A L'ELABORATION D'UN LOGICIEL DE GESTION DE PRODUCTION,ETUDE ET PROGRAMMATION DE DIVERS COMPOSANTS DU LOGICIEL,,26/02/2024,16/06/2024,16,SODISOFT,18410,BRINON SUR SAULDRE,Mme,SOUCHET,Carine,02 48 58 50 58,,c.souchet@sodilec.com
+M.,PRADES,MATTEO,,Développement d'un portail internet sécurisé ,Développement du portail et interfaçage de capteur d'empreintes et de cartes à puces,,19/02/2024,09/06/2024,16,GERICO,75011,PARIS,Mme,CHEKROUN,Bernard,,06 15 39 31 54,bernard.chekroun@istec-europe.com
+M.,PREVOST,MAVERICK,,Développer et tester une nouvelle version de l'application mobile Knock In pour le marché B2B,"Prise en main du code de l'application existante -
+Implémentation des changements fonctionnels du logiciel selon un cahier des charges fourni - Elaboration et exécution d'un plan
+de test complet de cette nouvelle version sur des équipements Android spécifiques mis à disposition du stagiaire. - Packaging de
+la nouvelle version selon le standard Android/GooglePlay store.",,22/07/2024,30/08/2024,29,YELLOWTWIGS,38000,GRENOBLE,M.,FERACHOGLOU,Michel,,06 72 99 14 32,michel.ferachoglou@yellowtwigs.com
+M.,PREVOT,KYLIAN,,,,,,,,,,,,,,,,
+M.,PREVOT,KYLIAN,,Adapter le site web (outil d'aide à l'utilisation de SSRP) développé à Gien (stage de l'an dernier) à l'ensemble des sites du GHT,"- Développement du site en méthode agile
+- Accompagnement des utilisateurs dans l'utilisation
+- Analyse du taux d'utilisation",,12/02/2024,02/06/2024,16, CHU ORLEANS,45100,ORLEANS,M.,BOUQUET,Bruno,02 38 61 32 51,,arnaud.bouquet@chu-orleans.fr
+M.,RABIER,DAMIEN,,Aide à l'élaboration d'un logiciel de gestion de production,étude et programmation de divers composants du logiciel,,26/02/2024,16/06/2024,16,SODISOFT,18410,BRINON SUR SAULDRE,Mme,SOUCHET,Carine,02 48 58 50 58,,c.souchet@sodilec.com
+M.,RAKOTOMALALA,ROLAND,,Développement d'une application web permettant la gestion des évènements religieux,"Analyse des besoins des membres et dirigeant de l'association, conception de l'architecture web, tests de fonctionnalités.",,20/05/2024,14/07/2024,8,Association Assemblée Mission Pionnière,45000,ORLEANS,Mme,CUNHA NASCIMENTO,Cynthia,,06 41 58 83 58,admporleans@gmail.com
+M.,RAVIART,ALEXANDRE,,Déploiement d'une plateforme de qualification de la plateforme de diffusion de messages institutionnels/syndicaux du ministère de l'éducation nation,"Il s'agit de faire évoluer la plateforme de qualification de la plateforme de diffusion des messages par listes institutionnelles et
+syndicales pour absorber l'ensemble des changements décrits plus haut.
+Le stage débutera par une analyse de l'existant, une formation au moteur de listes "" sympa "" et une prise de connaissance du
+schéma de données.
+Il se poursuivra ensuite par :
+- le report de l'outillage qui a été modernisé sur la production et n'est pas encore appliqué à la préproduction...
+- le chargement et l'anonymisation des données de production dans la base de qualification
+- une série de tests de qualification sur cette plate-forme modernisée
+- la bascule sur une base postgres qu'il faudra mettre en place
+- les tests de non régression
+- si la durée le permet, l'adaptation à la sauvegarde NBU qui permet de fonctionner par API sur un stockage S3 sans consommer
+les file system locaux",,08/04/2024,14/06/2024,10,RECTORAT ORLÉANS-TOURS ,45043,ORLÉANS CEDEX,M.,VEILLON,Luc,02 38 79 45 20,,luc.veillon@ac-orleans-tours.fr
+M.,ROCHDI,SAMI,,refonte du site intranet,"Refonte du site intranet en utilisant Angular et Node.js.
+Concevoir l'interface utilisateur, développer le front-end et le back-end, intégrer la base de données, assurer la sécurité de l'application, et contribuer aux tests et au déploiement
+
+langues: francais/arabe",,12/02/2024,03/06/2024,16,AL AMANA MICROFINANCE,10130,RABAT,M.,EL KORICHI,Mustapha,,02 12 66 19 40,m.elkorichi@alamana.org.ma
+M.,RONCERAY,MAXIME,,Conception d'une Interface de Simulation pour Instrumentation Spatiale,"Le Laboratoire de Physique des Plasmas (LPP) est spécialisé dans le développement d'instrumentations scientifiques
+embarquées à bord de sondes spatiales destinées à l'étude in situ des environnements magnétisés du système solaire. Dans le
+cadre de la préparation de la mission "" Plasmas Observatory "" de l'Agence Spatiale Européenne (ESA) le laboratoire mène une
+étude visant à dimensionner un des instruments de la mission. Le sujet du stage concerne le développement en langage Python
+d'un code permettant de simuler le comportement électrique, magnétique et éventuellement mécanique de l'instrument.
+L'instrument virtuel ainsi réalisé, sera utilisé comme outil pour le dimensionnement et l'optimisation de
+l'instrument. Ce code comportera un moteur de résolution des équations régissant les propriétés de l'instrument ainsi qu'une
+interface homme machine (IHM) permettant son utilisation de manière performante et ergonomique. Le/La stagiaire aura pour
+encadrant principal son tuteur de stage et sera co-encadré(e)/accompagné(e) par des ingénieur(e)s informaticien(e)s de l'équipe
+projet dans laquelle il/elle évoluera pendant toute la durée du stage
+
+Les activités confiées à l'étudiant stagiaire sont les suivantes :
+Prise en main du cahier des charges.
+Préparation d'un plan de développement logiciel (choix des bibliothèques, définition de
+l'architecture du moteur de simulation...).
+Développement du moteur de simulation de l'instrument.
+Développement de l'interface graphique.
+Rédaction de la documentation technique.",,26/02/2024,14/06/2024,16,C.N.R.S. UAR 0855 DT INSU,91190,GIF-SUR-YVETTE,M.,MANSOUR,Malik,01 69 33 59 43,,malik.mansour@lpp.polytechnique.fr
+Mme,ROUSSELET,JULIETTE,,découverte et prise en main de l'environnement de travail d'un service informatique et d'un projet existant pour y implémenter une nouvelle fonctio,"documentation, puis développement d'un module dans une
+application existante tel que par exemple la gestion de ses utilisateurs ou un module d'assistance ou .autre",,08/04/2024,07/06/2024,9,"INSTITUT NATIONAL DE RECHERCHE POUR L'AGRICULTURE, L'ALIMENTATION ET L'ENVIRONNEMENT - INRAE CENTRE VAL DE LOIRE",37380,NOUZILLY,M.,PICKEL,Alain,,06 33 18 40 03,alain.pickel@inrae.fr
+M.,SAINSON,HUGO,,Consolidation d'un outil de planification de production sur une technologie web,Il travaillera en partenariat avec notre service SuplyChain et devra répondre au cahier des charge émit par le service.,,08/04/2024,16/06/2024,10,HUTCHINSON,45120,CHALETTE SUR LOING,Mme,LEROY,Nicolas,02 38 87 53 79,,nicolas.leroy@hutchinson.com
+M.,SAINT-LEGER,THIBAULT,,,,,,,,,,,,,,,,
+M.,SEVELLEC,MAXIME,,Création de nouvelles fonctionnalités sur une application WEB (front et back),"Création de nouvelle page 
+Ajout de contenu 
+Maintenance et évolution des pages et fonctionnalités existante 
+Création de nouvelles tables sur une base de données 
+Création des routes de l'api pour consommer cette table (CRUD)",,08/04/2024,02/06/2024,8,DALENA an CO,75004,PARIS,M.,HADIDA,David,,06 25 44 65 87,david@dalena.fr
+M.,SIMON,GAEL,,Mise en place d'un système de signature électronique de devis,"Le principe est que, du côté de leurs outils de gestion, ils ont un système qui permet de créer des devis, qu'ils envoient aux clients, qui est déjà en place. Ma tâche consistera à créer un outil qui permettra au client de signer ce document dans son espace client. Le principe sera de faire valider le document en envoyant un SMS sur le téléphone du client, avec un code qu'il devra entrer ensuite pour confirmer. Cela nécessite l'appel à différentes API, notamment pour l'envoi du code. Une fois le code généré, le document devra être signé numériquement avec un outil de signature de PDF et mis à disposition du client dans son espace. La signature du PDF se fait avec un outil en ligne de commande sous Linux.
+
+",,08/04/2024,31/05/2024,8,HAISOFT ,45100,ORLÉANS,M.,DUVEAU,Arthur,02 21 82 72 00,,arthur@haisoft.net
+M.,SOTTIER,LIAM,,Stage développeur full stack : Participation à la conception et au développement de sites web basés sur le CMS WordPress.,"- Spécifications, conception et développement d'un site web de location de matériel événementiel et mobilier, utilisant des technologies telles que HTML, CSS, JavaScript, le CMS WordPress, et l'intégration de plugins.
+- Participation au développement de sites vitrines Wordpress destinés aux petits projets web du pôle Marketing & Communication.
+- Aide occasionnelle à la gestion du parc informatique & infrastructure réseau (e.g. installation de poste de travail, installation de réseau, migration des boites emails, ...) ",,08/04/2024,31/05/2024,8,SOLUTIONS EVÉNEMENTS SAS,95470,SAINT WITZ,M.,BARTHELEMY,Xavier,,06 27 37 10 13,xavier.b@solutionsevenements.fr
+M.,TOURE,KRIS,,"Refonte du site Internet du hub d'inclusion numérique régional, Hub-Lo en Centre-Val de Loire (https://hub-lo.fr/) dont Le Mouvement associatif Centr","Le stagiaire aura pour mission de réaliser la refonte complète
+du site https://hub-lo.fr/ en respectant un cahier des charges transmis en début de stage. Il devra prendre en main Wordpress,
+être force de proposition (choix du layout, outils de mises à jour, outils dynamiques, outils de mesure d'audience, etc) mais aussi
+rédiger, pour la fin du stage, un tutoriel à destination de l'équipe du hub, qui aura à charge la rédaction d'articles.
+Le stagiaire aura à sa disposition un PC avec les accès et logiciels nécessaire pour effectuer ses activités.",,08/04/2024,14/06/2024,9,LE MOUVEMENT ASSOCIATIF CENTRE-VAL DE LOIRE,45400,FLEURY LES AUBRAIS,Mme,DA SILVA,Elsa,,07 89 51 49 00,edasilva@lemouvementassociatif.org
+M.,VIARD,THEO,,Développement d'un SDK,"Mise a jour du SDK FANUC pour FTS WELDING. L'objectif de la mission est de stabiliser, améliorer et re-développer le SDK actuel en mettant a jour le plugin web afin d'utiliser ce nouveau produit pour la revente a grande échelle de nos produits de soudure.",,12/02/2024,16/06/2024,18,FTS WELDING,37300,JOUE-LES-TOURS,M.,/,Augustin,02 36 16 24 06,,cmaretheu@fts-welding.com
+M.,VILLETTE,ARTHUR,,développement web,développement du site web de l'entreprise présentant les produits et des outils interactif a l'utilisateur ,,08/04/2024,21/06/2024,10,STATEGEO,91330,YERRES,M.,BESSMANN,Patrick,,06 42 22 99 48,patrick.bessmann@stategeo.fr
+M.,VODABLE,LEO,,Développement d'une application web en Django,"L'objectif de ce stage et d'améliorer l'actuelle application réalisé en PHP en Django.
+Des mises à jour ainsi que des améliorations sur les fonctionnalités proposées par l'application sont envisagées.
+Implémenter cette application sur un nouveau serveur.
+Développement d'une application tiers permettant de gérer les périodes de congés. Ici l'application sera conçu spécialement pour l'agence Orpi",,12/02/2024,02/06/2024,16,ORLÉANS NORD IMMOBILIER ,45800,SAINT JEAN DE BRAYE,M.,ROLDAN,Bruno,,0238701190,broldan@orpi.com
+Mme,WACHE,ORIANE,,Création de site Web type intranet pour la transversalité des données,"Le stagiaire devra répondre au cahier des charges définissant le produit dédié à la transversalité des informations dans la définition d'un alternateur. Il aura à s'approprier le sujet, développer et recetter le produit attendu. Il devra participer aux différentes phases de construction du front en technologie web défini par un référent technique et du back-office défini par un MCD en lien avec une base de données internes. La documentation fera parti des livrables que le stagiaire devra fournir.",,12/02/2024,16/06/2024,18,MOTEURS LEROY-SOMER ,45800,SAINT-JEAN-DE-BRAYE,M.,MENAGER,Frédéric,02 38 60 48 06,,frederic.menager@mail.nidec.com
