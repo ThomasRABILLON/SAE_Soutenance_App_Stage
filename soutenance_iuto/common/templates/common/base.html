@@ -3,18 +3,22 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Bienvenue{% endblock %}</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
         {% block styles %}
-            <link rel="stylesheet" href="{% static 'styles.css' %}" />
+            <link rel="stylesheet" href="{% static 'base.css' %}" />
             <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
         {% endblock %}
     </head>
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading">Menu </div>
+            <div class="bg-sidebar text-white border-right shadow-sm" id="sidebar-wrapper">
+                <div class="sidebar-heading">Application</div>
                 <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-sidebar text-white">Liste des étudiants</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-sidebar text-white">Tableau des soutenances</a>
                     {% block menu %}
                     {% endblock %}
                 </div>
@@ -23,11 +27,11 @@
 
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-                </nav>
-
                 <div class="container-fluid">
+                    <div class="jumbotron mt-4 bg-light shadow-sm rounded">
+                        <h1 class="display-4">Bienvenue</h1>
+                        <p class="lead">Il s'agit d'une application pour visualiser les soutenances de manière efficace.</p>
+                    </div>
                     {% block content %}
                     {% endblock %}
                 </div>
@@ -37,9 +41,9 @@
         <!-- /#wrapper -->
 
         <!-- Footer -->
-        <footer class="footer mt-auto py-3 bg-light">
+        <footer class="footer mt-auto py-3 bg-footer text-center">
             <div class="container">
-                <span class="text-muted">&copy; Test</span>
+                <span class="text-muted">&copy; 2025 Application</span>
             </div>
         </footer>
 
