@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'api',
     'common',
     'app_etudiant',
-    'common',
     'app_entreprise',
     'app_professeur',
     'app_secretaire',
