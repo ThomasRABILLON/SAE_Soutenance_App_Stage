@@ -143,3 +143,7 @@ class Get:
     @staticmethod
     def get_soutenance_by_etu_id(id: int) -> list:
         return Soutenance.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').filter(stg_alt=GetById.get_stage_alt_by_id(id)).all()
+    
+    @staticmethod
+    def get_stage_alt_by_etu_id(id: int) -> list:
+        return StageAlt.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').filter(etudiant=GetById.get_etudiant_by_id(id)).all()
