@@ -1,1 +1,0 @@
-from common.models.InscriptionSoutenance import InscriptionSoutenance

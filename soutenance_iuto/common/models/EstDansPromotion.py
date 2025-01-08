@@ -1,57 +1,14 @@
-from common.models import Etudiant, Promotion
+from django.db import models
 
+from common.models.Etudiant import Etudiant
+from common.models.Promotion import Promotion
 
-class EstDansPromotion:
-    """Classe représentant un étudiant dans une promotion."""
+class EstDansPromotion(models.Model):
+    class Meta:
+        verbose_name = "EstDansPromotion"
 
-    def __init__(self, etudiant: Etudiant, promotion: Promotion):
-        self._etudiant = etudiant
-        self._promotion = promotion
+    etudiant = models.ForeignKey(Etudiant, on_delete=models.CASCADE, null=True)
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, null=True)
 
-    # Getters
-    @property
-    def etudiant(self) -> Etudiant:
-        """Obtient l'étudiant dans la promotion.
-
-        Returns:
-            Etudiant: L'étudiant dans la promotion.
-        """
-
-        return self._etudiant
-
-    @property
-    def promotion(self) -> Promotion:
-        """Obtient la promotion dans laquelle l'étudiant est.
-
-        Returns:
-            Promotion: La promotion dans laquelle l'étudiant est.
-        """
-
-        return self._promotion
-
-    # Setters
-    @etudiant.setter
-    def etudiant(self, value: Etudiant) -> None:
-        """Définit l'étudiant dans la promotion.
-
-        Args:
-            value (Etudiant): L'étudiant dans la promotion.
-        """
-
-        self._etudiant = value
-
-    @promotion.setter
-    def promotion(self, value: Promotion) -> None:
-        """Définit la promotion dans laquelle l'étudiant est.
-
-        Args:
-            value (Promotion): La promotion dans laquelle l'étudiant est.
-        """
-        
-        self._promotion = value
-
-    def __str__(self) -> str:
-        return f"EstDansPromotion(etudiant={self.etudiant}, promotion={self.promotion})"
-
-    def __repr__(self) -> str:
-        return str(self)
+    def __str__(self):
+        return f'etu={self.etudiant} -> promo={self.promotion}'
