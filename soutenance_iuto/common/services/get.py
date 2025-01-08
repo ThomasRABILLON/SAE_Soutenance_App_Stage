@@ -145,5 +145,21 @@ class Get:
         return Soutenance.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').filter(stg_alt=GetById.get_stage_alt_by_id(id)).all()
     
     @staticmethod
+    def get_soutenance_by_prof_candide_id(id: int) -> list:
+        return Soutenance.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').filter(prof_candide=GetById.get_professeur_by_id(id)).all()
+    
+    @staticmethod
+    def get_soutenance_by_stg_alt_id(id: int) -> list:
+        return Soutenance.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').filter(stg_alt=GetById.get_stage_alt_by_id(id)).all()
+    
+    @staticmethod
     def get_stage_alt_by_etu_id(id: int) -> list:
         return StageAlt.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').filter(etudiant=GetById.get_etudiant_by_id(id)).all()
+    
+    @staticmethod
+    def get_stage_alt_by_tuteur_pro_id(id: int) -> list:
+        return StageAlt.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').filter(tuteur_pro=GetById.get_tuteur_pro_by_id(id)).all()
+    
+    @staticmethod
+    def get_stage_alt_by_tuteur_univ_id(id: int) -> list:
+        return StageAlt.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').filter(tuteur_univ=GetById.get_professeur_by_id(id)).all()
