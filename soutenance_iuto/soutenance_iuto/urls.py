@@ -24,5 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/',include("common.urls")),
     path('', BaseView.as_view(), name='home'),
-
 ]
