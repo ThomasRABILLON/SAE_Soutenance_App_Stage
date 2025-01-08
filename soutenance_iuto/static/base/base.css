@@ -83,8 +83,25 @@ body {
     background-color: #343a40; /* Couleur sombre */
     color: white;
     text-align: center;
-    padding: 0.8rem 0;
+    padding: 1rem 0;
 }
+
+.footer-item {
+    text-align: center;
+    margin: 0 15px;
+}
+
+.footer-item img {
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-item p {
+    margin: 5px 0 0; /* Espacement ajusté */
+    font-size: 0.9rem; /* Taille de police optimisée */
+    line-height: 1.4;
+}
+
 
 /* Bouton Toggle */
 #menu-toggle {
