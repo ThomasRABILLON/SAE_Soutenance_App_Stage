@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'common',
     'app_entreprise',
     'app_professeur',
     'app_secretaire',

@@ -1,2 +1,0 @@
-from common.models import EstDansPromotion
-from rest_framework import serializers
