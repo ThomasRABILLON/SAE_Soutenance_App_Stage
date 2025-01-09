@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Bienvenue
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" />
+    {% block styles %}
+      <link rel="stylesheet" href="{% static 'base/base.css' %}" />
+      <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
+    {% endblock %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  </head>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="bg-sidebar text-white border-right shadow-sm" id="sidebar-wrapper">
+        <div class="sidebar-heading">Application</div>
+        <div class="list-group list-group-flush">
+          {% for item in menu_items %}
+              <a href="{{ item.url }}" class="list-group-item list-group-item-action bg-sidebar text-white">
+                  {{ item.label }}
+              </a>
+          {% endfor %}
+          {% block menu %}
+
+          {% endblock %}
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="jumbotron mt-4 bg-light shadow-sm rounded">
+            <h1 class="display-4">Bienvenue</h1>
+            <p class="lead">Il s'agit d'une application pour visualiser les soutenances de manière efficace.</p>
+          </div>
+          {% block content %}
+
+          {% endblock %}
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-footer text-center">
+      <div class="container d-flex justify-content-around align-items-center">
+        <!-- Téléphone -->
+        <div class="footer-item text-white">
+          <img src="{% static 'image/telephone.png' %}" alt="telephone" class="img-fluid" width="39" height="40" />
+          <p>02 38 49 44 96</p>
+        </div>
+        <!-- Email -->
+        <div class="footer-item text-white">
+          <img src="{% static 'image/mail.png' %}" alt="email" class="img-fluid" width="39" height="40" />
+          <p>
+            scolarite.iut@univ-orleans.fr<br />contact-entreprise.iut45@univ-orleans.fr
+          </p>
+        </div>
+        <!-- Adresse -->
+        <div class="footer-item text-white">
+          <img src="{% static 'image/carte.png' %}" alt="adresse" class="img-fluid" width="39" height="40" />
+          <p>
+            16 Rue d’Issoudun<br />45067 Orléans cedex 2
+          </p>
+        </div>
+        <!-- Université -->
+        <div class="footer-item">
+          <img src="{% static 'image/universite.png' %}" alt="université" class="img-fluid" width="100" />
+        </div>
+        <!-- IUT -->
+        <div class="footer-item">
+          <img src="{% static 'image/iut.png' %}" alt="IUT" class="img-fluid" width="100" />
+        </div>
+      </div>
+    </footer>
+
+    {% block scripts %}
+      <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+      <script>
+        $('#menu-toggle').click(function (e) {
+          e.preventDefault()
+          $('#wrapper').toggleClass('toggled')
+        })
+      </script>
+    {% endblock %}
+  </body>
+</html>
