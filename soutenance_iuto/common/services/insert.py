@@ -17,8 +17,9 @@ from datetime import date, time
 
 
 class Insert:
+    @staticmethod
     def insert_date_horaire(
-        self, dt_date: date, heure: time, duree: int, id_date_horaire: int = -1
+        dt_date: date, heure: time, duree: int, id_date_horaire: int = -1
     ) -> bool:
         try:
             if duree < 0:
@@ -40,8 +41,9 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_entreprise(
-        self, nom_etp: str, cp_etp: str, ville_etp: str, id_etp: int = -1
+        nom_etp: str, cp_etp: str = "", ville_etp: str = "", id_etp: int = -1
     ) -> bool:
         try:
             if id_etp == -1:
@@ -57,7 +59,8 @@ class Insert:
             # print(e)
             return False
 
-    def insert_est_dans_promotion(self, id_etu: int, id_promo: int) -> bool:
+    @staticmethod
+    def insert_est_dans_promotion(id_etu: int, id_promo: int) -> bool:
         try:
             EstDansPromotion.objects.create(
                 etudiant=Etudiant.objects.get(id_etu=id_etu),
@@ -68,7 +71,8 @@ class Insert:
             # print(e)
             return False
 
-    def insert_est_responsable(self, id_prof: int, id_promo: int) -> bool:
+    @staticmethod
+    def insert_est_responsable(id_prof: int, id_promo: int) -> bool:
         try:
             EstResponsable.objects.create(
                 professeur=Professeur.objects.get(id_prof=id_prof),
@@ -79,15 +83,15 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_etudiant(
-        self,
-        num: str,
-        ine: str,
-        civilite: str,
         nom: str,
         prenom: str,
-        mail: str,
         alternant: bool,
+        num: str = "",
+        ine: str = "",
+        civilite: str = "",
+        mail: str = "",
         id_etu: int = -1,
     ) -> bool:
         try:
@@ -117,7 +121,8 @@ class Insert:
             # print(e)
             return False
 
-    def insert_inscription_soutenance(self, id_sout: int, id_prof: int) -> bool:
+    @staticmethod
+    def insert_inscription_soutenance(id_sout: int, id_prof: int) -> bool:
         try:
             InscriptionSoutenance.objects.create(
                 soutenance=Soutenance.objects.get(id_sout=id_sout),
@@ -128,7 +133,8 @@ class Insert:
             # print(e)
             return False
 
-    def insert_inscription_suivi(self, id_stg_alt: int, id_prof: int) -> bool:
+    @staticmethod
+    def insert_inscription_suivi(id_stg_alt: int, id_prof: int) -> bool:
         try:
             InscriptionSuivi.objects.create(
                 stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
@@ -139,13 +145,13 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_professeur(
-        self,
-        num: str,
-        civilite: str,
         nom: str,
         prenom: str,
-        mail: str,
+        num: str = "",
+        civilite: str = "",
+        mail: str = "",
         id_prof: int = -1,
     ) -> bool:
         try:
@@ -171,7 +177,9 @@ class Insert:
             # print(e)
             return False
 
-    def insert_promotion(self, annee: int, filiere: str, id_promo: int = -1) -> bool:
+
+    @staticmethod
+    def insert_promotion(annee: int, filiere: str, id_promo: int = -1) -> bool:
         try:
             if id_promo == -1:
                 Promotion.objects.create(
@@ -186,7 +194,8 @@ class Insert:
             # print(e)
             return False
 
-    def insert_salle(self, nom: str, id_salle: int = -1) -> bool:
+    @staticmethod
+    def insert_salle(nom: str, id_salle: int = -1) -> bool:
         try:
             if id_salle == -1:
                 Salle.objects.create(nom_salle=nom).save()
@@ -197,8 +206,9 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_secretaire(
-        self, nom: str, prenom: str, mail: str, id_sec: int = -1
+        nom: str, prenom: str, mail: str = "", id_sec: int = -1
     ) -> bool:
         try:
             if id_sec == -1:
@@ -214,8 +224,8 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_soutenance(
-        self,
         id_stg_alt: int,
         id_date_horaire: int,
         id_salle: int,
@@ -243,18 +253,18 @@ class Insert:
             # print(e)
             return False
 
+    @staticmethod
     def insert_stage_alt(
-        self,
-        titre: str,
-        theme: str,
-        intitule_env: str,
-        dt_debut: date,
-        dt_fin: date,
-        duree: int,
         id_etp: int,
         id_tuteur_pro: int,
         id_tuteur_univ: int,
         id_etu: int,
+        titre: str = "",
+        theme: str = "",
+        intitule_env: str = "",
+        dt_debut: date = None,
+        dt_fin: date = None,
+        duree: int = -1,
         id_stg_alt: int = -1,
     ) -> bool:
         try:
@@ -272,33 +282,48 @@ class Insert:
                     etudiant=Etudiant.objects.get(id_etu=id_etu),
                 ).save()
             else:
-                StageAlt.objects.create(
-                    id_stg_alt=id_stg_alt,
-                    titre_stg_alt=titre,
-                    theme_stg_alt=theme,
-                    intitule_env_stg_alt=intitule_env,
-                    dt_date_debut_stg_alt=dt_debut,
-                    dt_date_fin_stg_alt=dt_fin,
-                    duree_stg_alt=duree,
-                    entreprise=Entreprise.objects.get(id_etp=id_etp),
-                    tuteur_pro=TuteurPro.objects.get(id_tut_pro=id_tuteur_pro),
-                    tuteur_univ=Professeur.objects.get(id_prof=id_tuteur_univ),
-                    etudiant=Etudiant.objects.get(id_etu=id_etu),
-                ).save()
+                if id_tuteur_univ == None:
+                    StageAlt.objects.create(
+                        id_stg_alt=id_stg_alt,
+                        titre_stg_alt=titre,
+                        theme_stg_alt=theme,
+                        intitule_env_stg_alt=intitule_env,
+                        dt_date_debut_stg_alt=dt_debut,
+                        dt_date_fin_stg_alt=dt_fin,
+                        duree_stg_alt=duree,
+                        entreprise=Entreprise.objects.get(id_etp=id_etp),
+                        tuteur_pro=TuteurPro.objects.get(id_tut_pro=id_tuteur_pro),
+                        tuteur_univ=None,
+                        etudiant=Etudiant.objects.get(id_etu=id_etu),
+                    ).save()
+                else:
+                    StageAlt.objects.create(
+                        id_stg_alt=id_stg_alt,
+                        titre_stg_alt=titre,
+                        theme_stg_alt=theme,
+                        intitule_env_stg_alt=intitule_env,
+                        dt_date_debut_stg_alt=dt_debut,
+                        dt_date_fin_stg_alt=dt_fin,
+                        duree_stg_alt=duree,
+                        entreprise=Entreprise.objects.get(id_etp=id_etp),
+                        tuteur_pro=TuteurPro.objects.get(id_tut_pro=id_tuteur_pro),
+                        tuteur_univ=Professeur.objects.get(id_prof=id_tuteur_univ),
+                        etudiant=Etudiant.objects.get(id_etu=id_etu),
+                    ).save()
             return True
         except Exception as e:
-            # print(e)
+            print(e)
             return False
 
+    @staticmethod
     def insert_tuteur_pro(
-        self,
-        civilite: str,
         nom: str,
         prenom: str,
-        tel: str,
-        gsm: str,
-        mail: str,
         id_etp: int,
+        civilite: str = "",
+        tel: str = "",
+        gsm: str = "",
+        mail: str = "",
         id_tut_pro: int = -1,
     ) -> bool:
         try:
