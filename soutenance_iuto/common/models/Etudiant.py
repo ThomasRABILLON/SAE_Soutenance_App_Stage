@@ -5,6 +5,7 @@ class Etudiant(models.Model):
         verbose_name = "Etudiant"
     
     id_etu = models.AutoField(primary_key=True, default=0)
+    id_connection = models.CharField(max_length=255, blank=True, null=True)
     num_etu = models.CharField(max_length=255, blank=True, null=True)
     ine_etu = models.CharField(max_length=255, blank=True, null=True)
     civilite_etu = models.CharField(max_length=255, blank=True, null=True)

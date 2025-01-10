@@ -7,6 +7,7 @@ class TuteurPro(models.Model):
         verbose_name = "TuteurPro"
 
     id_tut_pro = models.AutoField(primary_key=True, default=0)
+    id_connection = models.CharField(max_length=255, blank=True, null=True)
     civilite_tut_pro = models.CharField(max_length=255, blank=True, null=True)
     nom_tut_pro = models.CharField(max_length=255, blank=True, null=True)
     prenom_tut_pro = models.CharField(max_length=255, blank=True, null=True)

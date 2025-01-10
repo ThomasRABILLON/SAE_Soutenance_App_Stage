@@ -25,7 +25,7 @@
         <div class="sidebar-heading">Application</div>
         <div class="list-group list-group-flush">
           {% for item in menu_items %}
-              <a href="{{ item.url }}" class="list-group-item list-group-item-action bg-sidebar text-white">
+              <a href="{% url item.url %}" class="list-group-item list-group-item-action bg-sidebar text-white">
                   {{ item.label }}
               </a>
           {% endfor %}
@@ -39,10 +39,6 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <div class="container-fluid">
-          <div class="jumbotron mt-4 bg-light shadow-sm rounded">
-            <h1 class="display-4">Bienvenue</h1>
-            <p class="lead">Il s'agit d'une application pour visualiser les soutenances de manière efficace.</p>
-          </div>
           {% block content %}
 
           {% endblock %}

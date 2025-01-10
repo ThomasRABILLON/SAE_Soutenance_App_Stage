@@ -5,6 +5,7 @@ class Professeur(models.Model):
         verbose_name = "Professeur"
 
     id_prof = models.AutoField(primary_key=True, default=0)
+    id_connection = models.CharField(max_length=255, blank=True, null=True)
     num_prof = models.CharField(max_length=255, blank=True, null=True)
     civilite_prof = models.CharField(max_length=255, blank=True, null=True)
     nom_prof = models.CharField(max_length=255, blank=True, null=True)
