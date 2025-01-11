@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+  <h1>Création d'une nouvelle soutenance</h1>
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+  <form method="post" action="{% url 'soutenance_create_secretaire' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="etudiant">Etudiant</label>
+      <select class="form-control" id="etudiant" name="etudiant" required>
+        {% for etudiant in etudiants %}
+          <option value="{{ etudiant.id_etu }}">{{ etudiant.nom_etu }} {{ etudiant.prenom_etu }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="heure">Heure</label>
+      <input type="time" class="form-control" id="heure" name="heure" required>
+    </div>
+    <div class="form-group mb-4">
+      <label for="salle">Salle</label>
+      <select class="form-control" id="salle" name="salle" required>
+        {% for salle in salles %}
+          <option value="{{ salle.id_salle }}">{{ salle.nom_salle }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Créer</button>
+  </form>
+{% endblock %}

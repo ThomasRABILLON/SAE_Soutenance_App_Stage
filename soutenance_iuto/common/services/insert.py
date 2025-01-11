@@ -238,20 +238,37 @@ class Insert:
     ) -> bool:
         try:
             if id_soutenance == -1:
-                Soutenance.objects.create(
-                    stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
-                    horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
-                    salle=Salle.objects.get(id_salle=id_salle),
-                    prof_candide=Professeur.objects.get(id_prof=id_prof),
-                ).save()
+                if id_prof == None:
+                    Soutenance.objects.create(
+                        stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
+                        horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
+                        salle=Salle.objects.get(id_salle=id_salle),
+                        prof_candide=None,
+                    ).save()
+                else:
+                    Soutenance.objects.create(
+                        stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
+                        horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
+                        salle=Salle.objects.get(id_salle=id_salle),
+                        prof_candide=Professeur.objects.get(id_prof=id_prof),
+                    ).save()
             else:
-                Soutenance.objects.create(
-                    id_sout=id_soutenance,
-                    stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
-                    horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
-                    salle=Salle.objects.get(id_salle=id_salle),
-                    prof_candide=Professeur.objects.get(id_prof=id_prof),
-                ).save()
+                if id_prof == None:
+                    Soutenance.objects.create(
+                        id_sout=id_soutenance,
+                        stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
+                        horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
+                        salle=Salle.objects.get(id_salle=id_salle),
+                        prof_candide=None,
+                    ).save()
+                else:
+                    Soutenance.objects.create(
+                        id_sout=id_soutenance,
+                        stg_alt=StageAlt.objects.get(id_stg_alt=id_stg_alt),
+                        horaire=DateHoraire.objects.get(id_date_horaire=id_date_horaire),
+                        salle=Salle.objects.get(id_salle=id_salle),
+                        prof_candide=Professeur.objects.get(id_prof=id_prof),
+                    ).save()
             return True
         except Exception as e:
             # print(e)
