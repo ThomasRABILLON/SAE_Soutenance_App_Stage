@@ -222,6 +222,14 @@ class Get:
             list_etu.append(stg.etudiant)
         return list_etu
     
+    @staticmethod
+    def get_soutenance_by_tuteur_pro_id(id: int) -> list:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if( soutenance.stg_alt.tuteur_pro.id_tut_pro == id):
+                list_soutenance.append(soutenance)
+        return list_soutenance
+    
     @staticmethod 
     def get_secretaire_by_nom_prenom(nom: str, prenom: str) -> Secretaire:
         return Secretaire.objects.filter(nom_sec=nom, prenom_sec=prenom).first()

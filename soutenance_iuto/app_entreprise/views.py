@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from common.services.get import Get, GetById
+from common.services.get import Get, GetById, GetAll
 from django.shortcuts import redirect
 
 def get_user(cookie):
@@ -26,6 +26,13 @@ def redirect_user(cookie):
         return redirect("secretaire_home")
     elif type_user == "professeur":
         return redirect("professeur_home")
+    
+urls_sidebar= [
+            {"url": "tuteur_pro_home", "label": "Accueil"},
+            {"url": "liste_etu_entreprise", "label": "Mes Étudiants"},
+            {"url": "soutenance_entreprise", "label": "Mes soutenances"},
+            {"url": "logout_common", "label": "Se déconnecter"}
+        ]
 
 class HomeView(TemplateView):
     template_name = 'app_entreprise/home.html'
@@ -35,10 +42,7 @@ class HomeView(TemplateView):
         context['titre'] = "Accueil"
         user = get_user(self.request.COOKIES['user_data'])
         context['user'] = user
-        context["menu_items"] = [
-            {"url": "tuteur_pro_home", "label": "Accueil"},
-            {"url": "liste_etu_entreprise", "label": "Mes Étudiants"},   
-        ]
+        context["menu_items"] = urls_sidebar
         return context
     
     def get(self, request, *args, **kwargs):
@@ -55,10 +59,7 @@ class ListeEtudiantView(TemplateView):
         user = get_user(self.request.COOKIES['user_data'])
         context['user'] = user
         context['etudiants'] = Get.get_etudiant_by_tuteur_pro_id(user.id_tut_pro)
-        context["menu_items"] = [
-            {"url": "tuteur_pro_home", "label": "Accueil"},
-            {"url": "liste_etu_entreprise", "label": "Mes Étudiants"},   
-        ]
+        context["menu_items"] = urls_sidebar
         return context
 
 class InfoEtudiantView(TemplateView):
@@ -76,9 +77,28 @@ class InfoEtudiantView(TemplateView):
             context['etudiant'] = None  # Si aucun étudiant n'est trouvé, le contexte est vide
             
         context['titre'] = "Informations Étudiant"
-        context["menu_items"] = [
-            {"url": "tuteur_pro_home", "label": "Accueil"},
-            {"url": "liste_etu_entreprise", "label": "Mes Étudiants"},
-        ]
+        context["menu_items"] = urls_sidebar
         return context
 
+class SoutenancesListView(TemplateView):
+    template_name = 'app_entreprise/liste_soutenance.html'
+
+    def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        soutenances = Get.get_soutenance_by_tuteur_pro_id(user.id_tut_pro)
+        est_dans_promotion = GetAll.get_all_est_dans_promotion()
+        
+        context = super(SoutenancesListView, self).get_context_data(**kwargs)
+        context["title"] = "IUT Orleans"
+        context["user"] = user
+        context["soutenances"] = soutenances
+        context["est_dans_promotion"] = est_dans_promotion
+        context["GetById"] = GetById
+        context["menu_items"] = urls_sidebar
+        return context
+    
+    def get(self, request, *args, **kwargs):
+        response = redirect_user(self.request.COOKIES.get("user_data"))
+        if response is not None:
+            return response
+        return super(SoutenancesListView, self).get(request, *args, **kwargs)
