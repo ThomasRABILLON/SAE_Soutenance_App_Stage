@@ -1,23 +1,49 @@
 {% extends 'common/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <!DOCTYPE html>
-    <div class="infos-etudiant">
-        <h2>Informations de l'Étudiant</h2>
-        <p><strong>Nom :</strong> {{ etudiant.nom_etu }}</p>
-        <p><strong>Prénom :</strong> {{ etudiant.prenom_etu }}</p>
-        <p><strong>Numéro Étudiant :</strong> {{ etudiant.num_etu }}</p>
-        <p><strong>INE :</strong> {{ etudiant.ine_etu }}</p>
-        <p><strong>Civilité :</strong> {{ etudiant.civilite_etu }}</p>
-        <p><strong>Email :</strong> {{ etudiant.mail_etu }}</p>
-            <strong>Status :</strong>
-            {% if etudiant.alternant %}
-                <span class="badge alternant">Alternant</span>
-            {% else %}
-                <span class="badge">Non Alternant</span>
-            {% endif %}
-        </p>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/info-etu.css' %}"/>
+</head>
+<body>
+    <div class="page-content-wrapper">
+        <!-- Première boîte avec photo à gauche et informations à droite -->
+        <div class="infos-etudiant">
+            <h2>Informations de l'Étudiant</h2>
+            <div class="infos-content">
+                <!-- Photo à gauche -->
+                <div class="left-column">
+                    <img src="{% static 'images/etudiant-photo.jpg' %}" alt="Photo de l'étudiant" class="etudiant-photo"/>
+                </div>
+                <!-- Informations à droite -->
+                <div class="right-column">
+                    <p><strong>Nom :</strong> {{ etudiant.nom_etu }}</p>
+                    <p><strong>Prénom :</strong> {{ etudiant.prenom_etu }}</p>
+                    <p><strong>Numéro Étudiant :</strong> {{ etudiant.num_etu }}</p>
+                    <p><strong>INE :</strong> {{ etudiant.ine_etu }}</p>
+                    <p><strong>Civilité :</strong> {{ etudiant.civilite_etu }}</p>
+                    <p><strong>Email :</strong> {{ etudiant.mail_etu }}</p>
+                    <p><strong>Status :</strong>
+                        {% if etudiant.alternant %}
+                            <span class="badge alternant">Alternant</span>
+                        {% else %}
+                            <span class="badge">Non Alternant</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deuxième boîte avec un paragraphe simple -->
+        <div class="simple-paragraph-box">
+            <p>Si les coordonnées connues par l'établissement sont incomplètes ou fausses, vous pouvez effectuer les modifications nécessaires en cliquant sur le lien "Notifier un changement de coordonnées".</p>
+        </div>
     </div>
+</body>
 </html>
+
 {% endblock %}
