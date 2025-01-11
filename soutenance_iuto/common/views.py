@@ -78,5 +78,8 @@ class LoginView(TemplateView):
                 httponly=True,
             )
             return response
-
-        return HttpResponse("Erreur de connexion")
+        
+        # renvoie sur la page de login si l'utilisateur n'est pas trouvé avec le message d'erreur
+        context = self.get_context_data()
+        context["error"] = "Identifiant incorrect"
+        return self.render_to_response(context)
