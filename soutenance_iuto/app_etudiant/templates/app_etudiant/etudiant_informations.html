@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+    <div class="infos-etudiant">
+        <h2>Informations de l'Étudiant</h2>
+        <p><strong>Nom :</strong> {{ etudiant.nom_etu }}</p>
+        <p><strong>Prénom :</strong> {{ etudiant.prenom_etu }}</p>
+        <p><strong>Numéro Étudiant :</strong> {{ etudiant.num_etu }}</p>
+        <p><strong>INE :</strong> {{ etudiant.ine_etu }}</p>
+        <p><strong>Civilité :</strong> {{ etudiant.civilite_etu }}</p>
+        <p><strong>Email :</strong> {{ etudiant.mail_etu }}</p>
+            <strong>Status :</strong>
+            {% if etudiant.alternant %}
+                <span class="badge alternant">Alternant</span>
+            {% else %}
+                <span class="badge">Non Alternant</span>
+            {% endif %}
+        </p>
+    </div>
+</html>
+{% endblock %}

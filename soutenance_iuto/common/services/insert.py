@@ -97,6 +97,7 @@ class Insert:
         try:
             if id_etu == -1:
                 Etudiant.objects.create(
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     num_etu=num,
                     ine_etu=ine,
                     civilite_etu=civilite,
@@ -108,6 +109,7 @@ class Insert:
             else:
                 Etudiant.objects.create(
                     id_etu=id_etu,
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     num_etu=num,
                     ine_etu=ine,
                     civilite_etu=civilite,
@@ -157,6 +159,7 @@ class Insert:
         try:
             if id_prof == -1:
                 Professeur.objects.create(
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     num_prof=num,
                     civilite_prof=civilite,
                     nom_prof=nom,
@@ -166,6 +169,7 @@ class Insert:
             else:
                 Professeur.objects.create(
                     id_prof=id_prof,
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     num_prof=num,
                     civilite_prof=civilite,
                     nom_prof=nom,
@@ -213,11 +217,11 @@ class Insert:
         try:
             if id_sec == -1:
                 Secretaire.objects.create(
-                    nom_sec=nom, prenom_sec=prenom, mail_sec=mail
+                    id_connection=f'{prenom.lower()}.{nom.lower()}', nom_sec=nom, prenom_sec=prenom, mail_sec=mail
                 ).save()
             else:
                 Secretaire.objects.create(
-                    id_sec=id_sec, nom_sec=nom, prenom_sec=prenom, mail_sec=mail
+                    id_sec=id_sec, id_connection=f'{prenom.lower()}.{nom.lower()}', nom_sec=nom, prenom_sec=prenom, mail_sec=mail
                 ).save()
             return True
         except Exception as e:
@@ -329,6 +333,7 @@ class Insert:
         try:
             if id_tut_pro == -1:
                 TuteurPro.objects.create(
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     civilite_tut_pro=civilite,
                     nom_tut_pro=nom,
                     prenom_tut_pro=prenom,
@@ -340,6 +345,7 @@ class Insert:
             else:
                 TuteurPro.objects.create(
                     id_tut_pro=id_tut_pro,
+                    id_connection=f'{prenom.lower()}.{nom.lower()}',
                     civilite_tut_pro=civilite,
                     nom_tut_pro=nom,
                     prenom_tut_pro=prenom,
