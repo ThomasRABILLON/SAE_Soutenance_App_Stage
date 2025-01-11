@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    Bienvenue
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron mt-4 bg-light shadow-sm rounded">
+        <h1 class="display-4">Bienvenue</h1>
+        <p class="lead">{{ user.prenom_sec }} {{ user.nom_sec }}</p>
+    </div>
+{% endblock %}

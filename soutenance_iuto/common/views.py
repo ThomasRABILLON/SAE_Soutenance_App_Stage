@@ -14,8 +14,15 @@ class BaseView(TemplateView):
         # ExternalDataInserter.stagiaires_from_csv('../data_test/stagiaire/tableur stages 2023 2024 extraction AREXIS.xls - Extraction.csv')
         context = super(BaseView, self).get_context_data(**kwargs)
         context["title"] = "IUT Orleans"
+        
+        user_data = self.request.COOKIES.get("user_data")
+        if user_data is None:
+            context["menu_items"] = [
+                {"url": "login_common", "label": "Se connecter"},
+            ]
+            return context
         context["menu_items"] = [
-            {"url": "login_common", "label": "Se connecter"},
+            {"url": "logout_common", "label": "Se déconnecter"},
         ]
         return context
 
@@ -83,3 +90,9 @@ class LoginView(TemplateView):
         context = self.get_context_data()
         context["error"] = "Identifiant incorrect"
         return self.render_to_response(context)
+
+class LogoutView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        response = redirect("home_common")
+        response.delete_cookie("user_data")
+        return response
