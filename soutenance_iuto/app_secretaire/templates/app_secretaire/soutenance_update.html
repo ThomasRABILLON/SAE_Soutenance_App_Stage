@@ -1,0 +1,33 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+  <h1>Création d'une nouvelle soutenance</h1>
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endif %}
+  <form method="post" action="{% url 'soutenance_update_secretaire' id_sout=soutenance.id_sout %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" name="date" value="{{ soutenance.horaire.dt_date.isoformat }}" required>
+    </div>
+    <div class="form-group">
+      <label for="heure">Heure</label>
+      <input type="time" class="form-control" id="heure" name="heure" value="{{ soutenance.horaire.heure }}" required>
+    </div>
+    <div class="form-group mb-4">
+      <label for="salle">Salle</label>
+      <select class="form-control" id="salle" name="salle" required>
+        <option value="{{ soutenance.salle.id_salle }}" selected>{{ soutenance.salle.nom_salle }}</option>
+        {% for salle in salles %}
+            {% if salle.id_salle != soutenance.salle.id_salle %}
+                <option value="{{ salle.id_salle }}">{{ salle.nom_salle }}</option>
+            {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Modifier</button>
+  </form>
+{% endblock %}

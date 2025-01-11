@@ -28,23 +28,25 @@
                 {% endfor %}
             </td>
             <td>{{ soutenance.stg_alt.tuteur_univ.nom_prof }} {{ soutenance.stg_alt.tuteur_univ.prenom_prof }}</td>
-            <td>{{ soutenance.prof_candide.nom_prof }} {{ soutenance.prof_candide.prenom_prof }}</td>
+            <td>
+                {% if soutenance.prof_candide %}
+                {{ soutenance.prof_candide.nom_prof }} {{ soutenance.prof_candide.prenom_prof }}
+                {% else %}
+                Aucun
+                {% endif %}
+            </td>
             <td>{{ soutenance.horaire.dt_date }}</td>
             <td>{{ soutenance.horaire.heure }}</td>
             <td>{{ soutenance.salle.nom_salle }}</td>
             <td>{{ soutenance.stg_alt.entreprise.nom_etp }}</td>
             <td>{{ soutenance.stg_alt.tuteur_pro.civilite_tut_pro }} {{ soutenance.stg_alt.tuteur_pro.nom_tut_pro }}</td>
             <td>
-                {% comment %} <a href="{% url 'app_secretaire:soutenance_detail' soutenance.id %}" class="btn btn-primary">Détails</a>
-                <a href="{% url 'app_secretaire:soutenance_update' soutenance.id %}" class="btn btn-warning">Modifier</a>
-                <a href="{% url 'app_secretaire:soutenance_delete' soutenance.id %}" class="btn btn-danger">Supprimer</a> {% endcomment %}
-                <a href="" class="btn btn-primary">Détails</a>
-                <a href="" class="btn btn-warning">Modifier</a>
-                <a href="" class="btn btn-danger">Supprimer</a>
+                <a href="{% url 'soutenance_update_secretaire' id_sout=soutenance.id_sout %}" class="btn btn-warning">Modifier</a>
+                <a href="{% url 'soutenance_delete_secretaire' id_sout=soutenance.id_sout %}" class="btn btn-danger">Supprimer</a>
             </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="" class="btn btn-success">Ajouter une soutenance</a>
+    <a href="{% url 'soutenance_create_secretaire' %}" class="btn btn-success">Ajouter une soutenance</a>
 {% endblock %}

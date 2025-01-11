@@ -127,11 +127,11 @@ class GetById:
     
     @staticmethod
     def get_soutenance_by_id(id: int) -> Soutenance:
-        return Soutenance.objects.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').get(id)
+        return Soutenance.objects.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').get(id_sout=id)
     
     @staticmethod
     def get_stage_alt_by_id(id: int) -> StageAlt:
-        return StageAlt.objects.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').get(id)
+        return StageAlt.objects.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').get(id_stg_alt=id)
     
     @staticmethod
     def get_tuteur_pro_by_id(id: int) -> TuteurPro:
@@ -233,3 +233,15 @@ class Get:
     @staticmethod
     def get_tuteur_pro_by_id_connection(id_connection: str) -> TuteurPro:
         return TuteurPro.objects.filter(id_connection=id_connection).first()
+    
+    @staticmethod
+    def get_horaire_by_date_heure(date: str, heure: str) -> DateHoraire:
+        return DateHoraire.objects.filter(dt_date=date, heure=heure).first()
+    
+    @staticmethod
+    def get_last_id_date_horaire() -> int:
+        return DateHoraire.objects.last().id_date_horaire if DateHoraire.objects.last() else 0
+    
+    @staticmethod
+    def get_last_id_soutenance() -> int:
+        return Soutenance.objects.last().id_sout if Soutenance.objects.last() else 0
