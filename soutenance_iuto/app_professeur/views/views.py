@@ -1,8 +1,7 @@
-from django.shortcuts import redirect, render
-from common.services.get import GetById
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
-from common.views import LoginView
+from common.services.get import GetById
 
 def get_user(cookie):
     id_user = cookie.split(":")[0]
@@ -18,20 +17,32 @@ def get_user(cookie):
     else:
         return redirect("login_common")
 
+def redirect_user(cookie):
+    if cookie is None:
+        return redirect("login_common")
+    type_user = cookie.split(":")[1]
+    if type_user == "etudiant":
+        return redirect("etudiant_home")
+    elif type_user == "secretaire":
+        return redirect("secretaire_home")
+    elif type_user == "tuteur_pro":
+        return redirect("tuteur_pro_home")
+    
+SIDE_BAR_ITEMS = [
+    {"url": "professeur_home", "label": "Accueil"},
+]
+
 class HomeView(TemplateView):
     template_name = "app_professeur/home.html"
-    
+
     def get_context_data(self, **kwargs):
-        context = super(LoginView, self).get_context_data(**kwargs)
-        context["menu_items"] = [
-            {"url": "professeur_home", "label": "Accueil"},
-        ]
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context["menu_items"] = SIDE_BAR_ITEMS
+        context["user"] = get_user(self.request.COOKIES.get("user_data"))
         return context
-    
+
     def get(self, request, *args, **kwargs):
-        cookie = request.COOKIES.get("user_data")
-        if cookie is not None:
-            user = get_user(cookie)
-            if user is not None:
-                return render(request, self.template_name, {"user": user})
-        return redirect("login_common")
+        response = redirect_user(self.request.COOKIES.get("user_data"))
+        if response is not None:
+            return response
+        return super(HomeView, self).get(request, *args, **kwargs)
