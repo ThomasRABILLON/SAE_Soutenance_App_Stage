@@ -213,3 +213,11 @@ class Get:
     @staticmethod
     def get_stg_alt_last_id() -> int:
         return StageAlt.objects.last().id_stg_alt if StageAlt.objects.last() else 0
+    
+    @staticmethod
+    def get_etudiant_by_tuteur_pro_id(id: int) -> list:
+        stg_alt = StageAlt.objects.filter(tuteur_pro=GetById.get_tuteur_pro_by_id(id)).all()
+        list_etu = []
+        for stg in stg_alt:
+            list_etu.append(stg.etudiant)
+        return list_etu
