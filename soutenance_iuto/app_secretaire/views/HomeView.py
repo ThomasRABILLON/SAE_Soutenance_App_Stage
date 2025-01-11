@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from app_secretaire.utils.get_user import get_user
+from app_secretaire.utils.user_management import get_user, redirect_user
 
 class HomeView(TemplateView):
     template_name = 'app_secretaire/home.html'
@@ -15,3 +15,9 @@ class HomeView(TemplateView):
             # {"url": "login_common", "label": "Se connecter"},
         ]
         return context
+    
+    def get(self, request, *args, **kwargs):
+        response = redirect_user(self.request.COOKIES.get("user_data"))
+        if response is not None:
+            return response
+        return super(HomeView, self).get(request, *args, **kwargs)
