@@ -5,6 +5,7 @@ class Secretaire(models.Model):
         verbose_name = "Secretaire"
     
     id_sec = models.AutoField(primary_key=True, default=0)
+    id_connection = models.CharField(max_length=255, blank=True, null=True)
     nom_sec = models.CharField(max_length=255, blank=True, null=True)
     prenom_sec = models.CharField(max_length=255, blank=True, null=True)
     mail_sec = models.EmailField(max_length=255, blank=True, null=True)

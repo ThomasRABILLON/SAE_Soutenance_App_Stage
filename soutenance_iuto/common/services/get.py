@@ -213,3 +213,23 @@ class Get:
     @staticmethod
     def get_stg_alt_last_id() -> int:
         return StageAlt.objects.last().id_stg_alt if StageAlt.objects.last() else 0
+    
+    @staticmethod 
+    def get_secretaire_by_nom_prenom(nom: str, prenom: str) -> Secretaire:
+        return Secretaire.objects.filter(nom_sec=nom, prenom_sec=prenom).first()
+    
+    @staticmethod
+    def get_etudiant_by_id_connection(id_connection: str) -> Etudiant:
+        return Etudiant.objects.filter(id_connection=id_connection).first()
+    
+    @staticmethod
+    def get_professeur_by_id_connection(id_connection: str) -> Professeur:
+        return Professeur.objects.filter(id_connection=id_connection).first()
+    
+    @staticmethod
+    def get_secretaire_by_id_connection(id_connection: str) -> Secretaire:
+        return Secretaire.objects.filter(id_connection=id_connection).first()
+    
+    @staticmethod
+    def get_tuteur_pro_by_id_connection(id_connection: str) -> TuteurPro:
+        return TuteurPro.objects.filter(id_connection=id_connection).first()

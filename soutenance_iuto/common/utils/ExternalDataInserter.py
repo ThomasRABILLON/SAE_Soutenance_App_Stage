@@ -18,7 +18,8 @@ class ExternalDataInserter:
         alternants_df.rename(columns={'Unnamed: 0': 'PROMOTION', 'Unnamed: 6': 'VILLE_ENTREPRISE', 'Unnamed: 8': 'NOM_MA'}, inplace=True)
         
         for _, row in alternants_df.iterrows():
-            Insert.insert_etudiant(str(row['NOM']).strip(), str(row['PRENOM']).strip(), True, id_etu=Get.get_etudiant_last_id() + 1)
+            if Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip(), str(row['PRENOM']).strip()) is None:
+                Insert.insert_etudiant(str(row['NOM']).strip(), str(row['PRENOM']).strip(), True, id_etu=Get.get_etudiant_last_id() + 1)
             
             if Get.get_promotion_by_annee_filiere(2024, str(row['PROMOTION']).strip()) is None:
                 Insert.insert_promotion(2024, str(row['PROMOTION']).strip(), id_promo=Get.get_promotion_last_id() + 1)
@@ -46,7 +47,8 @@ class ExternalDataInserter:
         alternants_df.rename(columns={'Unnamed: 0': 'PROMOTION', 'Unnamed: 6': 'VILLE_ENTREPRISE', 'Unnamed: 8': 'NOM_MA'}, inplace=True)
         
         for _, row in alternants_df.iterrows():
-            Insert.insert_etudiant(str(row['NOM']).strip(), str(row['PRENOM']).strip(), True, id_etu=Get.get_etudiant_last_id() + 1)
+            if Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip(), str(row['PRENOM']).strip()) is None:
+                Insert.insert_etudiant(str(row['NOM']).strip(), str(row['PRENOM']).strip(), True, id_etu=Get.get_etudiant_last_id() + 1)
             
             if Get.get_promotion_by_annee_filiere(2024, str(row['PROMOTION']).strip()) is None:
                 Insert.insert_promotion(2024, str(row['PROMOTION']).strip(), id_promo=Get.get_promotion_last_id() + 1)
