@@ -1,0 +1,55 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    Information Étudiant
+{% endblock %}
+
+{% block contenu %}
+<div class="container">
+    <h1>Informations de l'Étudiant</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID Étudiant</th>
+            <td>{{ etudiant.id_etu }}</td>
+        </tr>
+        <tr>
+            <th>ID Connexion</th>
+            <td>{{ etudiant.id_connection }}</td>
+        </tr>
+        <tr>
+            <th>Numéro Étudiant</th>
+            <td>{{ etudiant.num_etu }}</td>
+        </tr>
+        <tr>
+            <th>INE</th>
+            <td>{{ etudiant.ine_etu }}</td>
+        </tr>
+        <tr>
+            <th>Civilité</th>
+            <td>{{ etudiant.civilite_etu }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ etudiant.nom_etu }}</td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ etudiant.prenom_etu }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ etudiant.mail_etu }}</td>
+        </tr>
+        <tr>
+            <th>Statut</th>
+            <td>
+                {% if etudiant.alternant %}
+                    <p class="badge alternant">Alternant</p>
+                {% else %}
+                    <p class="badge">Non Alternant</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
