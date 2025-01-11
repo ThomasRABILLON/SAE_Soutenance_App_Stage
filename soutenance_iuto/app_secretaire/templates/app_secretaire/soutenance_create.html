@@ -1,6 +1,7 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
   <h1>Création d'une nouvelle soutenance</h1>
   {% if error %}
     <div class="alert alert-danger" role="alert">
@@ -35,4 +36,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Créer</button>
   </form>
+</div>
 {% endblock %}

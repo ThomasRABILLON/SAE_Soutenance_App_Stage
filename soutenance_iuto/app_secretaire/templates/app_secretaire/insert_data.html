@@ -1,0 +1,32 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <h1 class="display-4">Insertion de données</h1>
+    <p class="lead">Cette page vous permet d'insérer des données dans la base de données à partir d'un fichier externe (Excel ou CSV).</p>
+    <hr class="my-4">
+    <p>Les fichiers doivent respecter plusieurs règles pour être acceptés <a class="link-opacity-50-hover" href="{% url 'file_rules_secretaire' %}">voir les règles</a>.</p>
+</div>
+
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <form method="POST" action="{% url 'insert_data_secretaire' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+        <label for="file" class="form-label">Fichier de données (formats acceptés : .xls, .xlsx, .csv)</label>
+        <input class="form-control" type="file" id="file" name="file" accept=".xls, .xlsx, .csv" required>
+        </div>
+        {% if error %}
+        <div class="alert alert-danger mt-3" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        {% if success %}
+        <div class="alert alert-success mt-3" role="alert">
+            {{ success }}
+        </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+
+</div>
+{% endblock %}

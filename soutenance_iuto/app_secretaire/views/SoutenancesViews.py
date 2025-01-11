@@ -1,15 +1,11 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView
+from django.shortcuts import redirect
 
 from app_secretaire.utils.user_management import get_user, redirect_user
 from common.services.get import GetAll, GetById, Get
 from common.services.insert import Insert
 from common.services.update import Update
-
-from app_secretaire.forms import SoutenanceForm
-from common.models.Soutenance import Soutenance
-from django.forms.models import BaseModelForm
-from django.http import HttpResponse
-from django.shortcuts import redirect
+from app_secretaire.constants import URL_LIST
 
 class SoutenancesListView(TemplateView):
     template_name = 'app_secretaire/soutenances.html'
@@ -25,9 +21,7 @@ class SoutenancesListView(TemplateView):
         context["soutenances"] = soutenances
         context["est_dans_promotion"] = est_dans_promotion
         context["GetById"] = GetById
-        context["menu_items"] = [
-            # {"url": "login_common", "label": "Se connecter"},
-        ]
+        context["menu_items"] = URL_LIST
         return context
     
     def get(self, request, *args, **kwargs):
@@ -47,9 +41,7 @@ class SoutenanceCreateView(TemplateView):
         context["user"] = user
         context["etudiants"] = GetAll.get_all_etudiant()
         context["salles"] = GetAll.get_all_salle()
-        context["menu_items"] = [
-            # {"url": "login_common", "label": "Se connecter"},
-        ]
+        context["menu_items"] = URL_LIST
         return context
     
     def get(self, request, *args, **kwargs):
@@ -102,9 +94,7 @@ class SoutenanceUpdateView(TemplateView):
         context["user"] = user
         context["soutenance"] = soutenance
         context["salles"] = GetAll.get_all_salle()
-        context["menu_items"] = [
-            # {"url": "login_common", "label": "Se connecter"},
-        ]
+        context["menu_items"] = URL_LIST
         return context
     
     def get(self, request, *args, **kwargs):
