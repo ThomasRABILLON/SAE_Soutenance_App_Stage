@@ -15,12 +15,23 @@ class SoutenancesListView(TemplateView):
         soutenances = GetAll.get_all_soutenance()
         est_dans_promotion = GetAll.get_all_est_dans_promotion()
         
+        page = 1
+        nb_pages = len(soutenances) // 7 + 1
+        if kwargs.get("page") is not None:
+            page = kwargs.get("page")
+        soutenances = soutenances[(page - 1) * 7:page * 7]
+        
         context = super(SoutenancesListView, self).get_context_data(**kwargs)
         context["title"] = "IUT Orleans"
         context["user"] = user
         context["soutenances"] = soutenances
         context["est_dans_promotion"] = est_dans_promotion
         context["GetById"] = GetById
+        context["page"] = page
+        context["nb_pages"] = nb_pages
+        context["range"] = range(1, nb_pages + 1)
+        context["previous_page"] = page - 1
+        context["next_page"] = page + 1
         context["menu_items"] = URL_LIST
         return context
     
