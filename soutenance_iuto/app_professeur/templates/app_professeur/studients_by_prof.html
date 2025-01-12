@@ -1,0 +1,40 @@
+{% extends 'common/base.html' %}
+{% block content %}
+  <div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <h1 class="display-4">Bienvenue</h1>
+    <p class="lead">{{ user.prenom_prof }} {{ user.nom_prof }}</p>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Mes étudiants</h4>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Mail</th>
+                <th>Numéro</th>
+                <th>Civilité</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for etudiant in etudiants %}
+                <tr>
+                  <td>{{ etudiant.nom_etudiant }}</td>
+                  <td>{{ etudiant.prenom_etudiant }}</td>
+                  <td>{{ etudiant.mail_etudiant }}</td>
+                  <td>{{ etudiant.num_etudiant }}</td>
+                  <td>{{ etudiant.civilite_etudiant }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
