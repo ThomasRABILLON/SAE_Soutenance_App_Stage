@@ -311,3 +311,11 @@ class Get:
             if soutenance.horaire.id_date_horaire == id_date_horaire:
                 return False
         return True
+    
+    @staticmethod
+    def get_soutenance_by_etudiant_id(id: int) -> list:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.etudiant.id_etu == id:
+                list_soutenance.append(soutenance)
+        return list_soutenance
