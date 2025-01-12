@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
 from common.services.get import GetById, Get, GetAll
+from common.services.update import Update
 
 def get_user(cookie):
     id_user = cookie.split(":")[0]
@@ -100,6 +101,29 @@ class SoutenancesByProfView(TemplateView):
         if response is not None:
             return response
         return super(SoutenancesByProfView, self).get(request, *args, **kwargs)
+
+class InscriptionSoutenanceView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        id_sout = kwargs.get("id_sout")
+        
+        if id_sout is not None:
+            sout = GetById.get_soutenance_by_id(id_sout)
+            if sout is not None:
+                sout.prof_candide = user
+                Update.update_soutenance(sout)
+        return redirect("professeur_soutenances")
+    
+class DesinscriptionSoutenanceView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        id_sout = kwargs.get("id_sout")
+        
+        if id_sout is not None:
+            sout = GetById.get_soutenance_by_id(id_sout)
+            if sout is not None:
+                sout.prof_candide = None
+                Update.update_soutenance(sout)
+        return redirect("professeur_soutenances")
 
 class SoutenancesWithoutCandidesView(TemplateView):
     template_name = "app_professeur/soutenances.html"
