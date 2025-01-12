@@ -12,4 +12,8 @@ urlpatterns = [
     path("inscription_soutenance/<int:id_sout>", views.InscriptionSoutenanceView.as_view(), name="professeur_inscription_soutenance"),
     path("desinscription_soutenance/<int:id_sout>", views.DesinscriptionSoutenanceView.as_view(), name="professeur_desinscription_soutenance"),
     path("etudiants/", views.StudientsByProfView.as_view(), name="prof_etudiants"),
+    path("stages/", views.StageListView.as_view(), name="stages"),
+    path("stages/<int:page>", views.StageListView.as_view(), name="stage"),
+    path("stage_inscritption/<int:id_stage>", views.InscriptionStageView.as_view(), name="stage_inscription"),
+    path("stage_desinscription/<int:id_stage>", views.DesinscriptionStageView.as_view(), name="stage_desinscription"),
 ]

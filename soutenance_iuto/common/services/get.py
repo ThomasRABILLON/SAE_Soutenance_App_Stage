@@ -319,3 +319,15 @@ class Get:
             if soutenance.stg_alt.etudiant.id_etu == id:
                 list_soutenance.append(soutenance)
         return list_soutenance
+    
+    @staticmethod
+    def get_stage_wout_tuteur_pro() -> list:
+        list_stage = []
+        for stage in GetAll.get_all_stage_alt():
+            if stage.tuteur_univ is None:
+                list_stage.append(stage)
+        return list_stage
+    
+    @staticmethod
+    def get_inscritpion_suivi_by_prof_id_stage_id(id_prof: int, id_stage: int) -> InscriptionSuivi:
+        return InscriptionSuivi.objects.filter(prof=GetById.get_professeur_by_id(id_prof), stg_alt=GetById.get_stage_alt_by_id(id_stage)).first()
