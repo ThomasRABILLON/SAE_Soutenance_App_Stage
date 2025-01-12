@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 
 from app_secretaire.utils.user_management import get_user, redirect_user
+from app_secretaire.constants import URL_LIST
 
 class HomeView(TemplateView):
     template_name = 'app_secretaire/home.html'
@@ -11,9 +12,7 @@ class HomeView(TemplateView):
         context = super(HomeView, self).get_context_data(**kwargs)
         context["title"] = "IUT Orleans"
         context["user"] = user
-        context["menu_items"] = [
-            # {"url": "login_common", "label": "Se connecter"},
-        ]
+        context["menu_items"] = URL_LIST
         return context
     
     def get(self, request, *args, **kwargs):

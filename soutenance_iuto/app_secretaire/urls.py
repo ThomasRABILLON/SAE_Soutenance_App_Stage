@@ -2,6 +2,7 @@ from django.urls import path
 
 from app_secretaire.views.HomeView import HomeView
 from app_secretaire.views.SoutenancesViews import SoutenancesListView, SoutenanceCreateView, SoutenanceDeleteView, SoutenanceUpdateView
+from app_secretaire.views.InsertDataView import InsertDataView, FileRulesView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home_secretaire"),
@@ -10,4 +11,6 @@ urlpatterns = [
     path('soutenances/create/', SoutenanceCreateView.as_view(), name="soutenance_create_secretaire"),
     path('soutenances/<int:id_sout>/delete/', SoutenanceDeleteView.as_view(), name="soutenance_delete_secretaire"),
     path('soutenances/<int:id_sout>/update/', SoutenanceUpdateView.as_view(), name="soutenance_update_secretaire"),
+    path('insertion_fichier_externe/', InsertDataView.as_view(), name="insert_data_secretaire"),
+    path('insertion_fichier_externe/regles/', FileRulesView.as_view(), name="file_rules_secretaire"),
 ]

@@ -1,0 +1,57 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <h1 class="display-4">Règles pour les fichiers de données</h1>
+    <p class="lead">Les fichiers de données doivent respecter les règles suivantes pour être acceptés.</p>
+    <hr class="my-4">
+    <p>Les fichiers d'insertion des alternants et des stagiaires doivent comporter les champs suivants :</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Alternant</th>
+                <th>Stagiaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li>PROMOTION</li>
+                        <li>NOM</li>
+                        <li>PRENOM</li>
+                        <li>TUTEUR</li>
+                        <li>ENTREPRISE</li>
+                        <li>CP</li>
+                        <li>VILLE_ENTREPRISE</li>
+                        <li>NOM MA</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>civilite_stagiaire</li>
+                        <li>nom_stagiaire</li>
+                        <li>prenom_stagaire</li>
+                        <li>ine</li>
+                        <li>titre_stage</li>
+                        <li>theme_stage</li>
+                        <li>intitule_env_stage</li>
+                        <li>dtdeb_stage</li>
+                        <li>dtfin_stage</li>
+                        <li>duree</li>
+                        <li>service_adm_nom_service</li>
+                        <li>service_adm_cp_service</li>
+                        <li>service_adm_ville_service</li>
+                        <li>civilite_employe_tut</li>
+                        <li>nom_employe_tut</li>
+                        <li>prenom_employe_tut</li>
+                        <li>tel_employe_tut</li>
+                        <li>gsm_employe_tut</li>
+                        <li>mail_employe_tut</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>      
+</div>
+{% endblock %}

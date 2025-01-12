@@ -76,8 +76,7 @@ class LoginView(TemplateView):
 
         user = Get.get_secretaire_by_id_connection(id_connection)
         if user is not None:
-            # response = redirect('secretaire_home')
-            response = redirect("home_common")
+            response = redirect('home_secretaire')
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_sec}:secretaire",
