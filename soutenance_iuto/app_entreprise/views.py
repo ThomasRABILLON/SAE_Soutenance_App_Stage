@@ -76,7 +76,7 @@ class InfoEtudiantView(TemplateView):
         else:
             context['etudiant'] = None  # Si aucun étudiant n'est trouvé, le contexte est vide
             
-        context['titre'] = "Informations Étudiant"
+        context['titre'] = "Informations étudiant"
         context["menu_items"] = urls_sidebar
         return context
 
