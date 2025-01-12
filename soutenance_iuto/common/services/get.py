@@ -250,6 +250,39 @@ class Get:
     def get_tuteur_pro_by_id_connection(id_connection: str) -> TuteurPro:
         return TuteurPro.objects.filter(id_connection=id_connection).first()
 
+    @staticmethod
+    def get_all_soutenance_prof(id_prof: int) -> list:
+        list_sout = []
+        for sout in GetAll.get_all_soutenance():
+            if sout.prof_candide is not None and sout.prof_candide.id_prof == id_prof:
+                list_sout.append(sout)
+            elif sout.stg_alt.tuteur_univ.id_prof == id_prof:
+                list_sout.append(sout)
+        return list_sout
+
+    @staticmethod
+    def get_all_soutenance_without_candide() -> list:
+        list_sout = []
+        for sout in GetAll.get_all_soutenance():
+            if sout.prof_candide is None:
+                list_sout.append(sout)
+        return list_sout
+    
+    @staticmethod
+    def get_all_studients_by_tuteur_univ(id_prof: int) -> list:
+        list_stg = []
+        for stg in GetAll.get_all_stage_alt():
+            if stg.tuteur_univ is not None and stg.tuteur_univ.id_prof == id_prof:
+                list_stg.append(stg)
+        return list_stg
+    
+    @staticmethod
+    def get_all_candide_by_soutenance(id_sout: int) -> list:
+        list_cand = []
+        for ins in GetAll.get_all_inscription_soutenance():
+            if ins.soutenance is not None and ins.soutnance.id == id_sout:
+                list_cand.append(ins.prof)
+        return list_cand
     
     @staticmethod
     def get_horaire_by_date_heure(date: str, heure: str) -> DateHoraire:
