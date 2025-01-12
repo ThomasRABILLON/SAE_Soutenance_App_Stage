@@ -127,11 +127,11 @@ class GetById:
     
     @staticmethod
     def get_soutenance_by_id(id: int) -> Soutenance:
-        return Soutenance.objects.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').get(id)
+        return Soutenance.objects.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').get(id_sout=id)
     
     @staticmethod
     def get_stage_alt_by_id(id: int) -> StageAlt:
-        return StageAlt.objects.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').get(id)
+        return StageAlt.objects.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').get(id_stg_alt=id)
     
     @staticmethod
     def get_tuteur_pro_by_id(id: int) -> TuteurPro:
@@ -222,6 +222,14 @@ class Get:
             list_etu.append(stg.etudiant)
         return list_etu
     
+    @staticmethod
+    def get_soutenance_by_tuteur_pro_id(id: int) -> list:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if( soutenance.stg_alt.tuteur_pro.id_tut_pro == id):
+                list_soutenance.append(soutenance)
+        return list_soutenance
+    
     @staticmethod 
     def get_secretaire_by_nom_prenom(nom: str, prenom: str) -> Secretaire:
         return Secretaire.objects.filter(nom_sec=nom, prenom_sec=prenom).first()
@@ -275,3 +283,15 @@ class Get:
             if ins.soutenance is not None and ins.soutnance.id == id_sout:
                 list_cand.append(ins.prof)
         return list_cand
+    
+    @staticmethod
+    def get_horaire_by_date_heure(date: str, heure: str) -> DateHoraire:
+        return DateHoraire.objects.filter(dt_date=date, heure=heure).first()
+    
+    @staticmethod
+    def get_last_id_date_horaire() -> int:
+        return DateHoraire.objects.last().id_date_horaire if DateHoraire.objects.last() else 0
+    
+    @staticmethod
+    def get_last_id_soutenance() -> int:
+        return Soutenance.objects.last().id_sout if Soutenance.objects.last() else 0

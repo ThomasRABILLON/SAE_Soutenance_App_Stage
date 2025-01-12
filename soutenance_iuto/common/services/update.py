@@ -14,98 +14,112 @@ from common.models.StageAlt import StageAlt
 from common.models.TuteurPro import TuteurPro
 
 class Update:
-    def update_date_horaire(self, date_horaire: DateHoraire) -> bool:
+    @staticmethod
+    def update_date_horaire(date_horaire: DateHoraire) -> bool:
         try:
             date_horaire.save()
             return True
         except:
             return False
     
-    def update_entreprise(self, entreprise: Entreprise) -> bool:
+    @staticmethod
+    def update_entreprise(entreprise: Entreprise) -> bool:
         try:
             entreprise.save()
             return True
         except:
             return False
     
-    def update_est_dans_promotion(self, est_dans_promotion: EstDansPromotion) -> bool:
+    @staticmethod
+    def update_est_dans_promotion(est_dans_promotion: EstDansPromotion) -> bool:
         try:
             est_dans_promotion.save()
             return True
         except:
             return False
     
-    def update_est_responsable(self, est_responsable: EstResponsable) -> bool:
+    @staticmethod
+    def update_est_responsable(est_responsable: EstResponsable) -> bool:
         try:
             est_responsable.save()
             return True
         except:
             return False
     
-    def update_etudiant(self, etudiant: Etudiant) -> bool:
+    @staticmethod
+    def update_etudiant(etudiant: Etudiant) -> bool:
         try:
             etudiant.save()
             return True
         except:
             return False
     
-    def update_inscription_soutenance(self, inscription_soutenance: InscriptionSoutenance) -> bool:
+    @staticmethod
+    def update_inscription_soutenance(inscription_soutenance: InscriptionSoutenance) -> bool:
         try:
             inscription_soutenance.save()
             return True
         except:
             return False
     
-    def update_inscription_suivi(self, inscription_suivi: InscriptionSuivi) -> bool:
+    @staticmethod
+    def update_inscription_suivi(inscription_suivi: InscriptionSuivi) -> bool:
         try:
             inscription_suivi.save()
             return True
         except:
             return False
     
-    def update_professeur(self, professeur: Professeur) -> bool:
+    @staticmethod
+    def update_professeur(professeur: Professeur) -> bool:
         try:
             professeur.save()
             return True
         except:
             return False
     
-    def update_promotion(self, promotion: Promotion) -> bool:
+    @staticmethod
+    def update_promotion(promotion: Promotion) -> bool:
         try:
             promotion.save()
             return True
         except:
             return False
     
-    def update_salle(self, salle: Salle) -> bool:
+    @staticmethod
+    def update_salle(salle: Salle) -> bool:
         try:
             salle.save()
             return True
         except:
             return False
     
-    def update_secretaire(self, secretaire: Secretaire) -> bool:
+    @staticmethod
+    def update_secretaire(secretaire: Secretaire) -> bool:
         try:
             secretaire.save()
             return True
         except:
             return False
     
-    def update_soutenance(self, soutenance: Soutenance) -> bool:
+    @staticmethod
+    def update_soutenance(soutenance: Soutenance) -> bool:
         try:
             soutenance.save()
             return True
         except:
             return False
     
-    def update_stage_alt(self, stage_alt: StageAlt) -> bool:
+    @staticmethod
+    def update_stage_alt(stage_alt: StageAlt) -> bool:
         try:
             stage_alt.save()
             return True
         except:
             return False
     
-    def update_tuteur_pro(self, tuteur_pro: TuteurPro) -> bool:
+    @staticmethod
+    def update_tuteur_pro(tuteur_pro: TuteurPro) -> bool:
         try:
             tuteur_pro.save()
             return True

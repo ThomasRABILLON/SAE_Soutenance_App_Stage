@@ -24,20 +24,18 @@
     align-items: center;
 }
 
+.left-column {
+    width: 40%; 
+    margin-right: 20px;
+}
+
 .right-column {
     width: 60%; 
 }
 
-.left-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    margin-right: 20px;
-}
-
 .left-column img.etudiant-photo {
-    width: 10vw;
+    width: 100%;
+    height: auto;
     border-radius: 8px;
 }
 
@@ -67,7 +65,7 @@
 }
 
 .infos-etudiant .badge {
-    background-color: #37a2d8;
+    background-color: #dc3545;
 }
 
 .simple-paragraph-box {
