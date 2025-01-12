@@ -46,6 +46,19 @@
             <td>{{ soutenance.salle.nom_salle }}</td>
             <td>{{ soutenance.stg_alt.entreprise.nom_etp }}</td>
             <td>{{ soutenance.stg_alt.tuteur_pro.civilite_tut_pro }} {{ soutenance.stg_alt.tuteur_pro.nom_tut_pro }}</td>
+            {% if url == "professeur_soutenances_without_candides" %}
+                <td>
+                    <a href="{% url 'professeur_inscription_soutenance' id_sout=soutenance.id_sout %}" class="btn btn-primary">S'inscrire</a>
+                </td>
+            {% else %}
+                {% if soutenance.prof_candide == user %}
+                    <td>
+                        <a href="{% url 'professeur_desinscription_soutenance' id_sout=soutenance.id_sout %}" class="btn btn-warning">Se désinscrire</a>
+                    </td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            {% endif %}
             </tr>
         {% endfor %}
         </tbody>
