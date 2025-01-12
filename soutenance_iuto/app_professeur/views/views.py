@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
-from common.services.get import GetById, Get
+from common.services.get import GetById, Get, GetAll
 
 def get_user(cookie):
     id_user = cookie.split(":")[0]
@@ -31,9 +31,9 @@ def redirect_user(cookie):
 SIDE_BAR_ITEMS = [
     {"url": "professeur_home", "label": "Accueil"},
     {"url": "professeur_profile", "label": "Profil"},
+    {"url": "prof_etudiants", "label": "Mes étudiants"},
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
     {"url": "professeur_soutenances_without_candides", "label": "Soutenances sans candides"},
-    {"url": "students_by_prof", "label": "Etudiants"},
 ]
 
 class HomeView(TemplateView):
@@ -70,10 +70,29 @@ class SoutenancesByProfView(TemplateView):
     template_name = "app_professeur/soutenances.html"
 
     def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        soutenances = Get.get_all_soutenance_prof(user.id_prof)
+        est_dans_promotion = GetAll.get_all_est_dans_promotion()
+        
+        page = 1
+        nb_pages = len(soutenances) // 7 + 1
+        if kwargs.get("page") is not None:
+            page = kwargs.get("page")
+        soutenances = soutenances[(page - 1) * 7:page * 7]
+        
         context = super(SoutenancesByProfView, self).get_context_data(**kwargs)
+        context["title"] = "IUT Orleans"
+        context["user"] = user
+        context["soutenances"] = soutenances
+        context["est_dans_promotion"] = est_dans_promotion
+        context["GetById"] = GetById
+        context["page"] = page
+        context["nb_pages"] = nb_pages
+        context["range"] = range(1, nb_pages + 1)
+        context["previous_page"] = page - 1
+        context["next_page"] = page + 1
+        context["url"] = "professeur_soutenances"
         context["menu_items"] = SIDE_BAR_ITEMS
-        context["user"] = get_user(self.request.COOKIES.get("user_data"))
-        context["soutenances"] = Get.get_all_soutenance_prof(context["user"].id_prof)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -86,11 +105,36 @@ class SoutenancesWithoutCandidesView(TemplateView):
     template_name = "app_professeur/soutenances.html"
 
     def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        soutenances = Get.get_all_soutenance_without_candide(user.id_prof)
+        est_dans_promotion = GetAll.get_all_est_dans_promotion()
+        
+        page = 1
+        nb_pages = len(soutenances) // 10 + 1
+        if kwargs.get("page") is not None:
+            page = kwargs.get("page")
+        soutenances = soutenances[(page - 1) * 10:page * 10]
+        
         context = super(SoutenancesWithoutCandidesView, self).get_context_data(**kwargs)
+        context["title"] = "IUT Orleans"
+        context["user"] = user
+        context["soutenances"] = soutenances
+        context["est_dans_promotion"] = est_dans_promotion
+        context["GetById"] = GetById
+        context["page"] = page
+        context["nb_pages"] = nb_pages
+        context["range"] = range(1, nb_pages + 1)
+        context["previous_page"] = page - 1
+        context["next_page"] = page + 1
+        context["url"] = "professeur_soutenances_without_candides"
         context["menu_items"] = SIDE_BAR_ITEMS
-        context["user"] = get_user(self.request.COOKIES.get("user_data"))
-        context["soutenances"] = Get.get_all_soutenance_without_candide()
         return context
+        
+        # context = super(SoutenancesWithoutCandidesView, self).get_context_data(**kwargs)
+        # context["menu_items"] = SIDE_BAR_ITEMS
+        # context["user"] = get_user(self.request.COOKIES.get("user_data"))
+        # context["soutenances"] = Get.get_all_soutenance_without_candide()
+        # return context
 
     def get(self, request, *args, **kwargs):
         response = redirect_user(self.request.COOKIES.get("user_data"))
@@ -122,7 +166,8 @@ class StudientsByProfView(TemplateView):
         context = super(StudientsByProfView, self).get_context_data(**kwargs)
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = get_user(self.request.COOKIES.get("user_data"))
-        context["students"] = Get.get_all_studients_by_tuteur_univ(context["user"].id_prof)
+        context["etudiants"] = Get.get_all_studients_by_tuteur_univ(context["user"].id_prof)
+        context["est_dans_promotion"] = GetAll.get_all_est_dans_promotion()
         return context
 
     def get(self, request, *args, **kwargs):

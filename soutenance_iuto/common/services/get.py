@@ -262,10 +262,10 @@ class Get:
         return list_sout
 
     @staticmethod
-    def get_all_soutenance_without_candide() -> list:
+    def get_all_soutenance_without_candide(id_prof: int) -> list:
         list_sout = []
         for sout in GetAll.get_all_soutenance():
-            if sout.prof_candide is None:
+            if sout.prof_candide is None and sout.stg_alt.tuteur_univ.id_prof != id_prof:
                 list_sout.append(sout)
         return list_sout
     
@@ -274,7 +274,7 @@ class Get:
         list_stg = []
         for stg in GetAll.get_all_stage_alt():
             if stg.tuteur_univ is not None and stg.tuteur_univ.id_prof == id_prof:
-                list_stg.append(stg)
+                list_stg.append(stg.etudiant)
         return list_stg
     
     @staticmethod
