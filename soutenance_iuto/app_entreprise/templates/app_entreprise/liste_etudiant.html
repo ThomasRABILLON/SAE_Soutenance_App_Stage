@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">{{ titre }}</h1>
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <h1 class="mb-4">{{ titre }}</h1>
     <div class="row gy-4">
         {% if etudiants %}
             {% for etudiant in etudiants %}
@@ -35,9 +35,7 @@
                                         <span class="badge text-dark">Stagiaire</span>
                                     {% endif %}<br>
                                 </p>
-                            </div>
-                            <div>
-                                <a href="{% url 'info_etu_entreprise' etudiant.id_etu %}" class="btn btn-info btn-sm">Détails</a>
+                                <a href="{% url 'info_etu_entreprise' etudiant.id_etu %}" class="btn btn-primary btn-sm">Détails</a>
                             </div>
                         </div>
                     </div>
