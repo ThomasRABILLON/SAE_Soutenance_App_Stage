@@ -217,6 +217,7 @@ class Get:
     @staticmethod
     def get_etudiant_by_tuteur_pro_id(id: int) -> list:
         stg_alt = StageAlt.objects.filter(tuteur_pro=GetById.get_tuteur_pro_by_id(id)).all()
+        print(stg_alt.count())
         list_etu = []
         for stg in stg_alt:
             list_etu.append(stg.etudiant)
@@ -295,3 +296,18 @@ class Get:
     @staticmethod
     def get_last_id_soutenance() -> int:
         return Soutenance.objects.last().id_sout if Soutenance.objects.last() else 0
+    
+    @staticmethod
+    def get_stg_alt_by_titre_theme_intitule_dt_debut_dt_fin_duree_entreprise_tuteur_pro_tuteur_univ_etudiant(titre: str, theme: str, intitule: str, dt_debut: str, dt_fin: str, duree: int, entreprise: Entreprise, tuteur_pro: TuteurPro, tuteur_univ: Professeur, etudiant: Etudiant) -> StageAlt:
+        return StageAlt.objects.filter(titre_stg_alt=titre, theme_stg_alt=theme, intitule_env_stg_alt=intitule, dt_date_debut_stg_alt=dt_debut, dt_date_fin_stg_alt=dt_fin, duree_stg_alt=duree, entreprise=entreprise, tuteur_pro=tuteur_pro, tuteur_univ=tuteur_univ, etudiant=etudiant).first()
+    
+    @staticmethod
+    def get_soutenance_by_salle_id(id: int) -> list:
+        return Soutenance.objects.filter(salle=GetById.get_salle_by_id(id)).all()
+    
+    @staticmethod
+    def get_salle_est_libre(id_salle: int, id_date_horaire) -> bool:
+        for soutenance in Get.get_soutenance_by_salle_id(id_salle):
+            if soutenance.horaire.id_date_horaire == id_date_horaire:
+                return False
+        return True

@@ -15,12 +15,23 @@ class SoutenancesListView(TemplateView):
         soutenances = GetAll.get_all_soutenance()
         est_dans_promotion = GetAll.get_all_est_dans_promotion()
         
+        page = 1
+        nb_pages = len(soutenances) // 7 + 1
+        if kwargs.get("page") is not None:
+            page = kwargs.get("page")
+        soutenances = soutenances[(page - 1) * 7:page * 7]
+        
         context = super(SoutenancesListView, self).get_context_data(**kwargs)
         context["title"] = "IUT Orleans"
         context["user"] = user
         context["soutenances"] = soutenances
         context["est_dans_promotion"] = est_dans_promotion
         context["GetById"] = GetById
+        context["page"] = page
+        context["nb_pages"] = nb_pages
+        context["range"] = range(1, nb_pages + 1)
+        context["previous_page"] = page - 1
+        context["next_page"] = page + 1
         context["menu_items"] = URL_LIST
         return context
     
@@ -64,11 +75,15 @@ class SoutenanceCreateView(TemplateView):
             horaire = GetById.get_date_horaire_by_id(new_id)
         salle = GetById.get_salle_by_id(int(salle))
         
-        if Insert.insert_soutenance(stg_alt.id_stg_alt, horaire.id_date_horaire, salle.id_salle, None, Get.get_last_id_soutenance() + 1):
-            return redirect("soutenances_secretaire")
-                   
+        if Get.get_salle_est_libre(salle.id_salle, horaire.id_date_horaire):
+            if Insert.insert_soutenance(stg_alt.id_stg_alt, horaire.id_date_horaire, salle.id_salle, None, Get.get_last_id_soutenance() + 1):
+                return redirect("soutenances_secretaire")
+            else:
+                context = self.get_context_data()
+                context["error"] = "Erreur lors de la création de la soutenance"
+                return self.render_to_response(context)
         context = self.get_context_data()
-        context["error"] = "Erreur lors de la création de la soutenance"
+        context["error"] = "La salle n'est pas libre à cette date et heure"
         return self.render_to_response(context)
 
 class SoutenanceDeleteView(TemplateView):
@@ -117,12 +132,18 @@ class SoutenanceUpdateView(TemplateView):
             horaire = GetById.get_date_horaire_by_id(new_id)
         salle = GetById.get_salle_by_id(int(salle))
         
-        soutenance.horaire = horaire
-        soutenance.salle = salle
         
-        if Update.update_soutenance(soutenance):
-            return redirect("soutenances_secretaire")
-                   
-        context = self.get_context_data()
-        context["error"] = "Erreur lors de la modification de la soutenance"
+        if Get.get_salle_est_libre(salle.id_salle, horaire.id_date_horaire):
+            soutenance.horaire = horaire
+            soutenance.salle = salle
+            
+            if Update.update_soutenance(soutenance):
+                return redirect("soutenances_secretaire")
+            else:
+                context = self.get_context_data(**kwargs)
+                context["error"] = "Erreur lors de la modification de la soutenance"
+                return self.render_to_response(context)
+        
+        context = self.get_context_data(**kwargs)
+        context["error"] = "La salle n'est pas libre à cette date et heure"
         return self.render_to_response(context)

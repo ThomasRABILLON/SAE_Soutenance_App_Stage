@@ -4,7 +4,7 @@ class Salle(models.Model):
     class Meta:
         verbose_name = "Salle"
 
-    id_salle = models.AutoField(primary_key=True, default=0)
+    id_salle = models.AutoField(primary_key=True)
     nom_salle = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
