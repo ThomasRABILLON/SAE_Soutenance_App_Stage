@@ -1,0 +1,18 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<div class="jumbotron bg-light shadow-sm rounded">
+    <h1 class="display-4">Détail de l'étudiant</h1>
+    <hr class="my-4">
+    <div class="row gy-1">
+        <p class="lead">Stage de {{ stage.etudiant.nom_etu }} {{ stage.etudiant.prenom_etu }}</p>
+        <p class="lead">Dans l'entreprise {{ stage.entreprise.nom_etp }} à {{ stage.entreprise.cp_etp }} ({{ stage.entreprise.ville_etp }}) {% if stage.dt_date_debut_stg_alt != None and stage.dt_date_fin_stg_alt != None %}, du {{ stage.dt_date_debut_stg_alt }} au {{ stage.dt_date_fin_stg_alt }}</p> {% endif %}
+        <p class="lead">Le tuteur de l'entreprise est : {{ stage.tuteur_pro.civilite_tut_pro }} {{ stage.tuteur_pro.nom_tut_pro }} {% if stage.tuteur_pro.mail_tut_pro != "" %}(mail: {{ stage.tuteur_pro.mail_tut_pro }}) </p> {% endif %}
+        {% if stage.titre_stg_alt != "" %}<p class="lead">Le titre du stage est : {{ stage.titre_stg_alt }}</p>{% endif %}
+        {% if stage.theme_stg_alt != "" %}<p class="lead">Le thème du stage est : {{ stage.theme_stg_alt }}</p>{% endif %}
+        {% if stage.intitule_env_stg_alt != "" %}<p class="lead">L'intitulé du stage est : {{ stage.intitule_env_stg_alt }}</p>{% endif %}
+    </div>
+    <a href="{% url 'stage_desinscription' stage.id_stg_alt %}" class="btn btn-warning">Se désinscrire</a>
+    <a href="{% url 'prof_etudiants' %}" class="btn btn-secondary">Retour</a>
+</div>
+{% endblock %}
