@@ -14,98 +14,112 @@ from common.models.StageAlt import StageAlt
 from common.models.TuteurPro import TuteurPro
 
 class Delete:
-    def delete_date_horaire(self, date_horaire: DateHoraire) -> bool:
+    @staticmethod
+    def delete_date_horaire(date_horaire: DateHoraire) -> bool:
         try:
             date_horaire.delete()
             return True
         except:
             return False
     
-    def delete_entreprise(self, entreprise: Entreprise) -> bool:
+    @staticmethod
+    def delete_entreprise(entreprise: Entreprise) -> bool:
         try:
             entreprise.delete()
             return True
         except:
             return False
     
-    def delete_est_dans_promotion(self, est_dans_promotion: EstDansPromotion) -> bool:
+    @staticmethod
+    def delete_est_dans_promotion(est_dans_promotion: EstDansPromotion) -> bool:
         try:
             est_dans_promotion.delete()
             return True
         except:
             return False
     
-    def delete_est_responsable(self, est_responsable: EstResponsable) -> bool:
+    @staticmethod
+    def delete_est_responsable(est_responsable: EstResponsable) -> bool:
         try:
             est_responsable.delete()
             return True
         except:
             return False
     
-    def delete_etudiant(self, etudiant: Etudiant) -> bool:
+    @staticmethod
+    def delete_etudiant(etudiant: Etudiant) -> bool:
         try:
             etudiant.delete()
             return True
         except:
             return False
     
-    def delete_inscription_soutenance(self, inscription_soutenance: InscriptionSoutenance) -> bool:
+    @staticmethod
+    def delete_inscription_soutenance(inscription_soutenance: InscriptionSoutenance) -> bool:
         try:
             inscription_soutenance.delete()
             return True
         except:
             return False
     
-    def delete_inscription_suivi(self, inscription_suivi: InscriptionSuivi) -> bool:
+    @staticmethod
+    def delete_inscription_suivi(inscription_suivi: InscriptionSuivi) -> bool:
         try:
             inscription_suivi.delete()
             return True
         except:
             return False
     
-    def delete_professeur(self, professeur: Professeur) -> bool:
+    @staticmethod
+    def delete_professeur(professeur: Professeur) -> bool:
         try:
             professeur.delete()
             return True
         except:
             return False
 
-    def delete_promotion(self, promotion: Promotion) -> bool:
+    @staticmethod
+    def delete_promotion(promotion: Promotion) -> bool:
         try:
             promotion.delete()
             return True
         except:
             return False
     
-    def delete_salle(self, salle: Salle) -> bool:
+    @staticmethod
+    def delete_salle(salle: Salle) -> bool:
         try:
             salle.delete()
             return True
         except:
             return False
     
-    def delete_secretaire(self, secretaire: Secretaire) -> bool:
+    @staticmethod
+    def delete_secretaire(secretaire: Secretaire) -> bool:
         try:
             secretaire.delete()
             return True
         except:
             return False
     
-    def delete_soutenance(self, soutenance: Soutenance) -> bool:
+    @staticmethod
+    def delete_soutenance(soutenance: Soutenance) -> bool:
         try:
             soutenance.delete()
             return True
         except:
             return False
     
-    def delete_stage_alt(self, stage_alt: StageAlt) -> bool:
+    @staticmethod
+    def delete_stage_alt(stage_alt: StageAlt) -> bool:
         try:
             stage_alt.delete()
             return True
         except:
             return False
     
-    def delete_tuteur_pro(self, tuteur_pro: TuteurPro) -> bool:
+    @staticmethod
+    def delete_tuteur_pro(tuteur_pro: TuteurPro) -> bool:
         try:
             tuteur_pro.delete()
             return True
