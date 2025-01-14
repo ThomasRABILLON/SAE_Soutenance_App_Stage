@@ -32,11 +32,11 @@ def redirect_user(cookie):
         return redirect("tuteur_pro_home")
     
 SIDE_BAR_ITEMS = [
-    {"url": "professeur_home", "label": "Accueil"},
+    {"url": "professeur_home", "label": "Mon espace"},
     {"url": "prof_etudiants", "label": "Mes étudiants"},
-    {"url": "stages", "label": "Les stages sans tuteur"},
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
-    {"url": "professeur_soutenances_without_candides", "label": "Soutenances sans candides"},
+    {"url": "stages", "label": "Les stages sans tuteur"},
+    {"url": "professeur_soutenances_without_candides", "label": "Les soutenances sans candides"},
 ]
 
 class HomeView(TemplateView):

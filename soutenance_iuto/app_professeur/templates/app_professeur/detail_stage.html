@@ -13,5 +13,6 @@
         {% if stage.intitule_env_stg_alt != "" %}<p class="lead">L'intitulé du stage est : {{ stage.intitule_env_stg_alt }}</p>{% endif %}
     </div>
     <a href="{% url 'stage_desinscription' stage.id_stg_alt %}" class="btn btn-warning">Se désinscrire</a>
+    <a href="{% url 'prof_etudiants' %}" class="btn btn-secondary">Retour</a>
 </div>
 {% endblock %}
