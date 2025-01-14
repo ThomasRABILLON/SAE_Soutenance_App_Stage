@@ -155,7 +155,7 @@ class Get:
         return Soutenance.objects.prefetch_related('stg_alt', 'horaire', 'salle', 'prof_candide').filter(stg_alt=GetById.get_stage_alt_by_id(id)).all()
     
     @staticmethod
-    def get_stage_alt_by_etu_id(id: int) -> list:
+    def get_stage_alt_by_etu_id(id: int) -> BaseManager[StageAlt]:
         return StageAlt.objects.prefetch_related('entreprise', 'tuteur_pro', 'tuteur_univ', 'etudiant').filter(etudiant=GetById.get_etudiant_by_id(id)).all()
     
     @staticmethod

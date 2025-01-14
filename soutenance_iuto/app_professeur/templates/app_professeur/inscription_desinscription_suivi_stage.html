@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="jumbotron mt-4 bg-light shadow-sm rounded">
-    <h1>Êtes-vous sûr de vouloir suivre ce stage ?</h1>
+    <h1>{{ question }}</h1>
     <hr class="my-4">
     <p class="lead">Stage de {{ stage.etudiant.nom_etu }} {{ stage.etudiant.prenom_etu }}</p>
     <p class="lead">Dans l'entreprise {{ stage.entreprise.nom_etp }} à {{ stage.entreprise.cp_etp }} ({{ stage.entreprise.ville_etp }}) {% if stage.dt_date_debut_stg_alt != None and stage.dt_date_fin_stg_alt != None %}, du {{ stage.dt_date_debut_stg_alt }} au {{ stage.dt_date_fin_stg_alt }}</p> {% endif %}
@@ -11,8 +11,11 @@
     {% if stage.theme_stg_alt != "" %}<p class="lead">Le thème du stage est : {{ stage.theme_stg_alt }}</p>{% endif %}
     {% if stage.intitule_env_stg_alt != "" %}<p class="lead">L'intitulé du stage est : {{ stage.intitule_env_stg_alt }}</p>{% endif %}
 
-
+    {% if is_inscription %}
     <form action="{% url 'stage_inscription' stage.id_stg_alt %}" method="post">
+    {% else %}
+    <form action="{% url 'stage_desinscription' stage.id_stg_alt %}" method="post">
+    {% endif %}
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">Confirmer</button>
         <a href="{% url 'stages' %}" class="btn btn-secondary">Annuler</a>

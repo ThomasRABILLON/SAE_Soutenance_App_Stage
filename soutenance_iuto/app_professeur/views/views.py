@@ -262,7 +262,7 @@ class StageListView(TemplateView):
         return super(StageListView, self).get(request, *args, **kwargs)
 
 class InscriptionStageView(TemplateView):
-    template_name = "app_professeur/inscription_suivi_stage.html"
+    template_name = "app_professeur/inscription_desinscription_suivi_stage.html"
     
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
@@ -271,6 +271,8 @@ class InscriptionStageView(TemplateView):
         context = super(InscriptionStageView, self).get_context_data(**kwargs)
         context["user"] = user
         context["stage"] = GetById.get_stage_alt_by_id(id_stage)
+        context["question"] = "Êtes-vous sûr de vouloir vous désinscrire de ce stage ?"
+        context["is_inscription"] = True
         context["menu_items"] = SIDE_BAR_ITEMS
         return context
     
@@ -286,12 +288,43 @@ class InscriptionStageView(TemplateView):
         return redirect("stages")
     
 class DesinscriptionStageView(TemplateView):
-    def get(self, request, *args, **kwargs):
+    template_name = "app_professeur/inscription_desinscription_suivi_stage.html"
+    
+    def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        id_stage = kwargs.get("id_stage")
+        
+        context = super(DesinscriptionStageView, self).get_context_data(**kwargs)
+        context["user"] = user
+        context["stage"] = GetById.get_stage_alt_by_id(id_stage)
+        context["question"] = "Êtes-vous sûr de vouloir vous désinscrire de ce stage ?"
+        context["is_inscription"] = False
+        context["menu_items"] = SIDE_BAR_ITEMS
+        return context
+    
+    def post(self, request, *args, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_stage = kwargs.get("id_stage")
         
         if id_stage is not None:
-            inscription = Get.get_inscritpion_suivi_by_prof_id_stage_id(user.id_prof, id_stage)
-            if inscription is not None:
-                Delete.delete_inscription_suivi(inscription)
+            stage = GetById.get_stage_alt_by_id(id_stage)
+            if stage is not None:
+                stage.tuteur_univ = None
+                Update.update_stage_alt(stage)
         return redirect("stages")
+    
+class StageDetailsView(TemplateView):
+    template_name = "app_professeur/detail_stage.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(StageDetailsView, self).get_context_data(**kwargs)
+        context["menu_items"] = SIDE_BAR_ITEMS
+        context["user"] = get_user(self.request.COOKIES.get("user_data"))
+        context["stage"] = Get.get_stage_alt_by_etu_id(kwargs.get("id_etu")).first()
+        return context
+
+    def get(self, request, *args, **kwargs):
+        response = redirect_user(self.request.COOKIES.get("user_data"))
+        if response is not None:
+            return response
+        return super(StageDetailsView, self).get(request, *args, **kwargs)
