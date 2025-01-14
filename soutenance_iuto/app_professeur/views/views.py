@@ -37,16 +37,26 @@ SIDE_BAR_ITEMS = [
     {"url": "prof_etudiants", "label": "Mes étudiants"},
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
     {"url": "professeur_soutenances_without_candides", "label": "Soutenances sans candides"},
-    {"url": "stages", "label": "Stages"}
+    {"url": "stages", "label": "Stages"},
 ]
 
 class HomeView(TemplateView):
     template_name = "app_professeur/home.html"
 
     def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        est_responsable = GetById.get_est_responsable_by_prof_id(user.id_prof)
+        if est_responsable is not None and len(SIDE_BAR_ITEMS) == 6:
+            SIDE_BAR_ITEMS.append({"url": "formation_professeur", "label": "Ma formation", "id_formation": est_responsable.promotion.id_promo})
+        
+        if est_responsable is None and len(SIDE_BAR_ITEMS) == 7:
+            SIDE_BAR_ITEMS.pop()
+
         context = super(HomeView, self).get_context_data(**kwargs)
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = get_user(self.request.COOKIES.get("user_data"))
+
         return context
 
     def get(self, request, *args, **kwargs):
@@ -252,3 +262,10 @@ class DesinscriptionStageView(TemplateView):
             if inscription is not None:
                 Delete.delete_inscription_suivi(inscription)
         return redirect("stages")
+    
+class FormationView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        response = redirect_user(self.request.COOKIES.get("user_data"))
+        if response is not None:
+            return response
+        return super(StageListView, self).get(request, *args, **kwargs)

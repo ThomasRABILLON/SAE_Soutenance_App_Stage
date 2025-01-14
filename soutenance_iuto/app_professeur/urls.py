@@ -16,4 +16,5 @@ urlpatterns = [
     path("stages/<int:page>", views.StageListView.as_view(), name="stage"),
     path("stage_inscritption/<int:id_stage>", views.InscriptionStageView.as_view(), name="stage_inscription"),
     path("stage_desinscription/<int:id_stage>", views.DesinscriptionStageView.as_view(), name="stage_desinscription"),
+    path("formation/<int:id_formation>", views.FormationView.as_view(), name="formation_professeur"),
 ]

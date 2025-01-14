@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from common.utils.ExternalDataInserter import ExternalDataInserter
 from common.services.get import Get
 
+DUREE_COOKIE = 5400
 
 class BaseView(TemplateView):
     template_name = "common/home.html"
@@ -45,7 +46,7 @@ class LoginView(TemplateView):
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_etu}:etudiant",
-                max_age=3600,
+                max_age=DUREE_COOKIE,
                 httponly=True,
             )
             return response
@@ -57,7 +58,7 @@ class LoginView(TemplateView):
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_prof}:professeur",
-                max_age=3600,
+                max_age=DUREE_COOKIE,
                 httponly=True,
             )
             return response
@@ -69,7 +70,7 @@ class LoginView(TemplateView):
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_tut_pro}:tuteur_pro",
-                max_age=3600,
+                max_age=DUREE_COOKIE,
                 httponly=True,
             )
             return response
@@ -80,7 +81,7 @@ class LoginView(TemplateView):
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_sec}:secretaire",
-                max_age=3600,
+                max_age=DUREE_COOKIE,
                 httponly=True,
             )
             return response

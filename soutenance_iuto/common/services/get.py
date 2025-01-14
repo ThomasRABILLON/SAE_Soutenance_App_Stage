@@ -86,8 +86,8 @@ class GetById:
         return EstDansPromotion.objects.prefetch_related('etudiant', 'promotion').filter(etudiant=GetById.get_etudiant_by_id(id)).all()
     
     @staticmethod
-    def get_est_responsable_by_prof_id(id: int) -> list:
-        return EstResponsable.objects.prefetch_related('professeur', 'promotion').filter(professeur=GetById.get_professeur_by_id(id)).all()
+    def get_est_responsable_by_prof_id(id: int) -> EstResponsable:
+        return EstResponsable.objects.prefetch_related('professeur', 'promotion').filter(professeur=GetById.get_professeur_by_id(id)).first()
     
     @staticmethod
     def get_etudiant_by_id(id: int) -> Etudiant:

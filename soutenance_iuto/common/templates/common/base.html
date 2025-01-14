@@ -25,7 +25,11 @@
         <div class="sidebar-heading">Application</div>
         <div class="list-group list-group-flush">
           {% for item in menu_items %}
+            {% if item.id_formation %}
+              <a href="{% url item.url item.id_formation %}" class="list-group-item list-group-item-action bg-sidebar text-white">
+            {% else %}
               <a href="{% url item.url %}" class="list-group-item list-group-item-action bg-sidebar text-white">
+            {% endif %}
                   {{ item.label }}
               </a>
           {% endfor %}
