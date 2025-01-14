@@ -28,8 +28,8 @@ def redirect_user(cookie):
         return redirect("professeur_home")
     
 urls_sidebar= [
-            {"url": "tuteur_pro_home", "label": "Accueil"},
-            {"url": "liste_etu_entreprise", "label": "Mes Étudiants"},
+            {"url": "tuteur_pro_home", "label": "Mon espace"},
+            {"url": "liste_etu_entreprise", "label": "Mes étudiants"},
             {"url": "soutenance_entreprise", "label": "Mes soutenances"},
             {"url": "logout_common", "label": "Se déconnecter"}
         ]
@@ -73,6 +73,7 @@ class InfoEtudiantView(TemplateView):
         
         if etudiant_id:
             context['etudiant'] = GetById.get_etudiant_by_id(etudiant_id)
+            context['stage'] = Get.get_stage_alt_by_etu_id(etudiant_id).first()
         else:
             context['etudiant'] = None  # Si aucun étudiant n'est trouvé, le contexte est vide
             

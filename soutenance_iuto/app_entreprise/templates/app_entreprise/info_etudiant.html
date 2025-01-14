@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'styles/app-entreprise/info-etu.css' %}"/>
 </head>
 <body>
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper jumbotron bg-light shadow-sm rounded">
         <!-- Première boîte avec photo à gauche et informations à droite -->
         <div class="infos-etudiant">
             <h2>Informations de l'Étudiant</h2>
@@ -38,6 +38,12 @@
             </div>
         </div>
     </div>
+        <div class="jumbotron bg-light shadow-sm rounded">
+            <p class="lead">{% if stage.dt_date_debut_stg_alt != None and stage.dt_date_fin_stg_alt != None %}Stage du {{ stage.dt_date_debut_stg_alt }} au {{ stage.dt_date_fin_stg_alt }}</p> {% endif %}
+            {% if stage.titre_stg_alt != "" %}<p class="lead">Le titre du stage est : {{ stage.titre_stg_alt }}</p>{% endif %}
+            {% if stage.theme_stg_alt != "" %}<p class="lead">Le thème du stage est : {{ stage.theme_stg_alt }}</p>{% endif %}
+            {% if stage.intitule_env_stg_alt != "" %}<p class="lead">L'intitulé du stage est : {{ stage.intitule_env_stg_alt }}</p>{% endif %}
+        </div>
 </body>
 </html>
 

@@ -65,7 +65,7 @@ class LoginView(TemplateView):
         user = Get.get_tuteur_pro_by_id_connection(id_connection)
         if user is not None:
             # response = redirect('tuteur_pro_home')
-            response = redirect("home_common")
+            response = redirect("tuteur_pro_home")
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_tut_pro}:tuteur_pro",
