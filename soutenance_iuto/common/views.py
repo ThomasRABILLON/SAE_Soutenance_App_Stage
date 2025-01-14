@@ -41,7 +41,7 @@ class LoginView(TemplateView):
         print(user)
         if user is not None:
             # response = redirect('etudiant_home')
-            response = redirect("home_common")
+            response = redirect("etudiant-home")
             response.set_cookie(
                 key="user_data",
                 value=f"{user.id_etu}:etudiant",
