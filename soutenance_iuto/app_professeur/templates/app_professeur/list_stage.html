@@ -12,7 +12,6 @@
             <th>Thème</th>
             <th>Dates</th>
             <th>Entreprise</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -23,13 +22,23 @@
             <td>{{ stage.theme_stg_alt }}</td>
             <td>{{ stage.dt_date_debut_stg_alt }} - {{ stage.dt_date_fin_stg_alt }}</td>
             <td>{{ stage.entreprise.nom_etp }}</td>
-            <td>
-                {% if stage.id_stg_alt in inscriptions.values_list('stg_alt__id_stg_alt', flat=True) %}
-                    <a href="{% url 'stage_desinscription' id_stage=stage.id_stg_alt %}" class="btn btn-danger">Se désinscrire</a>
+            {% if inscriptions.count == 0 %}
+                <td>
+                    <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">Inscription</a>
+                </td>
+            {% endif %}
+            {% for inscription in inscriptions %}
+                {% if inscription.stg_alt.id_stg_alt == stage.id_stg_alt %}
+                    <td>
+                        <a href="{% url 'stage_desinscription' id_stage=stage.id_stg_alt %}" class="btn btn-danger">Désinscription</a>
+                    </td>
                 {% else %}
-                    <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">S'inscrire</a>
+                    <td>
+                        <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">Inscription</a>
+                    </td>
                 {% endif %}
-            </td>
+            {% endfor %}
+                
             </tr>
         {% endfor %}
         </tbody>
@@ -43,14 +52,14 @@
                     </li>
                 {% else %}
                     <li class="page-item">
-                        <a class="page-link" href="{% url 'stages' page=previous_page %}">Précédent</a>
+                        <a class="page-link" href="{% url url page=previous_page %}">Précédent</a>
                     </li>
                 {% endif %}
                 {% for i in range %}
                     {% if i == page %}
                         <li class="page-item active"><a class="page-link">{{ i }}</a></li>
                     {% else %}
-                        <li class="page-item"><a class="page-link" href="{% url 'stages' page=i %}">{{ i }}</a></li>
+                        <li class="page-item"><a class="page-link" href="{% url url page=i %}">{{ i }}</a></li>
                     {% endif %}
                 {% endfor %}
                 {% if page == nb_pages %}
@@ -59,7 +68,7 @@
                     </li>
                 {% else %}
                     <li class="page-item">
-                        <a class="page-link" href="{% url 'stages' page=next_page %}">Suivant</a>
+                        <a class="page-link" href="{% url url page=next_page %}">Suivant</a>
                     </li>
                 {% endif %}
             </ul>
