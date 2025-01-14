@@ -37,6 +37,7 @@ SIDE_BAR_ITEMS = [
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
     {"url": "stages", "label": "Les stages sans tuteur"},
     {"url": "professeur_soutenances_without_candides", "label": "Les soutenances sans candides"},
+    {"url": "logout_common", "label": "Se déconnecter"},
 ]
 
 class HomeView(TemplateView):
