@@ -33,11 +33,10 @@ def redirect_user(cookie):
     
 SIDE_BAR_ITEMS = [
     {"url": "professeur_home", "label": "Accueil"},
-    {"url": "professeur_profile", "label": "Profil"},
     {"url": "prof_etudiants", "label": "Mes étudiants"},
+    {"url": "stages", "label": "Les stages sans tuteur"},
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
     {"url": "professeur_soutenances_without_candides", "label": "Soutenances sans candides"},
-    {"url": "stages", "label": "Stages"}
 ]
 
 class HomeView(TemplateView):
@@ -106,7 +105,21 @@ class SoutenancesByProfView(TemplateView):
         return super(SoutenancesByProfView, self).get(request, *args, **kwargs)
 
 class InscriptionSoutenanceView(TemplateView):
-    def get(self, request, *args, **kwargs):
+    template_name = "app_professeur/inscription_desinscription_soutenance.html"
+    
+    def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        id_sout = kwargs.get("id_sout")
+        
+        context = super(InscriptionSoutenanceView, self).get_context_data(**kwargs)
+        context["user"] = user
+        context["question"] = "Êtes-vous sûr de vouloir vous inscrire à cette soutenance ?"
+        context["url_form"] = "professeur_inscription_soutenance"
+        context["soutenance"] = GetById.get_soutenance_by_id(id_sout)
+        context["menu_items"] = SIDE_BAR_ITEMS
+        return context
+    
+    def post(self, request, *args, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_sout = kwargs.get("id_sout")
         
@@ -118,7 +131,22 @@ class InscriptionSoutenanceView(TemplateView):
         return redirect("professeur_soutenances")
     
 class DesinscriptionSoutenanceView(TemplateView):
-    def get(self, request, *args, **kwargs):
+    template_name = "app_professeur/inscription_desinscription_soutenance.html"
+    
+    def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        id_sout = kwargs.get("id_sout")
+        
+        context = super(DesinscriptionSoutenanceView, self).get_context_data(**kwargs)
+        context["user"] = user
+        context["question"] = "Êtes-vous sûr de vouloir vous désinscrire de cette soutenance ?"
+        context["url_form"] = "professeur_desinscription_soutenance"
+        context["soutenance"] = GetById.get_soutenance_by_id(id_sout)
+        context["menu_items"] = SIDE_BAR_ITEMS
+        return context
+    
+    def post(self, request, *args, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
         id_sout = kwargs.get("id_sout")
         
         if id_sout is not None:
@@ -234,12 +262,27 @@ class StageListView(TemplateView):
         return super(StageListView, self).get(request, *args, **kwargs)
 
 class InscriptionStageView(TemplateView):
-    def get(self, request, *args, **kwargs):
+    template_name = "app_professeur/inscription_suivi_stage.html"
+    
+    def get_context_data(self, **kwargs):
+        user = get_user(self.request.COOKIES.get("user_data"))
+        id_stage = kwargs.get("id_stage")
+        
+        context = super(InscriptionStageView, self).get_context_data(**kwargs)
+        context["user"] = user
+        context["stage"] = GetById.get_stage_alt_by_id(id_stage)
+        context["menu_items"] = SIDE_BAR_ITEMS
+        return context
+    
+    def post(self, request, *args, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_stage = kwargs.get("id_stage")
         
         if id_stage is not None:
-            Insert.insert_inscription_suivi(id_stg_alt=id_stage, id_prof=user.id_prof)
+            stage = GetById.get_stage_alt_by_id(id_stage)
+            if stage is not None:
+                stage.tuteur_univ = user
+                Update.update_stage_alt(stage)
         return redirect("stages")
     
 class DesinscriptionStageView(TemplateView):

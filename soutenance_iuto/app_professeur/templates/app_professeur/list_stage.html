@@ -22,23 +22,9 @@
             <td>{{ stage.theme_stg_alt }}</td>
             <td>{{ stage.dt_date_debut_stg_alt }} - {{ stage.dt_date_fin_stg_alt }}</td>
             <td>{{ stage.entreprise.nom_etp }}</td>
-            {% if inscriptions.count == 0 %}
-                <td>
-                    <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">Inscription</a>
-                </td>
-            {% endif %}
-            {% for inscription in inscriptions %}
-                {% if inscription.stg_alt.id_stg_alt == stage.id_stg_alt %}
-                    <td>
-                        <a href="{% url 'stage_desinscription' id_stage=stage.id_stg_alt %}" class="btn btn-danger">Désinscription</a>
-                    </td>
-                {% else %}
-                    <td>
-                        <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">Inscription</a>
-                    </td>
-                {% endif %}
-            {% endfor %}
-                
+            <td>
+                <a href="{% url 'stage_inscription' id_stage=stage.id_stg_alt %}" class="btn btn-success">Inscription</a>
+            </td>
             </tr>
         {% endfor %}
         </tbody>
