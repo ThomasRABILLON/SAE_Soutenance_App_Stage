@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from common.services.get import GetById, Get
 
 liste_urls = [
-            {"url": "etudiant-home", "label": "Accueil"},
+            {"url": "etudiant-home", "label": "Mon espace"},
             {"url": "etudiant-infos", "label": "Mes informations"},
             {"url": "etudiant-soutenances", "label": "Mes soutenances"},
             {"url": "logout_common", "label": "Se déconnecter"},
@@ -32,6 +32,7 @@ class InfoEtudiantView(TemplateView):
         
         context = super(InfoEtudiantView, self).get_context_data(**kwargs)
         context['menu_items'] = liste_urls
+        context["stage"] = Get.get_stage_alt_by_etu_id(user.id_etu).first()
         context['etudiant'] = user
         return context
     
