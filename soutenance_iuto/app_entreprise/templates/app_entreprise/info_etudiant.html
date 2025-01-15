@@ -1,0 +1,50 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/app-entreprise/info-etu.css' %}"/>
+</head>
+<body>
+    <div class="page-content-wrapper jumbotron bg-light shadow-sm rounded">
+        <!-- Première boîte avec photo à gauche et informations à droite -->
+        <div class="infos-etudiant">
+            <h2>Informations de l'Étudiant</h2>
+            <div class="infos-content">
+                <!-- Photo à gauche -->
+                <div class="left-column">
+                    <img src="{% static 'images/etudiant-photo.jpg' %}" alt="Photo de l'étudiant" class="etudiant-photo"/>
+                </div>
+                <!-- Informations à droite -->
+                <div class="right-column">
+                    <p><strong>Nom :</strong> {{ etudiant.nom_etu }}</p>
+                    <p><strong>Prénom :</strong> {{ etudiant.prenom_etu }}</p>
+                    <p><strong>Numéro Étudiant :</strong> {{ etudiant.num_etu }}</p>
+                    <p><strong>INE :</strong> {{ etudiant.ine_etu }}</p>
+                    <p><strong>Civilité :</strong> {{ etudiant.civilite_etu }}</p>
+                    <p><strong>Email :</strong> {{ etudiant.mail_etu }}</p>
+                    <p><strong>Status :</strong>
+                        {% if etudiant.alternant %}
+                            <span class="badge alternant">Alternant</span>
+                        {% else %}
+                            <span class="badge">Stagiaire</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="jumbotron bg-light shadow-sm rounded">
+            <p class="lead">{% if stage.dt_date_debut_stg_alt != None and stage.dt_date_fin_stg_alt != None %}Stage du {{ stage.dt_date_debut_stg_alt }} au {{ stage.dt_date_fin_stg_alt }}</p> {% endif %}
+            {% if stage.titre_stg_alt != "" %}<p class="lead">Le titre du stage est : {{ stage.titre_stg_alt }}</p>{% endif %}
+            {% if stage.theme_stg_alt != "" %}<p class="lead">Le thème du stage est : {{ stage.theme_stg_alt }}</p>{% endif %}
+            {% if stage.intitule_env_stg_alt != "" %}<p class="lead">L'intitulé du stage est : {{ stage.intitule_env_stg_alt }}</p>{% endif %}
+        </div>
+</body>
+</html>
+
+{% endblock %}
