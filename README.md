@@ -1,77 +1,75 @@
-# SAE_Soutenance_App_Stage
-# YANG Evann, RABILLON Thomas, AVIGNION THEO, CHHUM-MOXEL LOANN
+# SAE_Soutenance_App_Stage  
+**YANG Evann, RABILLON Thomas, AVIGNION THEO, CHHUM-MOXEL LOANN**
 
-# Projet Araxis - Refonte et Gestion des Soutenances
+## Projet Arexis - Refonte et Gestion des Soutenances
 
-## Contexte
-Dans le cadre de notre projet, il nous a initialement été demandé de recréer Araxis, une plateforme permettant aux stagiaires de s'inscrire et de consulter leurs dates de soutenance. Cependant, en l'absence d'un client concret (IUT) et de consignes précises, nous avons perdu un temps considérable à trouver un référent susceptible de clarifier les exigences et de fournir un support, afin de ne pas démarrer complètement de zéro.
-
-Après avoir accumulé un certain retard par rapport aux autres groupes, nous avons finalement obtenu des consignes claires suite à une entrevue avec M. Chabin. Il nous a alors été demandé de concentrer nos efforts sur le développement de la fonctionnalité de gestion des soutenances dans Araxis, en plus de la refonte initialement demandée.
-
-Nous demandons donc que ce retard initial soit pris en compte dans l'évaluation de notre projet.
+### Contexte
+La gestion des soutenances reposait initialement sur un tableau Excel, un outil limité qui rendait l’insertion d’informations complexe et sujette à des erreurs. De plus, l’accès restreint compliquait la collaboration entre étudiants, enseignants et maîtres de stages. Cette gestion manuelle étant inefficace, nous avons été chargés de refondre la plateforme Arexis pour simplifier et sécuriser le suivi des soutenances, tout en ajoutant de nouvelles fonctionnalités pour améliorer l’expérience utilisateur.
 
 ---
 
-## Objectifs
-- Refonte de la plateforme Araxis.
-- Développement et intégration de la fonctionnalité de gestion des soutenances.
-- Création d'une structure claire et bien organisée pour le projet.
+### Objectifs
+Le projet se divise en plusieurs objectifs principaux :
+- **Refonte de la plateforme Arexis** afin de la rendre plus ergonomique et moderne.
+- **Développement de la fonctionnalité de gestion des soutenances**, permettant de simplifier l’organisation des soutenances pour les étudiants, professeurs et secrétaires.
+- **Optimisation de la gestion des stages et alternances**, afin de faciliter le suivi des étudiants et d’améliorer l’expérience utilisateur.
 
 ---
 
-## Structure du Projet
-Pour une meilleure organisation et une arborescence fluide, nous avons structuré notre projet en plusieurs modules distincts :
+### Structure du Projet
+Le projet est structuré de manière modulaire pour favoriser l’organisation et la lisibilité du code. Voici la répartition de l’arborescence du projet :
 
-- **`API`** : Fournit les fonctionnalités backend pour gérer les données et les interactions avec la base de données.
-- **`gestion_soutenance`** : Contient les fonctionnalités spécifiques à la gestion des soutenances, en s'appuyant sur l'API.
-- **`soutenance_iuto`** : Correspond à l'interface utilisateur pour les soutenances.
-- **`commun`** : Regroupe les éléments partagés entre les différents modules (par exemple : configurations, modèles communs, utilitaires).
-
----
-
-## Choix Technologiques
-Nous avons choisi d'utiliser **Django**, un framework web en Python, pour les raisons suivantes :
-
-1. **Simplicité et Rapidité** : Django offre une structure robuste qui nous permet de nous concentrer sur le développement des fonctionnalités sans réinventer la roue.
-2. **ORM Puissant** : Le système d'ORM intégré facilite l'interaction avec la base de données tout en garantissant une sécurité accrue.
-3. **Communauté Active** : La vaste communauté et la documentation complète de Django nous ont permis de surmonter rapidement les obstacles techniques.
-4. **Adapté aux Projets Modulaires** : Django permet de séparer facilement les différentes parties de l'application grâce à son architecture modulaire.
+- **`commun`** : Contient les éléments partagés entre les différentes applications, tels que les modèles communs et les vues qui ne sont pas spécifiques à une application (ex. : Home, Login, Logout).
+- **`app_etudiant`** : Regroupe les fonctionnalités et les vues liées aux étudiants. Cela inclut la vue de leurs soutenances, ainsi que des informations spécifiques à leurs stages ou alternances.
+- **`app_professeur`** : Gère les fonctionnalités et vues concernant les professeurs, y compris la consultation des soutenances et des étudiants dont ils suivent le stages ou l'alternance.
+- **`app_entreprise`** : Regroupe les fonctionnalités liées aux entreprises et tuteurs professionnels. Les entreprises peuvent voir les soutenances et les informations relatives à leur stagiaire et alternant.
+- **`app_secretaire`** : Contient les fonctionnalités destinées aux secrétaires, telles que la gestion des soutenances (ajout, modification, suppression) et l’importation des données via CSV/Excel.
 
 ---
 
-## Détails des Modules
+### Choix Technologiques
+Le projet a été réalisé avec **Django**, un framework Python qui nous a permis de répondre efficacement aux exigences du projet. Nos choix techniques sont justifiés par les raisons suivantes :
 
-### Commun
-Ce dossier contient les éléments réutilisables dans les autres parties du projet, notamment :
-- **Modèles Partagés** : Entités communes telles que les utilisateurs ou les permissions.
-- **Utilitaires** : Fonctions d'aide et outils génériques.
-- **Configurations** : Paramètres globaux comme la connexion à la base de données ou les configurations des environnements (développement/production).
-
-### API
-Le module API assure les fonctionnalités backend du projet. Il inclut :
-- **Endpoints RESTful** : Pour gérer les inscriptions, les dates de soutenance et autres données.
-- **Authentification** : Gestion des utilisateurs et des permissions via des jetons sécurisés.
-- **Documentation API** : Générée automatiquement pour faciliter l'intégration avec d'autres outils ou services.
-
-### Gestion des Soutenances
-Ce module est au cœur du projet. Il permet :
-- **Création et Modification des Soutenances** : Ajout, mise à jour ou suppression des soutenances.
-- **Assignation des Jury** : Gestion des membres du jury pour chaque soutenance.
-- **Planification** : Attribution des créneaux horaires pour chaque stagiaire.
-- **Statistiques** : Visualisation des données relatives aux soutenances (nombre de soutenances prévues, répartition par jury, etc.).
-
-### Soutenance IUTO
+1. **Simplicité et Rapidité** : Django nous a permis de nous concentrer sur l'implémentation des fonctionnalités spécifiques sans avoir à construire des solutions de base. Cela nous a permis de gagner un temps précieux et de maintenir un développement rapide malgré le retard accumulé.
+2. **ORM Puissant** : Le système d'ORM de Django facilite l’interaction avec la base de données, tout en garantissant la sécurité et la cohérence des données stockées. Cela a été essentiel pour la gestion efficace des soutenances et des informations des étudiants.
+3. **Communauté Active et Documentation Complète** : La vaste communauté de Django, ainsi que sa documentation exhaustive, nous ont permis de surmonter rapidement des obstacles techniques et d'accélérer notre apprentissage du framework.
+4. **Architecture Modulaire Adaptée aux Projets Compliqués** : Django offre une architecture modulaire qui nous a permis de séparer les différentes fonctionnalités en applications spécifiques, facilitant ainsi la maintenance et l’évolution du code à long terme.
 
 ---
 
-## Déroulement du Projet
-Malgré un démarrage retardé, nous avons appliqué une méthodologie rigoureuse pour organiser notre travail :
-1. **Analyse Préliminaire** : Identification des besoins avec M. Chabin.
-2. **Organisation** : Structuration du projet en modules clairs.
-3. **Développement** : Mise en œuvre des fonctionnalités par itérations.
-4. **Tests** : Vérification de la qualité et des performances de chaque module.
+### Fonctionnalités
+Les principales fonctionnalités développées dans ce projet sont :
+
+- **Gestion des soutenances** : Permet aux étudiants, professeurs et secrétaires de gérer et consulter les dates et informations relatives aux soutenances.
+- **Importation de données via CSV/Excel** : Permet aux secrétaires d’intégrer des données externes, telles que des informations sur les étudiants et leurs stages, en utilisant des fichiers CSV ou Excel.
+- **Interface moderne et ergonomique** : Une interface plus intuitive et facile à utiliser comparée à la version initiale de la plateforme, avec des améliorations apportées au design et à la navigation.
 
 ---
 
-## Conclusion
+### Installation
+Pour installer et faire fonctionner ce projet en local, suivez ces étapes :
 
+1. Clonez le dépôt Git du projet :
+    ```bash
+    git clone https://github.com/votre-repository/SAE_Soutenance_App_Stage.git
+    ```
+
+2. Installez les dépendances nécessaires :
+    ```bash
+    pip install -r requirement.txt
+    ```
+
+3. Lancez le serveur de développement :
+    ```bash
+    python manage.py runserver
+    ```
+
+4. Accédez à l’application en ouvrant votre navigateur à l'adresse suivante :  
+    ```bash
+    http://127.0.0.1:8000/
+    ```
+
+---
+
+### Remarques
+- Ce projet est encore en phase de développement et certaines fonctionnalités peuvent être incomplètes ou nécessiter des ajustements supplémentaires.
