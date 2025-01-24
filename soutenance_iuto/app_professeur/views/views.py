@@ -35,8 +35,8 @@ SIDE_BAR_ITEMS = [
     {"url": "professeur_home", "label": "Mon espace"},
     {"url": "prof_etudiants", "label": "Mes étudiants"},
     {"url": "professeur_soutenances", "label": "Mes soutenances"},
-    {"url": "stages", "label": "Les stages sans tuteur"},
-    {"url": "professeur_soutenances_without_candides", "label": "Les soutenances sans candides"},
+    {"url": "stages", "label": "Les stages sans tuteur", "nb": 0},
+    {"url": "professeur_soutenances_without_candides", "label": "Les soutenances sans candides", "nb": 0},
     {"url": "logout_common", "label": "Se déconnecter"},
 ]
 
@@ -45,8 +45,12 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         context["menu_items"] = SIDE_BAR_ITEMS
-        context["user"] = get_user(self.request.COOKIES.get("user_data"))
+        context["user"] = user
         return context
 
     def get(self, request, *args, **kwargs):
@@ -60,6 +64,10 @@ class ProfileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = get_user(self.request.COOKIES.get("user_data"))
         return context
@@ -75,6 +83,10 @@ class SoutenancesByProfView(TemplateView):
 
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
+
         soutenances = Get.get_all_soutenance_prof(user.id_prof)
         est_dans_promotion = GetAll.get_all_est_dans_promotion()
         
@@ -111,6 +123,9 @@ class InscriptionSoutenanceView(TemplateView):
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_sout = kwargs.get("id_sout")
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         
         context = super(InscriptionSoutenanceView, self).get_context_data(**kwargs)
         context["user"] = user
@@ -138,6 +153,8 @@ class DesinscriptionSoutenanceView(TemplateView):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_sout = kwargs.get("id_sout")
         
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         context = super(DesinscriptionSoutenanceView, self).get_context_data(**kwargs)
         context["user"] = user
         context["question"] = "Êtes-vous sûr de vouloir vous désinscrire de cette soutenance ?"
@@ -165,6 +182,8 @@ class SoutenancesWithoutCandidesView(TemplateView):
         soutenances = Get.get_all_soutenance_without_candide(user.id_prof)
         est_dans_promotion = GetAll.get_all_est_dans_promotion()
         
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         page = 1
         nb_pages = len(soutenances) // 10 + 1
         if kwargs.get("page") is not None:
@@ -197,8 +216,12 @@ class SoutenanceDetailsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(SoutenanceDetailsView, self).get_context_data(**kwargs)
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         context["menu_items"] = SIDE_BAR_ITEMS
-        context["user"] = get_user(self.request.COOKIES.get("user_data"))
+        context["user"] = user
         context["soutenance"] = GetById.get_soutenance_by_id(context["user"].id_prof)
         context["candides"] = Get.get_all_candide_by_soutenance(context["soutenance"].id_sout)
         return context
@@ -214,6 +237,11 @@ class StudientsByProfView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudientsByProfView, self).get_context_data(**kwargs)
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
+
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = get_user(self.request.COOKIES.get("user_data"))
         context["etudiants"] = Get.get_all_studients_by_tuteur_univ(context["user"].id_prof)
@@ -232,6 +260,9 @@ class StageListView(TemplateView):
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         stages = Get.get_stage_wout_tuteur_pro()
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         
         context = super(StageListView, self).get_context_data(**kwargs)
         context["menu_items"] = SIDE_BAR_ITEMS
@@ -268,6 +299,9 @@ class InscriptionStageView(TemplateView):
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_stage = kwargs.get("id_stage")
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         
         context = super(InscriptionStageView, self).get_context_data(**kwargs)
         context["user"] = user
@@ -294,6 +328,9 @@ class DesinscriptionStageView(TemplateView):
     def get_context_data(self, **kwargs):
         user = get_user(self.request.COOKIES.get("user_data"))
         id_stage = kwargs.get("id_stage")
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         
         context = super(DesinscriptionStageView, self).get_context_data(**kwargs)
         context["user"] = user
@@ -319,8 +356,13 @@ class StageDetailsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(StageDetailsView, self).get_context_data(**kwargs)
+        user = get_user(self.request.COOKIES.get("user_data"))
+
+        SIDE_BAR_ITEMS[3]["nb"] = len(Get.get_stage_wout_tuteur_pro())
+        SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
+
         context["menu_items"] = SIDE_BAR_ITEMS
-        context["user"] = get_user(self.request.COOKIES.get("user_data"))
+        context["user"] = user
         context["stage"] = Get.get_stage_alt_by_etu_id(kwargs.get("id_etu")).first()
         return context
 
