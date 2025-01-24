@@ -25,9 +25,12 @@
         <div class="sidebar-heading">Sout'IUTO</div>
         <div class="list-group list-group-flush">
           {% for item in menu_items %}
-              <a href="{% url item.url %}" class="list-group-item list-group-item-action bg-sidebar text-white">
-                  {{ item.label }}
-              </a>
+            <a href="{% url item.url %}" class="list-group-item list-group-item-action bg-sidebar text-white">
+                {% if item.nb %}
+                <span class="badge bg-primary rounded-pill float-end" style="position: relative; top: 4px; float: right;">{{ item.nb }}</span>
+              {% endif %}
+              {{ item.label }}
+            </a>
           {% endfor %}
           {% block menu %}
 
