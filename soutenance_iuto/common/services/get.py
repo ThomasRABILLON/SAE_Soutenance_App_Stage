@@ -137,6 +137,72 @@ class GetById:
     def get_tuteur_pro_by_id(id: int) -> TuteurPro:
         return TuteurPro.objects.prefetch_related('entreprise').get(id_tut_pro=id)
     
+    @staticmethod
+    def get_nb_stagiaire_suivi_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if not stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_nb_alternant_suivi_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_nb_stagiaire_suivi_2_annee_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if GetById.get_promotion_by_id(0) == GetById.get_est_dans_promotion_by_etu_id(stg.etudiant.id_etu).first().promotion and not stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_nb_stagiaire_suivi_3_annee_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if GetById.get_promotion_by_id(1) == GetById.get_est_dans_promotion_by_etu_id(stg.etudiant.id_etu).first().promotion and not stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_nb_alternant_suivi_2_annee_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if GetById.get_promotion_by_id(0) == GetById.get_est_dans_promotion_by_etu_id(stg.etudiant.id_etu).first().promotion and stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_nb_alternant_suivi_3_annee_professeur(id_prof: int) -> int:
+        nb_etudiant = 0
+        for stg in Get.get_stage_alt_by_tuteur_univ_id(id_prof):
+            if GetById.get_promotion_by_id(1) == GetById.get_est_dans_promotion_by_etu_id(stg.etudiant.id_etu).first().promotion and stg.etudiant.alternant:
+                nb_etudiant += 1
+        return nb_etudiant
+    
+    @staticmethod
+    def get_soutenance_stagiaire_by_professeur(id_prof: int) -> int:
+        # list_sout = []
+        # for sout in GetAll.get_all_soutenance():
+        #     if sout.prof_candide is None and sout.stg_alt.tuteur_univ.id_prof != id_prof:
+        #         list_sout.append(sout)
+        # return list_sout
+    
+
+    
+    # @staticmethod
+    # def get_nb_etudiant_suivi_2_annee_professeur(id_prof: int) -> int:
+    #     return EstDansPromotion.objects.filter(promotion=Promotion.objects.filter(estdanspromotion=2).first(), etudiant__in=Etudiant.objects.filter(inscriptionsuivi__prof=Professeur.objects.get(id_prof=id_prof))).count()
+        
+    # @staticmethod
+    # def get_nb_etudiant_suivi_3_annee_professeur(id_prof: int) -> int:
+    #     return EstDansPromotion.objects.filter(promotion=Promotion.objects.filter(estdanspromotion=3).first(), etudiant__in=Etudiant.objects.filter(inscriptionsuivi__prof=Professeur.objects.get(id_prof=id_prof))).count()
+    
 class Get:
     @staticmethod
     def get_etudiants_by_tuteur_pro_id(id: int) -> list:
@@ -331,3 +397,37 @@ class Get:
     @staticmethod
     def get_inscritpion_suivi_by_prof_id_stage_id(id_prof: int, id_stage: int) -> InscriptionSuivi:
         return InscriptionSuivi.objects.filter(prof=GetById.get_professeur_by_id(id_prof), stg_alt=GetById.get_stage_alt_by_id(id_stage)).first()
+    
+    @staticmethod
+    def get_etudiant_dans_promo(id_promo: int, alternant: bool) -> list:
+        list_etu = []
+        for est in GetAll.get_all_est_dans_promotion():
+            if est.promotion.id_promo == id_promo and est.etudiant.alternant == alternant:
+                list_etu.append(est.etudiant)
+        return list_etu
+    
+    @staticmethod
+    def get_nombre_stagiaire_a_suivre() -> int:
+        return Etudiant.objects.filter(alternant=False).count() // Professeur.objects.count() + 1
+    
+    @staticmethod
+    def get_nombre_stagiaire_2_annee_a_suivre() -> int:
+        return len(Get.get_etudiant_dans_promo(0,False)) // Professeur.objects.count() + 1
+    
+    @staticmethod
+    def get_nombre_stagiaire_3_annee_a_suivre() -> int:
+        return len(Get.get_etudiant_dans_promo(1,False)) // Professeur.objects.count() + 1
+    
+    
+    @staticmethod
+    def get_nombre_alternant_a_suivre() -> int:
+        return Etudiant.objects.filter(alternant=True).count() // Professeur.objects.count() + 1
+    
+    @staticmethod
+    def get_nombre_alternant_2_annee_a_suivre() -> int:
+        return len(Get.get_etudiant_dans_promo(0,True)) // Professeur.objects.count() + 1
+    
+    @staticmethod
+    def get_nombre_alternant_3_annee_a_suivre() -> int:
+        return len(Get.get_etudiant_dans_promo(1,True)) // Professeur.objects.count() + 1
+    

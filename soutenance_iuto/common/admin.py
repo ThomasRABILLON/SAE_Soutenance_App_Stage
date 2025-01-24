@@ -4,6 +4,8 @@ from common.models.Secretaire import Secretaire
 from common.models.Soutenance import Soutenance
 from common.models.Salle import Salle
 from common.models.DateHoraire import DateHoraire
+from common.models.Promotion import Promotion
+from common.models.EstDansPromotion import EstDansPromotion
 
 # Register your models here.
 
@@ -16,3 +18,5 @@ admin.site.register(Secretaire)
 admin.site.register(Soutenance)
 admin.site.register(Salle)
 admin.site.register(DateHoraire)
+admin.site.register(Promotion)
+admin.site.register(EstDansPromotion)

@@ -4,5 +4,21 @@
   <div class="jumbotron mt-4 bg-light shadow-sm rounded">
     <h1 class="display-4">Bienvenue</h1>
     <p class="lead">{{ user.prenom_prof }} {{ user.nom_prof }}</p>
+    <div>
+      <h2>Dashboard Global</h2>
+      <p>Stagiaires suivis : {{ nb_stagiaire_suivie }} / {{ nb_statgiaire_suivre }}</p>
+      <p>Alternants suivis : {{ nb_alternant_suivie }} / {{ nb_alternant_suivre }}</p>
+    </div>
+    <div>
+      <h2>Dashboard BUT2</h2>
+      <p>Stagiaires suivis de 2ème Année: {{  nb_statgiaire_2_annee_suivie }} / {{ nb_stagiare_2_annee_suivre }}</p>
+      <p>Alternants suivis de 2ème Année: {{  nb_alternant_2_annee_suivie }} / {{ nb_alternant_2_annee_suivre }}</p>
+    </div>
+    <div>
+      <h2>Dashboard BUT3</h2>
+      <p>Stagiaires suivis de 3ème Année: {{  nb_statgiaire_3_annee_suivie }} / {{ nb_stagiare_3_annee_suivre }}</p>
+      <p>Alternants suivis de 3ème Année: {{  nb_alternant_3_annee_suivie }} / {{ nb_alternant_3_annee_suivre }}</p>
+    </div>
+
   </div>
 {% endblock %}
