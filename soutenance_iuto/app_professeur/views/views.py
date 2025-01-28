@@ -52,15 +52,19 @@ class HomeView(TemplateView):
         context["nb_stagiaire_suivie"] = GetById.get_nb_stagiaire_suivi_professeur(context["user"].id_prof)
         context["nb_stagiare_3_annee_suivre"] = Get.get_nombre_stagiaire_3_annee_a_suivre()
         context["nb_statgiaire_3_annee_suivie"] = GetById.get_nb_stagiaire_suivi_3_annee_professeur(context["user"].id_prof)
+        context["nb_soutenance_3_annee_suivie"] = GetById.get_nb_soutenance_stagiaire_3_annee_candide_by_prof_id(context["user"].id_prof)
         context["nb_stagiare_2_annee_suivre"] = Get.get_nombre_stagiaire_2_annee_a_suivre()
         context["nb_statgiaire_2_annee_suivie"] = GetById.get_nb_stagiaire_suivi_2_annee_professeur(context["user"].id_prof)
+        context["nb_soutenance_2_annee_suivie"] = GetById.get_nb_soutenance_stagiaire_2_annee_candide_by_prof_id(context["user"].id_prof)
         #Alternant
         context["nb_alternant_suivre"] = Get.get_nombre_alternant_a_suivre()
         context["nb_alternant_suivie"] = GetById.get_nb_alternant_suivi_professeur(context["user"].id_prof)
         context["nb_alternant_3_annee_suivre"] = Get.get_nombre_alternant_3_annee_a_suivre()
         context["nb_alternant_3_annee_suivie"] = GetById.get_nb_alternant_suivi_3_annee_professeur(context["user"].id_prof)
+        context["nb_soutenance_3_annee_suivie"] = GetById.get_nb_soutenance_alternant_3_annee_candide_by_prof_id(context["user"].id_prof)
         context["nb_alternant_2_annee_suivre"] = Get.get_nombre_alternant_2_annee_a_suivre()
         context["nb_alternant_2_annee_suivie"] = GetById.get_nb_alternant_suivi_2_annee_professeur(context["user"].id_prof)
+        context["nb_soutenance_2_annee_suivie"] = GetById.get_nb_soutenance_alternant_2_annee_candide_by_prof_id(context["user"].id_prof)
         return context
 
     def get(self, request, *args, **kwargs):

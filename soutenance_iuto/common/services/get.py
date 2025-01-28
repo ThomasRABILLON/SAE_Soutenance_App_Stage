@@ -185,24 +185,67 @@ class GetById:
                 nb_etudiant += 1
         return nb_etudiant
     
+    
     @staticmethod
-    def get_soutenance_stagiaire_by_professeur(id_prof: int) -> int:
-        # list_sout = []
-        # for sout in GetAll.get_all_soutenance():
-        #     if sout.prof_candide is None and sout.stg_alt.tuteur_univ.id_prof != id_prof:
-        #         list_sout.append(sout)
-        # return list_sout
+    def get_soutenance_tutored_by_prof_id(id_prof: int) -> list:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
+                list_soutenance.append(soutenance)
+        return list_soutenance
+    
+    @staticmethod
+    def get_soutenance_candide_by_prof_id(id_prof: int) -> list:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.prof_candide == id_prof:
+                list_soutenance.append(soutenance)
+        return list_soutenance
+    
+    @staticmethod
+    def get_nb_soutenance_stagiaire_2_annee_candide_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.prof_candide and soutenance.prof_candide.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(0) == promotion and not soutenance.stg_alt.etudiant.alternant:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
+    
+    @staticmethod
+    def get_nb_soutenance_stagiaire_3_annee_candide_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.prof_candide and soutenance.prof_candide.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(1) == promotion and not soutenance.stg_alt.etudiant.alternant:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
+    
+    @staticmethod
+    def get_nb_soutenance_alternant_2_annee_candide_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.prof_candide and soutenance.prof_candide.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(0) == promotion and soutenance.stg_alt.etudiant.alternant:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
+    
+    @staticmethod
+    def get_nb_soutenance_alternant_3_annee_candide_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.prof_candide and soutenance.prof_candide.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(1) == promotion and soutenance.stg_alt.etudiant.alternant:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
+    
+    
+    
     
 
-    
-    # @staticmethod
-    # def get_nb_etudiant_suivi_2_annee_professeur(id_prof: int) -> int:
-    #     return EstDansPromotion.objects.filter(promotion=Promotion.objects.filter(estdanspromotion=2).first(), etudiant__in=Etudiant.objects.filter(inscriptionsuivi__prof=Professeur.objects.get(id_prof=id_prof))).count()
-        
-    # @staticmethod
-    # def get_nb_etudiant_suivi_3_annee_professeur(id_prof: int) -> int:
-    #     return EstDansPromotion.objects.filter(promotion=Promotion.objects.filter(estdanspromotion=3).first(), etudiant__in=Etudiant.objects.filter(inscriptionsuivi__prof=Professeur.objects.get(id_prof=id_prof))).count()
-    
 class Get:
     @staticmethod
     def get_etudiants_by_tuteur_pro_id(id: int) -> list:
