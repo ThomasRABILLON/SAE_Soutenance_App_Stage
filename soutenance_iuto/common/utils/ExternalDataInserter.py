@@ -60,7 +60,7 @@ class ExternalDataInserter:
             if Get.get_promotion_by_annee_filiere(2025, str(row['PROMOTION']).strip()) is None:
                 Insert.insert_promotion(2025, str(row['PROMOTION']).strip(), id_promo=Get.get_promotion_last_id() + 1)
             
-            if GetById.get_est_dans_promotion_by_etu_id(Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu).first() != Get.get_promotion_by_annee_filiere(2025, str(row['PROMOTION']).strip()):
+            if GetById.get_est_dans_promotion(Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu, Get.get_promotion_by_annee_filiere(2025, str(row['PROMOTION']).strip()).id_promo) is None:
                 Insert.insert_est_dans_promotion(Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu, Get.get_promotion_by_annee_filiere(2025, str(row['PROMOTION']).strip()).id_promo)
             
             if Get.get_professeur_by_nom_prenom(str(row['TUTEUR']).strip().split(' ')[0], str(row['TUTEUR']).strip().split(' ')[1]) is None:
@@ -75,8 +75,8 @@ class ExternalDataInserter:
             if Get.get_stg_alt_by_titre_theme_intitule_dt_debut_dt_fin_duree_entreprise_tuteur_pro_tuteur_univ_etudiant("", "", "", None, None, None, Get.get_entreprise_by_nom(str(row['ENTREPRISE']).strip()).id_etp, Get.get_tuteur_pro_by_nom(str(row['NOM_MA']).strip()).id_tut_pro, Get.get_professeur_by_nom_prenom(str(row['TUTEUR']).strip().split(' ')[0], str(row['TUTEUR']).strip().split(' ')[1]).id_prof, Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip(), str(row['PRENOM']).strip().capitalize()).id_etu) is None:
                 Insert.insert_stage_alt(Get.get_entreprise_by_nom(str(row['ENTREPRISE']).strip()).id_etp, Get.get_tuteur_pro_by_nom(str(row['NOM_MA']).strip()).id_tut_pro, Get.get_professeur_by_nom_prenom(str(row['TUTEUR']).strip().split(' ')[0], str(row['TUTEUR']).strip().split(' ')[1]).id_prof, Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip(), str(row['PRENOM']).strip().capitalize()).id_etu, id_stg_alt=Get.get_stg_alt_last_id() + 1)
 
-            if Get.get_soutenance_by_etu_id(Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu) is None:
-                Insert.insert_soutenance(Get.get_stg_alt_by_titre_theme_intitule_dt_debut_dt_fin_duree_entreprise_tuteur_pro_tuteur_univ_etudiant("", "", "", None, None, None, Get.get_entreprise_by_nom(str(row['ENTREPRISE']).strip()).id_etp, Get.get_tuteur_pro_by_nom(str(row['NOM_MA']).strip()).id_tut_pro, Get.get_professeur_by_nom_prenom(str(row['TUTEUR']).strip().split(' ')[0], str(row['TUTEUR']).strip().split(' ')[1]).id_prof, Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu).id_stg_alt, date_soutenance=None, heure_soutenance=None, salle_soutenance=None, id_sout=Get.get_last_id_soutenance() + 1)
+            if len(Get.get_soutenance_by_etu_id(Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu)) == 0:
+                Insert.insert_soutenance(Get.get_stg_alt_by_titre_theme_intitule_dt_debut_dt_fin_duree_entreprise_tuteur_pro_tuteur_univ_etudiant("", "", "", None, None, -1, Get.get_entreprise_by_nom(str(row['ENTREPRISE']).strip()).id_etp, Get.get_tuteur_pro_by_nom(str(row['NOM_MA']).strip()).id_tut_pro, Get.get_professeur_by_nom_prenom(str(row['TUTEUR']).strip().split(' ')[0], str(row['TUTEUR']).strip().split(' ')[1]).id_prof, Get.get_etudiant_by_nom_prenom(str(row['NOM']).strip().upper(), str(row['PRENOM']).strip().capitalize()).id_etu).id_stg_alt, id_soutenance=Get.get_last_id_soutenance() + 1)
     
     @staticmethod
     def stagiaires_from_csv(csv_path: str) -> None:
