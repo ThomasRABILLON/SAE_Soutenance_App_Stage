@@ -71,6 +71,10 @@ class GetAll:
     @staticmethod
     def get_all_tuteur_pro() -> list:
         return TuteurPro.objects.prefetch_related('entreprise').all()
+    
+    @staticmethod
+    def get_all_soutenance_candide() -> int:
+        return len(GetAll.get_all_etudiant()) // len(GetAll.get_all_professeur()) + 1
 
 class GetById:
     @staticmethod
@@ -187,20 +191,21 @@ class GetById:
     
     
     @staticmethod
-    def get_soutenance_tutored_by_prof_id(id_prof: int) -> list:
+    def get_nb_soutenance_tutored_by_prof_id(id_prof: int) -> int:
         list_soutenance = []
         for soutenance in GetAll.get_all_soutenance():
             if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
                 list_soutenance.append(soutenance)
-        return list_soutenance
+        return len(list_soutenance)
     
     @staticmethod
-    def get_soutenance_candide_by_prof_id(id_prof: int) -> list:
+    def get_nb_soutenance_candide_by_prof_id(id_prof: int) -> int:
         list_soutenance = []
         for soutenance in GetAll.get_all_soutenance():
             if soutenance.prof_candide == id_prof:
                 list_soutenance.append(soutenance)
-        return list_soutenance
+        return len(list_soutenance)
+    
     
     @staticmethod
     def get_nb_soutenance_stagiaire_2_annee_candide_by_prof_id(id_prof: int) -> int:
@@ -241,6 +246,7 @@ class GetById:
                 if GetById.get_promotion_by_id(1) == promotion and soutenance.stg_alt.etudiant.alternant:
                     list_soutenance.append(soutenance)
         return len(list_soutenance)
+    
     
     
     

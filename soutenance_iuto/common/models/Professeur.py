@@ -11,6 +11,14 @@ class Professeur(models.Model):
     nom_prof = models.CharField(max_length=255, blank=True, null=True)
     prenom_prof = models.CharField(max_length=255, blank=True, null=True)
     mail_prof = models.EmailField(max_length=255, blank=True, null=True)
+    #BUT 2
+    nb_stagaire_but2 = models.IntegerField(blank=True, null=True)
+    nb_alternant_but2 = models.IntegerField(blank=True, null=True)
+    #BUT 3
+    nb_stagaire_but3 = models.IntegerField(blank=True, null=True)
+    nb_alternant_but3 = models.IntegerField(blank=True, null=True)
+
+
 
     def __str__(self):
-        return f'Professeur(id={self.id_prof}[num={self.num_prof},civilite={self.civilite_prof},nom={self.nom_prof},prenom={self.prenom_prof},mail={self.mail_prof}])'
+        return f'Professeur(id={self.id_prof}[num={self.num_prof},civilite={self.civilite_prof},nom={self.nom_prof},prenom={self.prenom_prof},mail={self.mail_prof},nb_stagaire_but2={self.nb_stagaire_but2},nb_alternant_but2={self.nb_alternant_but2},nb_stagaire_but3={self.nb_stagaire_but3},nb_alternant_but3={self.nb_alternant_but3}])'
