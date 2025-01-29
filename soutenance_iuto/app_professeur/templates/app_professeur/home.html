@@ -4,5 +4,14 @@
   <div class="jumbotron mt-4 bg-light shadow-sm rounded">
     <h1 class="display-4">Bienvenue</h1>
     <p class="lead">{{ user.prenom_prof }} {{ user.nom_prof }}</p>
+    {% if nb_non_planned_soutenances != 0 and nb_non_planned_soutenances == 1%}
+      <div>
+        <span class="badge bg-danger rounded-pill fs-6">{{ item.nb }}Attention! {{ nb_non_planned_soutenances }} soutenance n'est pas placée</span>
+      </div>
+    {% elif nb_non_planned_soutenances > 1 %}
+      <div>
+        <span class="badge bg-danger rounded-pill fs-6">{{ item.nb }}Attention! {{ nb_non_planned_soutenances }} soutenances ne sont pas placées</span>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
