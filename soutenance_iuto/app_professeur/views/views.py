@@ -51,6 +51,7 @@ class HomeView(TemplateView):
         SIDE_BAR_ITEMS[4]["nb"] = len(Get.get_all_soutenance_without_candide(user.id_prof))
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = user
+        context["nb_non_planned_soutenances"] = len(Get.get_soutenance_without_planned_date_tutored_by_prof_id(user.id_prof))
         return context
 
     def get(self, request, *args, **kwargs):
