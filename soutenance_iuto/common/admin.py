@@ -6,6 +6,7 @@ from common.models.Salle import Salle
 from common.models.DateHoraire import DateHoraire
 from common.models.Promotion import Promotion
 from common.models.EstDansPromotion import EstDansPromotion
+from common.models.Professeur import Professeur
 
 # Register your models here.
 
@@ -20,3 +21,4 @@ admin.site.register(Salle)
 admin.site.register(DateHoraire)
 admin.site.register(Promotion)
 admin.site.register(EstDansPromotion)
+admin.site.register(Professeur)

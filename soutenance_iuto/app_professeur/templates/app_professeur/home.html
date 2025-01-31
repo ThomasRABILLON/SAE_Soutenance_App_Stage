@@ -6,49 +6,54 @@
         <h1 class="display-4">Bienvenue</h1>
         <p class="lead">{{ user.prenom_prof }} {{ user.nom_prof }}</p>
     </div>
-    
+
     <div class="row mt-4">
-        <!-- Dashboard Global -->
-        <div class="col-md-4">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white text-center">
-                    <h2 class="h5 mb-0">Tableau de bord Global</h2>
-                </div>
-                <div class="card-body">
-                    <p>Stagiaires suivis: <strong>{{ nb_stagiaire_suivie }} / {{ nb_statgiaire_suivre }}</strong></p>
-                    <p>Alternants suivis: <strong>{{ nb_alternant_suivie }} / {{ nb_alternant_suivre }}</strong></p>
-                    <p>Soutenance Tutoré: <strong>{{ nb_soutenance_candide }} / {{ nb_alternant_suivie }}</strong></p>
-                    <p>Soutenance Candidaté: <strong>{{ nb_soutenance_tutore }} / {{ nb_soutenance_candide_total }}</strong></p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dashboard BUT2 -->
-        <div class="col-md-4">
+        <!-- Stagiaires et Alternants BUT2 sur la même ligne -->
+        <div class="col-md-6">
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-success text-white text-center">
-                    <h2 class="h5 mb-0">Tableau de bord BUT2</h2>
+                    <h2 class="h5 mb-0">Stagiaires BUT2</h2>
                 </div>
                 <div class="card-body">
-                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_2_annee_suivie }} / {{ nb_stagiare_2_annee_suivre }}</strong></p>
-                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ nb_stagiare_2_annee_suivre }}</strong></p>
-                    <p>Alternants suivis: <strong>{{ nb_alternant_2_annee_suivie }} / {{ nb_alternant_2_annee_suivre }}</strong></p>
-                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ nb_alternant_2_annee_suivre }}</strong></p>
+                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong></p>
+                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong></p>
                 </div>
             </div>
         </div>
-        
-        <!-- Dashboard BUT3 -->
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-danger text-white text-center">
-                    <h2 class="h5 mb-0">Tableau de bord BUT3</h2>
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="h5 mb-0">Alternants BUT2</h2>
                 </div>
                 <div class="card-body">
-                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_3_annee_suivie }} / {{ nb_stagiare_3_annee_suivre }}</strong></p>
-                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ nb_stagiare_3_annee_suivre }}</strong></p>
-                    <p>Alternants suivis: <strong>{{ nb_alternant_3_annee_suivie }} / {{ nb_alternant_3_annee_suivre }}</strong></p>
-                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ nb_alternant_3_annee_suivre }}</strong></p>
+                    <p>Alternants suivis: <strong>{{ nb_alternant_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong></p>
+                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Stagiaires et Alternants BUT3 sur la même ligne -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-danger text-white text-center">
+                    <h2 class="h5 mb-0">Stagiaires BUT3</h2>
+                </div>
+                <div class="card-body">
+                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong></p>
+                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-white text-center">
+                    <h2 class="h5 mb-0">Alternants BUT3</h2>
+                </div>
+                <div class="card-body">
+                    <p>Alternants suivis: <strong>{{ nb_alternant_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong></p>
+                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong></p>
                 </div>
             </div>
         </div>

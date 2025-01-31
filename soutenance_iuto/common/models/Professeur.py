@@ -12,11 +12,11 @@ class Professeur(models.Model):
     prenom_prof = models.CharField(max_length=255, blank=True, null=True)
     mail_prof = models.EmailField(max_length=255, blank=True, null=True)
     #BUT 2
-    nb_stagaire_but2 = models.IntegerField(blank=True, null=True)
-    nb_alternant_but2 = models.IntegerField(blank=True, null=True)
+    nb_stagaire_but2 = models.IntegerField(blank=True, null=True, default=0)
+    nb_alternant_but2 = models.IntegerField(blank=True, null=True, default=0)
     #BUT 3
-    nb_stagaire_but3 = models.IntegerField(blank=True, null=True)
-    nb_alternant_but3 = models.IntegerField(blank=True, null=True)
+    nb_stagaire_but3 = models.IntegerField(blank=True, null=True, default=0)
+    nb_alternant_but3 = models.IntegerField(blank=True, null=True, default=0)
 
 
 

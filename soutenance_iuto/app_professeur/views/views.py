@@ -47,25 +47,17 @@ class HomeView(TemplateView):
         context = super(HomeView, self).get_context_data(**kwargs)
         context["menu_items"] = SIDE_BAR_ITEMS
         context["user"] = get_user(self.request.COOKIES.get("user_data"))
-        context["nb_soutenance_candide"] = GetById.get_nb_soutenance_candide_by_prof_id(context["user"].id_prof)
-        context["nb_soutenance_tutore"] = GetById.get_nb_soutenance_tutored_by_prof_id(context["user"].id_prof)
-        context["nb_soutenance_candide_total"] = GetAll.get_all_soutenance_candide()
         # Information du dashboard
-        context["nb_statgiaire_suivre"] = Get.get_nombre_stagiaire_a_suivre()
+        context["nb_total_soutenane_prevoir"] = GetById.get_nb_total_soutenance_prevoir(context["user"].id_prof)
         context["nb_stagiaire_suivie"] = GetById.get_nb_stagiaire_suivi_professeur(context["user"].id_prof)
-        context["nb_stagiare_3_annee_suivre"] = Get.get_nombre_stagiaire_3_annee_a_suivre()
         context["nb_statgiaire_3_annee_suivie"] = GetById.get_nb_stagiaire_suivi_3_annee_professeur(context["user"].id_prof)
         context["nb_soutenance_3_annee_suivie"] = GetById.get_nb_soutenance_stagiaire_3_annee_candide_by_prof_id(context["user"].id_prof)
-        context["nb_stagiare_2_annee_suivre"] = Get.get_nombre_stagiaire_2_annee_a_suivre()
         context["nb_statgiaire_2_annee_suivie"] = GetById.get_nb_stagiaire_suivi_2_annee_professeur(context["user"].id_prof)
         context["nb_soutenance_2_annee_suivie"] = GetById.get_nb_soutenance_stagiaire_2_annee_candide_by_prof_id(context["user"].id_prof)
         #Alternant
-        context["nb_alternant_suivre"] = Get.get_nombre_alternant_a_suivre()
         context["nb_alternant_suivie"] = GetById.get_nb_alternant_suivi_professeur(context["user"].id_prof)
-        context["nb_alternant_3_annee_suivre"] = Get.get_nombre_alternant_3_annee_a_suivre()
         context["nb_alternant_3_annee_suivie"] = GetById.get_nb_alternant_suivi_3_annee_professeur(context["user"].id_prof)
         context["nb_soutenance_3_annee_suivie"] = GetById.get_nb_soutenance_alternant_3_annee_candide_by_prof_id(context["user"].id_prof)
-        context["nb_alternant_2_annee_suivre"] = Get.get_nombre_alternant_2_annee_a_suivre()
         context["nb_alternant_2_annee_suivie"] = GetById.get_nb_alternant_suivi_2_annee_professeur(context["user"].id_prof)
         context["nb_soutenance_2_annee_suivie"] = GetById.get_nb_soutenance_alternant_2_annee_candide_by_prof_id(context["user"].id_prof)
         return context
