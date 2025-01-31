@@ -15,8 +15,12 @@
                     <h2 class="h5 mb-0">Stagiaires BUT2</h2>
                 </div>
                 <div class="card-body">
-                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong></p>
-                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong></p>
+                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong> 
+                        <span class="text-{% if nb_statgiaire_2_annee_suivie >= user.nb_stagaire_but2 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
+                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_stagaire_but2 }}</strong> 
+                        <span class="text-{% if nb_soutenance_2_annee_suivie >= user.nb_stagaire_but2 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -26,8 +30,12 @@
                     <h2 class="h5 mb-0">Alternants BUT2</h2>
                 </div>
                 <div class="card-body">
-                    <p>Alternants suivis: <strong>{{ nb_alternant_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong></p>
-                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong></p>
+                    <p>Alternants suivis: <strong>{{ nb_alternant_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong> 
+                        <span class="text-{% if nb_alternant_2_annee_suivie >= user.nb_alternant_but2 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
+                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_2_annee_suivie }} / {{ user.nb_alternant_but2 }}</strong> 
+                        <span class="text-{% if nb_soutenance_2_annee_suivie >= user.nb_alternant_but2 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -41,8 +49,12 @@
                     <h2 class="h5 mb-0">Stagiaires BUT3</h2>
                 </div>
                 <div class="card-body">
-                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong></p>
-                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong></p>
+                    <p>Stagiaires suivis: <strong>{{ nb_statgiaire_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong> 
+                        <span class="text-{% if nb_statgiaire_3_annee_suivie >= user.nb_stagaire_but3 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
+                    <p>Soutenance Stagiaire candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_stagaire_but3 }}</strong> 
+                        <span class="text-{% if nb_soutenance_3_annee_suivie >= user.nb_stagaire_but3 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -52,8 +64,12 @@
                     <h2 class="h5 mb-0">Alternants BUT3</h2>
                 </div>
                 <div class="card-body">
-                    <p>Alternants suivis: <strong>{{ nb_alternant_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong></p>
-                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong></p>
+                    <p>Alternants suivis: <strong>{{ nb_alternant_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong> 
+                        <span class="text-{% if nb_alternant_3_annee_suivie >= user.nb_alternant_but3 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
+                    <p>Soutenance Apprenties candides: <strong>{{ nb_soutenance_3_annee_suivie }} / {{ user.nb_alternant_but3 }}</strong> 
+                        <span class="text-{% if nb_soutenance_3_annee_suivie >= user.nb_alternant_but3 %}success{% else %}danger{% endif %}">●</span>
+                    </p>
                 </div>
             </div>
         </div>
