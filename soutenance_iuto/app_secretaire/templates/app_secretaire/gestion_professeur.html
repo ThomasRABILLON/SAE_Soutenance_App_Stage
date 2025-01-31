@@ -1,0 +1,75 @@
+{% extends 'common/base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <h1 class="display-4">Gestion des professeurs</h1>
+    <p class="lead">Cette page vous permet de gérer les professeurs.</p>
+    <hr class="my-4">
+</div>
+
+<div class="jumbotron mt-4 bg-light shadow-sm rounded">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col" rowspan="2" class="text-center" style="vertical-align: middle;">Nom</th>
+                <th scope="col" colspan="5" class="text-center">BUT2 Stagiaire</th>
+                <th scope="col" colspan="5" class="text-center">BUT2 Alternant</th>
+                <th scope="col" colspan="5" class="text-center">BUT3 Stagiaire</th>
+                <th scope="col" colspan="5" class="text-center">BUT3 Alternant</th>
+            </tr>
+            <tr>
+                {% for i in range4 %}
+                    <th scope="col" class="text-center text-nowrap" style="vertical-align: middle;font-size: 14px;">A Faire</th>
+                    <th scope="col" class="text-center text-nowrap" style="vertical-align: middle;font-size: 14px;">Choisie</th>
+                    <th scope="col" class="text-center text-nowrap bg-secondary" style="vertical-align: middle;font-size: 14px;">Validée</th>
+                    <th scope="col" class="text-center text-nowrap" style="vertical-align: middle;font-size: 14px;">Placer</th>
+                    <th scope="col" class="text-center text-nowrap" style="vertical-align: middle;font-size: 14px;">Candide</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for prof in professeurs %}
+                <tr>
+                    <form method="POST" action="{% url 'professeurs_secretaire' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_prof" value="{{ prof.id_prof }}">
+
+                        <td class="text-center text-nowrap">{{ prof.nom_prof }} {{ prof.prenom_prof }}</td>
+                        
+                        <!-- BUT2 Stagiaire -->
+                        <td class="p-0"><input type="number" name="nb_stagaire_but2" value="{{ prof.nb_stagaire_but2 }}" class="form-control bg-light" onchange="this.form.submit()"></td>
+                        <td>{{ nb_stage_suivi_2|get_item:prof.id_prof }}</td>
+                        <td class="bg-secondary"></td>
+                        <td>{{ nb_stg_2_sout_place|get_item:prof.id_prof }}</td>
+                        <td>{{ nb_stg_2_sout_candide|get_item:prof.id_prof }}</td>
+            
+                        <!-- BUT2 Alternant -->
+                        <td class="p-0"><input type="number" name="nb_alternant_but2" value="{{ prof.nb_alternant_but2 }}" class="form-control bg-light" onchange="this.form.submit()"></td>
+                        <td>{{ nb_alternant_suivi_2|get_item:prof.id_prof }}</td>
+                        <td class="bg-secondary"></td>
+                        <td>{{ nb_alt_2_sout_place|get_item:prof.id_prof }}</td>
+                        <td>{{ nb_alt_2_sout_candide|get_item:prof.id_prof }}</td>
+            
+                        <!-- BUT3 Stagiaire -->
+                        <td class="p-0"><input type="number" name="nb_stagaire_but3" value="{{ prof.nb_stagaire_but3 }}" class="form-control bg-light" onchange="this.form.submit()"></td>
+                        <td>{{ nb_stage_suivi_3|get_item:prof.id_prof }}</td>
+                        <td class="bg-secondary"></td>
+                        <td>{{ nb_stg_3_sout_place|get_item:prof.id_prof }}</td>
+                        <td>{{ nb_stg_3_sout_candide|get_item:prof.id_prof }}</td>
+            
+                        <!-- BUT3 Alternant -->
+                        <td class="p-0"><input type="number" name="nb_alternant_but3" value="{{ prof.nb_alternant_but3 }}" class="form-control bg-light" onchange="this.form.submit()"></td>
+                        <td>{{ nb_alternant_suivi_3|get_item:prof.id_prof }}</td>
+                        <td class="bg-secondary"></td>
+                        <td>{{ nb_alt_3_sout_place|get_item:prof.id_prof }}</td>
+                        <td>{{ nb_alt_3_sout_candide|get_item:prof.id_prof }}</td>
+                    </form>
+                </tr>
+            {% endfor %}
+        </tbody>            
+    </table>
+</div>
+
+{% endblock %}

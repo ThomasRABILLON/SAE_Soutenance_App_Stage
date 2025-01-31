@@ -46,7 +46,7 @@ class GetAll:
     
     @staticmethod
     def get_all_professeur() -> list:
-        return Professeur.objects.all()
+        return Professeur.objects.all().order_by('nom_prof')
     
     @staticmethod
     def get_all_promotion() -> list:
@@ -258,11 +258,46 @@ class GetById:
                 if GetById.get_promotion_by_id(1) == promotion and soutenance.stg_alt.etudiant.alternant:
                     list_soutenance.append(soutenance)
         return len(list_soutenance)
+
+    @staticmethod
+    def get_nb_soutenance_stagiaire_2_annee_placer_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(0) == promotion and not soutenance.stg_alt.etudiant.alternant and soutenance.horaire is not None:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
     
+    @staticmethod
+    def get_nb_soutenance_alternant_2_annee_placer_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(0) == promotion and soutenance.stg_alt.etudiant.alternant and soutenance.horaire is not None:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
     
+    @staticmethod
+    def get_nb_soutenance_stagiaire_3_annee_placer_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(1) == promotion and not soutenance.stg_alt.etudiant.alternant and soutenance.horaire is not None:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
     
-    
-    
+    @staticmethod
+    def get_nb_soutenance_alternant_3_annee_placer_by_prof_id(id_prof: int) -> int:
+        list_soutenance = []
+        for soutenance in GetAll.get_all_soutenance():
+            if soutenance.stg_alt.tuteur_univ.id_prof == id_prof:
+                promotion = GetById.get_est_dans_promotion_by_etu_id(soutenance.stg_alt.etudiant.id_etu).first().promotion
+                if GetById.get_promotion_by_id(1) == promotion and soutenance.stg_alt.etudiant.alternant and soutenance.horaire is not None:
+                    list_soutenance.append(soutenance)
+        return len(list_soutenance)
     
 
 class Get:
