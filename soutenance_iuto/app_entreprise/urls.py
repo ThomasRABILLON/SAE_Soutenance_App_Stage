@@ -8,4 +8,5 @@ urlpatterns = [
     path('soutenance/', views.SoutenancesListView.as_view(), name='soutenance_entreprise'),
     path('home/', views.HomeView.as_view(), name='tuteur_pro_home'),
     path('', views.HomeView.as_view(), name='tuteur_pro_home'),
+    path('calendrier/', views.CalendarView.as_view(), name='calendrier_entreprise'),
 ]

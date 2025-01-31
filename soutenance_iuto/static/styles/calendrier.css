@@ -1,0 +1,42 @@
+.week-calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.week-calendar th, .week-calendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.week-calendar th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.week-calendar td {
+    height: 50px;
+}
+
+.week-calendar thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+}
+
+.navigation {
+    margin-bottom: 10px;
+}
+
+.navigation .btn {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation .btn:hover {
+    background-color: #0056b3;
+}

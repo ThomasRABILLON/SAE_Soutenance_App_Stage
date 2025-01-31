@@ -1,0 +1,25 @@
+{% extends 'common/base.html' %} 
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static './styles/calendrier.css' %}"/>
+</head>
+<body>
+  <div class="jumbotron mt-10 bg-light shadow-sm rounded">
+    <h1 class="display-10">Planning des soutenances</h1>
+  </div>
+  <div class="calendar-container">
+    <div class="navigation">
+      <a href="?day={{ prev_week }}" class="btn btn-primary">Semaine précédente</a>
+      <a href="?day={{ next_week }}" class="btn btn-primary">Semaine suivante</a>
+    </div>
+    {{ calendar|safe }}
+  </div>
+</body>
+</html>
+{% endblock %}
